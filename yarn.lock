@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 4
+  version: 6
   cacheKey: 8
 
 "@apidevtools/json-schema-ref-parser@npm:9.0.9":
@@ -64,9 +64,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@fstnetwork/loc-logic-sdk@workspace:packages/loc-logic-sdk"
   dependencies:
+    "@rollup/plugin-node-resolve": ^13.3.0
     "@saffron/logic": "workspace:*"
     "@saffron/runtime": "workspace:*"
     rimraf: ^3.0.2
+    rollup: ^2.68.0
     typescript: ^4.3.5
   languageName: unknown
   linkType: soft
@@ -101,6 +103,22 @@ __metadata:
   peerDependencies:
     rollup: ^2.42.0
   checksum: 9013d3b2c2e5a31be12e74fdf1ade209d3ce8c52cc47c2bb724ba67727efec7275a4e987874c5b6d6a3f9f25c5364df95bfba5b2f8b874a9dbb33c3fcb927731
+  languageName: node
+  linkType: hard
+
+"@rollup/plugin-node-resolve@npm:^13.3.0":
+  version: 13.3.0
+  resolution: "@rollup/plugin-node-resolve@npm:13.3.0"
+  dependencies:
+    "@rollup/pluginutils": ^3.1.0
+    "@types/resolve": 1.17.1
+    deepmerge: ^4.2.2
+    is-builtin-module: ^3.1.0
+    is-module: ^1.0.0
+    resolve: ^1.19.0
+  peerDependencies:
+    rollup: ^2.42.0
+  checksum: ec5418e6b3c23a9e30683056b3010e9d325316dcfae93fbc673ae64dad8e56a2ce761c15c48f5e2dcfe0c822fdc4a4905ee6346e3dcf90603ba2260afef5a5e6
   languageName: node
   linkType: hard
 
@@ -406,6 +424,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"builtin-modules@npm:^3.0.0":
+  version: 3.3.0
+  resolution: "builtin-modules@npm:3.3.0"
+  checksum: db021755d7ed8be048f25668fe2117620861ef6703ea2c65ed2779c9e3636d5c3b82325bd912244293959ff3ae303afa3471f6a15bf5060c103e4cc3a839749d
+  languageName: node
+  linkType: hard
+
 "builtin-modules@npm:^3.1.0":
   version: 3.2.0
   resolution: "builtin-modules@npm:3.2.0"
@@ -703,10 +728,10 @@ __metadata:
 
 "fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=1cc4b2"
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
   dependencies:
     node-gyp: latest
-  checksum: 78db9daf1f6526a49cefee3917cc988f62dc7f25b5dd80ad6de4ffc4af7f0cab7491ac737626ff53e482a111bc53aac9e411fe3602458eca36f6a003ecf69c16
+  conditions: os=darwin
   languageName: node
   linkType: hard
 
@@ -716,6 +741,7 @@ fsevents@~2.3.2:
   dependencies:
     node-gyp: latest
   checksum: 97ade64e75091afee5265e6956cb72ba34db7819b4c3e94c431d4be2b19b8bb7a2d4116da417950c3425f17c8fe693d25e20212cac583ac1521ad066b77ae31f
+  conditions: os=darwin
   languageName: node
   linkType: hard
 
@@ -892,6 +918,15 @@ fsevents@~2.3.2:
   version: 1.1.5
   resolution: "ip@npm:1.1.5"
   checksum: 30133981f082a060a32644f6a7746e9ba7ac9e2bc07ecc8bbdda3ee8ca9bec1190724c390e45a1ee7695e7edfd2a8f7dda2c104ec5f7ac5068c00648504c7e5a
+  languageName: node
+  linkType: hard
+
+"is-builtin-module@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "is-builtin-module@npm:3.1.0"
+  dependencies:
+    builtin-modules: ^3.0.0
+  checksum: f1e5dd2cd5f252d4d799b20a0c8c4f7e9c399c4d141749af76ca0121058d4062c3015d026f1b1409dd3d2a4ddfb9b15cf6eb9c370fed53fea8652ce35b5e95cb
   languageName: node
   linkType: hard
 
@@ -1400,11 +1435,11 @@ fsevents@~2.3.2:
 
 "resolve@patch:resolve@^1.17.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.19.0#~builtin<compat/resolve>":
   version: 1.20.0
-  resolution: "resolve@patch:resolve@npm%3A1.20.0#~builtin<compat/resolve>::version=1.20.0&hash=00b1ff"
+  resolution: "resolve@patch:resolve@npm%3A1.20.0#~builtin<compat/resolve>::version=1.20.0&hash=07638b"
   dependencies:
     is-core-module: ^2.2.0
     path-parse: ^1.0.6
-  checksum: bed00be983cd20a8af0e7840664f655c4b269786dbd9595c5f156cd9d8a0050e65cdbbbdafc30ee9b6245b230c78a2c8ab6447a52545b582f476c29adb188cc5
+  checksum: a0dd7d16a8e47af23afa9386df2dff10e3e0debb2c7299a42e581d9d9b04d7ad5d2c53f24f1e043f7b3c250cbdc71150063e53d0b6559683d37f790b7c8c3cd5
   languageName: node
   linkType: hard
 
@@ -1453,6 +1488,20 @@ fsevents@~2.3.2:
   bin:
     rollup: dist/bin/rollup
   checksum: e4c5a6e871f0340f18fc795cbb6b76bfbc5827580c443a7c4f5d9f9b1fec8c3d1553dae5e45bd7fc9dea4de56e01c244b1583f8f08f401d2ba81f5eb3ff83101
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^2.68.0":
+  version: 2.75.7
+  resolution: "rollup@npm:2.75.7"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: a6331d46b01062b184efdcb42ce12caf2e1575f989963944534b02f5855f6f3bc239ed0c1a18893572d7695af6d83166f3aef59dbd0365084e1531cb67824674
   languageName: node
   linkType: hard
 
@@ -1707,11 +1756,11 @@ typescript@^4.3.5:
 
 "typescript@patch:typescript@^4.3.5#~builtin<compat/typescript>":
   version: 4.3.5
-  resolution: "typescript@patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"
+  resolution: "typescript@patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=7ad353"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: bc2c4fdf0f1557fdafe4ef74848c72ebd9c8c60829568248f869121aea2bb20e16649a252431d0acb185ec118143be22bed73d08f64379557810d82756afedde
+  checksum: 365df18cf979c971ef9543b2acaa8694377a803f98e1804c41d0ede0b09d7046cb0cd98f2eaf3884b0fe923c01a60af1f653841bd8805c9715d5479c09a4ebe4
   languageName: node
   linkType: hard
 

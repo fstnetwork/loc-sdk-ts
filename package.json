@@ -1,0 +1,22 @@
+{
+  "name": "@saffron/root",
+  "version": "0.0.0",
+  "private": true,
+  "repository": "https://github.com/fstnetwork/loc-logic-sdk-ts",
+  "author": "FST Network <dev@fstk.io>",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "yarn build:runtime && yarn build:logic && yarn build:tests && yarn build:loc-logic-sdk",
+    "build:runtime": "yarn workspace @saffron/runtime run build",
+    "build:logic": "yarn workspace @saffron/logic run build",
+    "build:tests": "yarn workspace @saffron/tests run build",
+    "build:loc-logic-sdk": "yarn workspace @fstnetwork/loc-logic-sdk run build",
+    "clean": "yarn workspaces foreach -i -p -v run clean"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  },
+  "packageManager": "yarn@3.0.1"
+}

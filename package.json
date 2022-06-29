@@ -13,7 +13,8 @@
     "build:logic": "yarn workspace @saffron/logic run build",
     "build:tests": "yarn workspace @saffron/tests run build",
     "build:loc-logic-sdk": "yarn workspace @fstnetwork/loc-logic-sdk run build",
-    "clean": "yarn workspaces foreach -i -p -v run clean"
+    "clean": "yarn workspaces foreach -i -p -v run clean",
+    "format": "prettier --write '**/*.{js,jsx,ts,tsx,json}' && nixpkgs-fmt ."
   },
   "devDependencies": {
     "typescript": "^4.3.5"

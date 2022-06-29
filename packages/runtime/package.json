@@ -1,7 +1,6 @@
 {
-  "name": "@saffron/runtime",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@fstnetwork/runtime",
+  "version": "0.5.1",
   "repository": "https://github.com/fstnetwork/loc-logic-sdk-ts",
   "author": "FST Network <dev@fstk.io>",
   "types": "target/index.d.ts",

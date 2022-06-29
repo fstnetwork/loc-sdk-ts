@@ -1,5 +1,5 @@
 {
-  "name": "@saffron/root",
+  "name": "@fstnetwork/root",
   "version": "0.0.0",
   "private": true,
   "repository": "https://github.com/fstnetwork/loc-logic-sdk-ts",
@@ -9,9 +9,9 @@
   ],
   "scripts": {
     "build": "yarn build:runtime && yarn build:logic && yarn build:tests && yarn build:loc-logic-sdk",
-    "build:runtime": "yarn workspace @saffron/runtime run build",
-    "build:logic": "yarn workspace @saffron/logic run build",
-    "build:tests": "yarn workspace @saffron/tests run build",
+    "build:runtime": "yarn workspace @fstnetwork/runtime run build",
+    "build:logic": "yarn workspace @fstnetwork/logic run build",
+    "build:tests": "yarn workspace @fstnetwork/tests run build",
     "build:loc-logic-sdk": "yarn workspace @fstnetwork/loc-logic-sdk run build",
     "clean": "yarn workspaces foreach -i -p -v run clean",
     "format": "prettier --write '**/*.{js,jsx,ts,tsx,json}' && nixpkgs-fmt ."

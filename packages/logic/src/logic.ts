@@ -2,13 +2,13 @@ import {
   AggregatorContext,
   GenericContext,
   RailwayError,
-} from "@saffron/runtime";
+} from "@fstnetwork/runtime";
 export {
   EventPayload,
   MessageQueuePayload,
   HttpPayload,
   Database,
-} from "@saffron/runtime";
+} from "@fstnetwork/runtime";
 
 export abstract class AbstractLogic {
   abstract run(): Promise<void>;

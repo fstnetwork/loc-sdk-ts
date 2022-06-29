@@ -64,11 +64,57 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@fstnetwork/loc-logic-sdk@workspace:packages/loc-logic-sdk"
   dependencies:
-    "@rollup/plugin-node-resolve": ^13.3.0
-    "@saffron/logic": "workspace:*"
-    "@saffron/runtime": "workspace:*"
+    "@fstnetwork/logic": 0.5.1
+    "@fstnetwork/runtime": 0.5.1
     rimraf: ^3.0.2
-    rollup: ^2.68.0
+    typescript: ^4.3.5
+  languageName: unknown
+  linkType: soft
+
+"@fstnetwork/logic@0.5.1, @fstnetwork/logic@workspace:*, @fstnetwork/logic@workspace:packages/logic":
+  version: 0.0.0-use.local
+  resolution: "@fstnetwork/logic@workspace:packages/logic"
+  dependencies:
+    "@fstnetwork/runtime": 0.5.1
+    rimraf: ^3.0.2
+    typescript: ^4.3.5
+  languageName: unknown
+  linkType: soft
+
+"@fstnetwork/root@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@fstnetwork/root@workspace:."
+  dependencies:
+    typescript: ^4.3.5
+  languageName: unknown
+  linkType: soft
+
+"@fstnetwork/runtime@0.5.1, @fstnetwork/runtime@workspace:packages/runtime":
+  version: 0.0.0-use.local
+  resolution: "@fstnetwork/runtime@workspace:packages/runtime"
+  dependencies:
+    "@rollup/plugin-typescript": ^8.2.5
+    "@types/node": ^16.7.1
+    json-schema-to-typescript: ^10.1.4
+    rimraf: ^3.0.2
+    rollup: ^2.56.3
+    rollup-plugin-dts: ^3.0.2
+    ts-node: ^10.2.1
+    tslib: ^2.3.1
+    typescript: ^4.3.5
+  languageName: unknown
+  linkType: soft
+
+"@fstnetwork/tests@workspace:packages/tests":
+  version: 0.0.0-use.local
+  resolution: "@fstnetwork/tests@workspace:packages/tests"
+  dependencies:
+    "@fstnetwork/logic": "workspace:*"
+    "@rollup/plugin-node-resolve": ^13.0.4
+    "@rollup/plugin-typescript": ^8.2.5
+    rimraf: ^3.0.2
+    rollup: ^2.56.3
+    tslib: ^2.3.1
     typescript: ^4.3.5
   languageName: unknown
   linkType: soft
@@ -106,22 +152,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-node-resolve@npm:^13.3.0":
-  version: 13.3.0
-  resolution: "@rollup/plugin-node-resolve@npm:13.3.0"
-  dependencies:
-    "@rollup/pluginutils": ^3.1.0
-    "@types/resolve": 1.17.1
-    deepmerge: ^4.2.2
-    is-builtin-module: ^3.1.0
-    is-module: ^1.0.0
-    resolve: ^1.19.0
-  peerDependencies:
-    rollup: ^2.42.0
-  checksum: ec5418e6b3c23a9e30683056b3010e9d325316dcfae93fbc673ae64dad8e56a2ce761c15c48f5e2dcfe0c822fdc4a4905ee6346e3dcf90603ba2260afef5a5e6
-  languageName: node
-  linkType: hard
-
 "@rollup/plugin-typescript@npm:^8.2.5":
   version: 8.2.5
   resolution: "@rollup/plugin-typescript@npm:8.2.5"
@@ -148,54 +178,6 @@ __metadata:
   checksum: 8be16e27863c219edbb25a4e6ec2fe0e1e451d9e917b6a43cf2ae5bc025a6b8faaa40f82a6e53b66d0de37b58ff472c6c3d57a83037ae635041f8df959d6d9aa
   languageName: node
   linkType: hard
-
-"@saffron/logic@workspace:*, @saffron/logic@workspace:packages/logic":
-  version: 0.0.0-use.local
-  resolution: "@saffron/logic@workspace:packages/logic"
-  dependencies:
-    "@saffron/runtime": "workspace:*"
-    rimraf: ^3.0.2
-    typescript: ^4.3.5
-  languageName: unknown
-  linkType: soft
-
-"@saffron/root@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@saffron/root@workspace:."
-  dependencies:
-    typescript: ^4.3.5
-  languageName: unknown
-  linkType: soft
-
-"@saffron/runtime@workspace:*, @saffron/runtime@workspace:packages/runtime":
-  version: 0.0.0-use.local
-  resolution: "@saffron/runtime@workspace:packages/runtime"
-  dependencies:
-    "@rollup/plugin-typescript": ^8.2.5
-    "@types/node": ^16.7.1
-    json-schema-to-typescript: ^10.1.4
-    rimraf: ^3.0.2
-    rollup: ^2.56.3
-    rollup-plugin-dts: ^3.0.2
-    ts-node: ^10.2.1
-    tslib: ^2.3.1
-    typescript: ^4.3.5
-  languageName: unknown
-  linkType: soft
-
-"@saffron/tests@workspace:packages/tests":
-  version: 0.0.0-use.local
-  resolution: "@saffron/tests@workspace:packages/tests"
-  dependencies:
-    "@rollup/plugin-node-resolve": ^13.0.4
-    "@rollup/plugin-typescript": ^8.2.5
-    "@saffron/logic": "workspace:*"
-    rimraf: ^3.0.2
-    rollup: ^2.56.3
-    tslib: ^2.3.1
-    typescript: ^4.3.5
-  languageName: unknown
-  linkType: soft
 
 "@tootallnate/once@npm:1":
   version: 1.1.2
@@ -421,13 +403,6 @@ __metadata:
     balanced-match: ^1.0.0
     concat-map: 0.0.1
   checksum: faf34a7bb0c3fcf4b59c7808bc5d2a96a40988addf2e7e09dfbb67a2251800e0d14cd2bfc1aa79174f2f5095c54ff27f46fb1289fe2d77dac755b5eb3434cc07
-  languageName: node
-  linkType: hard
-
-"builtin-modules@npm:^3.0.0":
-  version: 3.3.0
-  resolution: "builtin-modules@npm:3.3.0"
-  checksum: db021755d7ed8be048f25668fe2117620861ef6703ea2c65ed2779c9e3636d5c3b82325bd912244293959ff3ae303afa3471f6a15bf5060c103e4cc3a839749d
   languageName: node
   linkType: hard
 
@@ -918,15 +893,6 @@ fsevents@~2.3.2:
   version: 1.1.5
   resolution: "ip@npm:1.1.5"
   checksum: 30133981f082a060a32644f6a7746e9ba7ac9e2bc07ecc8bbdda3ee8ca9bec1190724c390e45a1ee7695e7edfd2a8f7dda2c104ec5f7ac5068c00648504c7e5a
-  languageName: node
-  linkType: hard
-
-"is-builtin-module@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "is-builtin-module@npm:3.1.0"
-  dependencies:
-    builtin-modules: ^3.0.0
-  checksum: f1e5dd2cd5f252d4d799b20a0c8c4f7e9c399c4d141749af76ca0121058d4062c3015d026f1b1409dd3d2a4ddfb9b15cf6eb9c370fed53fea8652ce35b5e95cb
   languageName: node
   linkType: hard
 
@@ -1488,20 +1454,6 @@ fsevents@~2.3.2:
   bin:
     rollup: dist/bin/rollup
   checksum: e4c5a6e871f0340f18fc795cbb6b76bfbc5827580c443a7c4f5d9f9b1fec8c3d1553dae5e45bd7fc9dea4de56e01c244b1583f8f08f401d2ba81f5eb3ff83101
-  languageName: node
-  linkType: hard
-
-"rollup@npm:^2.68.0":
-  version: 2.75.7
-  resolution: "rollup@npm:2.75.7"
-  dependencies:
-    fsevents: ~2.3.2
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  bin:
-    rollup: dist/bin/rollup
-  checksum: a6331d46b01062b184efdcb42ce12caf2e1575f989963944534b02f5855f6f3bc239ed0c1a18893572d7695af6d83166f3aef59dbd0365084e1531cb67824674
   languageName: node
   linkType: hard
 

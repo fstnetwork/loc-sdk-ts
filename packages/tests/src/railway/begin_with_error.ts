@@ -1,4 +1,4 @@
-import { GenericLogic, Logic, RailwayError } from "@saffron/logic";
+import { GenericLogic, Logic, RailwayError } from "@fstnetwork/logic";
 
 @Logic()
 export class TestRailwayBeginWithError extends GenericLogic {

@@ -1,4 +1,4 @@
-import { Database, GenericLogic, Logic, RailwayError } from "@saffron/logic";
+import { Database, GenericLogic, Logic, RailwayError } from "@fstnetwork/logic";
 
 @Logic()
 export class TestDatabase extends GenericLogic {

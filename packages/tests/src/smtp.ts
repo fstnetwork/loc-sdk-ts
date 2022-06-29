@@ -1,4 +1,4 @@
-import { GenericLogic, Logic, Smtp, RailwayError } from "@saffron/logic";
+import { GenericLogic, Logic, Smtp, RailwayError } from "@fstnetwork/logic";
 
 @Logic()
 export class TestSmtp extends GenericLogic {

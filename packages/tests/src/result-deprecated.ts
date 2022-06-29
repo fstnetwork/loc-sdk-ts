@@ -1,4 +1,4 @@
-import { AggregatorContext, RailwayError } from "@saffron/logic";
+import { AggregatorContext, RailwayError } from "@fstnetwork/logic";
 
 Object.assign(globalThis, {
   async run(ctx: AggregatorContext) {

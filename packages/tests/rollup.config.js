@@ -11,11 +11,11 @@ function testCase(path) {
       format: "iife",
       sourcemap: "inline",
       globals: {
-        "@saffron/runtime": "Saffron",
+        "@fstnetwork/runtime": "Saffron",
       },
     },
     plugins: [resolve(), typescript({ tsconfig: "./tsconfig.json" })],
-    external: ["@saffron/runtime"],
+    external: ["@fstnetwork/runtime"],
   });
 }
 

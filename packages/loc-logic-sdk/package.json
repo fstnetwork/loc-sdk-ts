@@ -1,6 +1,6 @@
 {
   "name": "@fstnetwork/loc-logic-sdk",
-  "version": "0.5.1",
+  "version": "0.5.1-1",
   "repository": "https://github.com/fstnetwork/loc-logic-sdk-ts",
   "author": "FST Network <dev@fstk.io>",
   "main": "target/index.js",

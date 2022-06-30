@@ -1,7 +1,11 @@
 {
   "name": "@fstnetwork/logic",
   "version": "0.5.1",
-  "repository": "https://github.com/fstnetwork/loc-logic-sdk-ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fstnetwork/loc-logic-sdk-ts",
+    "directory": "packages/logic"
+  },
   "author": "FST Network <dev@fstk.io>",
   "main": "target/index.js",
   "types": "src/types.d.ts",

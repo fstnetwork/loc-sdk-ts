@@ -6,7 +6,7 @@
  */
 
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "Source".
  */
 export type Source =
@@ -17,7 +17,7 @@ export type Source =
       DateHistogram: DateProps;
     };
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "OrderBy".
  */
 export type OrderBy = "Asc" | "Desc";
@@ -26,7 +26,7 @@ export type OrderBy = "Asc" | "Desc";
  *
  * `logic_expr()` perform the conversion of enum into `String`
  *
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "Condition".
  */
 export type Condition =
@@ -49,7 +49,7 @@ export type Condition =
       Lte: QueryMap;
     };
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "Filter".
  */
 export type Filter =
@@ -60,7 +60,7 @@ export type Filter =
       Wildcard: QueryMap;
     };
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "Query".
  */
 export type Query =
@@ -74,16 +74,16 @@ export type Query =
       MatchPhrase: QueryMap;
     };
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "uint32".
  */
 export type Uint32 = number;
 
-export interface Event {
+export interface EventJsonSchema {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "Aggregation".
  */
 export interface Aggregation {
@@ -95,7 +95,7 @@ export interface Aggregation {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "AggregationSource".
  */
 export interface AggregationSource {
@@ -104,7 +104,7 @@ export interface AggregationSource {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "TermsProps".
  */
 export interface TermsProps {
@@ -113,7 +113,7 @@ export interface TermsProps {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "DateProps".
  */
 export interface DateProps {
@@ -124,7 +124,7 @@ export interface DateProps {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "AggregationResponse".
  */
 export interface AggregationResponse {
@@ -135,7 +135,7 @@ export interface AggregationResponse {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "Bucket".
  */
 export interface Bucket {
@@ -146,7 +146,7 @@ export interface Bucket {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "QueryMap".
  */
 export interface QueryMap {
@@ -155,7 +155,7 @@ export interface QueryMap {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "Duration".
  */
 export interface Duration {
@@ -164,10 +164,10 @@ export interface Duration {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "Event".
  */
-export interface Event1 {
+export interface Event {
   dataProcessIdentityContext: IdentityContext;
   executionId: string;
   label: Label;
@@ -182,7 +182,7 @@ export interface Event1 {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "IdentityContext".
  */
 export interface IdentityContext {
@@ -201,7 +201,7 @@ export interface IdentityContext {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "Label".
  */
 export interface Label {
@@ -210,7 +210,7 @@ export interface Label {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "FilterMap".
  */
 export interface FilterMap {
@@ -219,7 +219,7 @@ export interface FilterMap {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "FilterProps".
  */
 export interface FilterProps {
@@ -228,7 +228,7 @@ export interface FilterProps {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "PatternRequest".
  */
 export interface PatternRequest {
@@ -238,7 +238,7 @@ export interface PatternRequest {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "SequenceEvent".
  */
 export interface SequenceEvent {
@@ -248,7 +248,7 @@ export interface SequenceEvent {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "PatternResponse".
  */
 export interface PatternResponse {
@@ -259,16 +259,16 @@ export interface PatternResponse {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "SequencesResult".
  */
 export interface SequencesResult {
-  events: Event1[];
+  events: Event[];
   joinKeys: string[];
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "SearchRequest".
  */
 export interface SearchRequest {
@@ -282,7 +282,7 @@ export interface SearchRequest {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "Sort".
  */
 export interface Sort {
@@ -291,13 +291,13 @@ export interface Sort {
   [k: string]: unknown;
 }
 /**
- * This interface was referenced by `Event`'s JSON-Schema
+ * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "SearchResponse".
  */
 export interface SearchResponse {
   aggregation?: AggregationResponse | null;
   count: number;
-  events: Event1[];
+  events: Event[];
   took: number;
   total: number;
   [k: string]: unknown;

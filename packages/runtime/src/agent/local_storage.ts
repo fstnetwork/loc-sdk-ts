@@ -7,7 +7,7 @@ export class LocalStorageAgent {
     await Deno.core.opAsync("op_local_storage_agent_put", {
       key,
       value: { String: value },
-      timeout: timeout || null,
+      timeout,
     });
   }
 
@@ -22,7 +22,7 @@ export class LocalStorageAgent {
     await Deno.core.opAsync("op_local_storage_agent_put", {
       key,
       value: { ByteArray: byteArray },
-      timeout: timeout || 0,
+      timeout,
     });
   }
 

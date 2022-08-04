@@ -1,9 +1,4 @@
-import {
-  PatternRequest,
-  PatternResponse,
-  SearchRequest,
-  SearchResponse,
-} from "../types/event";
+import { Pattern, PatternResult, Search, SearchResult } from "../types/event";
 
 export class EventAgent {
   async emit(events: Event.Event[]): Promise<void> {
@@ -42,11 +37,11 @@ export class EventAgent {
     await Deno.core.opAsync("op_event_agent_emit", eventsArgs);
   }
 
-  async search(request: SearchRequest): Promise<SearchResponse> {
+  async search(request: Search): Promise<SearchResult> {
     return Deno.core.opAsync("op_event_agent_search", request);
   }
 
-  async searchWithPattern(request: PatternRequest): Promise<PatternResponse> {
+  async searchWithPattern(request: Pattern): Promise<PatternResult> {
     return Deno.core.opAsync("op_event_agent_search_with_pattern", request);
   }
 }

@@ -109,7 +109,7 @@ export namespace Http {
 
   export enum ContentType {
     None = "None",
-    PlantText = "PlantText",
+    PlainText = "PlainText",
     Json = "Json",
     Form = "Form",
   }

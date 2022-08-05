@@ -11,15 +11,15 @@ export class TestWeb extends GenericLogic {
       Deno.core.encode(base64EncodeText)
     );
 
-    const base64PlantText = atob(base64EncodeText);
+    const base64PlainText = atob(base64EncodeText);
     await this.context.agents.sessionStorage.putByteArray(
-      "base64PlantText_uint8Array",
-      Deno.core.encode(base64PlantText)
+      "base64PlainText_uint8Array",
+      Deno.core.encode(base64PlainText)
     );
-    const base64PlantTextString = atob("TWFnaWM=");
+    const base64PlainTextString = atob("TWFnaWM=");
     await this.context.agents.sessionStorage.putByteArray(
-      "base64PlantText_string",
-      Deno.core.encode(base64PlantTextString)
+      "base64PlainText_string",
+      Deno.core.encode(base64PlainTextString)
     );
 
     let uint8array = new TextEncoder().encode("Hi 你好 🐳");

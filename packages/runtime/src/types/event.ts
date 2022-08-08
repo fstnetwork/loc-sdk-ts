@@ -7,72 +7,55 @@
 
 /**
  * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "Source".
+ * via the `definition` "Query".
  */
-export type Source =
+export type Query =
   | {
-      Terms: TermsProps;
+      field: string;
+      type: "match";
+      value: string;
+      [k: string]: unknown;
     }
   | {
-      DateHistogram: DateProps;
+      field: string;
+      type: "match_phrase";
+      value: string;
+      [k: string]: unknown;
+    }
+  | {
+      field: string;
+      type: "term";
+      value: string;
+      [k: string]: unknown;
     };
 /**
  * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "OrderBy".
+ * via the `definition` "Op".
  */
-export type OrderBy = "Asc" | "Desc";
-/**
- * A condition consists of one or more criteria an event must match.
- *
- * `logic_expr()` perform the conversion of enum into `String`
- *
- * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "Condition".
- */
-export type Condition =
-  | {
-      Eq: QueryMap;
-    }
-  | {
-      NotEq: QueryMap;
-    }
-  | {
-      Gt: QueryMap;
-    }
-  | {
-      Lt: QueryMap;
-    }
-  | {
-      Gte: QueryMap;
-    }
-  | {
-      Lte: QueryMap;
-    };
+export type Op = "eq" | "ne" | "gt" | "lt" | "gte" | "lte";
 /**
  * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "Filter".
  */
 export type Filter =
   | {
-      Range: FilterMap;
+      field: string;
+      gte?: number | null;
+      lte?: number | null;
+      type: "range";
+      [k: string]: unknown;
     }
   | {
-      Wildcard: QueryMap;
+      field: string;
+      type: "wildcard";
+      value: string;
+      [k: string]: unknown;
     };
 /**
  * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "Query".
+ * via the `definition` "SortOrder".
  */
-export type Query =
-  | {
-      Match: QueryMap;
-    }
-  | {
-      Term: QueryMap;
-    }
-  | {
-      MatchPhrase: QueryMap;
-    };
+export type SortOrder = "asc" | "desc";
 /**
  * This interface was referenced by `EventJsonSchema`'s JSON-Schema
  * via the `definition` "uint32".
@@ -90,44 +73,15 @@ export interface Aggregation {
   after: {
     [k: string]: string;
   };
-  queries: AggregationSource[];
+  queries: Query[];
   size?: number | null;
   [k: string]: unknown;
 }
 /**
  * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "AggregationSource".
+ * via the `definition` "AggregationResult".
  */
-export interface AggregationSource {
-  field: string;
-  value: Source;
-  [k: string]: unknown;
-}
-/**
- * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "TermsProps".
- */
-export interface TermsProps {
-  field: string;
-  orderBy: OrderBy;
-  [k: string]: unknown;
-}
-/**
- * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "DateProps".
- */
-export interface DateProps {
-  field: string;
-  fixedInterval: string;
-  format: string;
-  orderBy: OrderBy;
-  [k: string]: unknown;
-}
-/**
- * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "AggregationResponse".
- */
-export interface AggregationResponse {
+export interface AggregationResult {
   after: {
     [k: string]: string;
   };
@@ -147,20 +101,12 @@ export interface Bucket {
 }
 /**
  * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "QueryMap".
+ * via the `definition` "Condition".
  */
-export interface QueryMap {
+export interface Condition {
   field: string;
+  op: Op;
   value: string;
-  [k: string]: unknown;
-}
-/**
- * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "Duration".
- */
-export interface Duration {
-  nanos: number;
-  secs: number;
   [k: string]: unknown;
 }
 /**
@@ -211,47 +157,29 @@ export interface Label {
 }
 /**
  * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "FilterMap".
+ * via the `definition` "Pattern".
  */
-export interface FilterMap {
-  field: string;
-  value: FilterProps;
-  [k: string]: unknown;
-}
-/**
- * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "FilterProps".
- */
-export interface FilterProps {
-  gte?: number | null;
-  lte?: number | null;
-  [k: string]: unknown;
-}
-/**
- * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "PatternRequest".
- */
-export interface PatternRequest {
+export interface Pattern {
   filter?: Filter | null;
-  maxSpan?: Duration | null;
-  sequences: SequenceEvent[];
+  maxSpan?: string | null;
+  sequences: Sequence[];
   [k: string]: unknown;
 }
 /**
  * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "SequenceEvent".
+ * via the `definition` "Sequence".
  */
-export interface SequenceEvent {
-  conditions: Condition[];
-  sharedFields: string[];
-  type: string;
+export interface Sequence {
+  conditions?: Condition[] | null;
+  sharedFields?: string[] | null;
+  type?: string | null;
   [k: string]: unknown;
 }
 /**
  * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "PatternResponse".
+ * via the `definition` "PatternResult".
  */
-export interface PatternResponse {
+export interface PatternResult {
   count: number;
   sequences: SequencesResult[];
   took: number;
@@ -269,16 +197,16 @@ export interface SequencesResult {
 }
 /**
  * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "SearchRequest".
+ * via the `definition` "Search".
  */
-export interface SearchRequest {
+export interface Search {
   aggregation?: Aggregation | null;
-  excludes: Query[];
-  filters: Filter[];
-  from: number;
-  queries: Query[];
-  size: number;
-  sorts: Sort[];
+  excludes?: Query[] | null;
+  filters?: Filter[] | null;
+  from?: number | null;
+  queries?: Query[] | null;
+  size?: number | null;
+  sorts?: Sort[] | null;
   [k: string]: unknown;
 }
 /**
@@ -287,15 +215,15 @@ export interface SearchRequest {
  */
 export interface Sort {
   field: string;
-  orderBy: OrderBy;
+  order: SortOrder;
   [k: string]: unknown;
 }
 /**
  * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "SearchResponse".
+ * via the `definition` "SearchResult".
  */
-export interface SearchResponse {
-  aggregation?: AggregationResponse | null;
+export interface SearchResult {
+  aggregation?: AggregationResult | null;
   count: number;
   events: Event[];
   took: number;

@@ -30,6 +30,7 @@ export default defineConfig([
   testCase("http"),
   testCase("local_storage"),
   testCase("logging"),
+  testCase("parameter"),
   testCase("payload/event"),
   testCase("payload/http"),
   testCase("payload/message_queue"),
@@ -42,8 +43,8 @@ export default defineConfig([
   testCase("sample_data_process/aggregator"),
   testCase("sample_data_process/generic_a"),
   testCase("sample_data_process/generic_b"),
-  testCase("timeout_data_process/aggregator"),
-  testCase("timeout_data_process/generic_a"),
   testCase("session_storage"),
   testCase("smtp"),
+  testCase("timeout_data_process/aggregator"),
+  testCase("timeout_data_process/generic_a"),
 ]);

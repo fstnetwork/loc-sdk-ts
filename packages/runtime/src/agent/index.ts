@@ -9,6 +9,7 @@ export { FileStorageAgent } from "./file_storage";
 export { HttpAgent, Http } from "./http";
 export { LocalStorageAgent } from "./local_storage";
 export { LoggingAgent } from "./logging";
+export { Parameter } from "./parameter";
 export { ResultAgent } from "./result";
 export { SessionStorageAgent } from "./session_storage";
 export { SmtpAgentHub, SmtpAgent, Smtp } from "./smtp";

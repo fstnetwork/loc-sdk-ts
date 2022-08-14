@@ -3,38 +3,16 @@ export class DatabaseClientId {
 }
 
 export class DatabaseAgent {
-  async connect({
-    databaseDriver,
-    connectionString = null,
-    connection = null,
-  }: Database.Config): Promise<DatabaseClient> {
-    let connectionParameters;
+  async acquire(configurationName: string): Promise<DatabaseClient> {
+    const uid = await Deno.core.opAsync(
+      "op_database_agent_acquire",
+      configurationName
+    );
 
-    if (typeof connectionString === "string") {
-      connectionParameters = { plainConnectionString: connectionString };
-    } else {
-      if (typeof connection === "string") {
-        connectionParameters = { plainConnectionString: connection };
-      } else if (connection instanceof Database.MssqlParameters) {
-        connectionParameters = { mssql: connection };
-      } else if (connection instanceof Database.MySqlParameters) {
-        connectionParameters = { mySql: connection };
-      } else if (connection instanceof Database.OracleParameters) {
-        connectionParameters = { oracle: connection };
-      } else if (connection instanceof Database.PostgresParameters) {
-        connectionParameters = { postgres: connection };
-      } else {
-        throw new TypeError("missing connection information");
-      }
-    }
-
-    let uid = await Deno.core.opAsync("op_database_agent_connect", {
-      databaseDriver,
-      connection: connectionParameters,
-    });
     return new DatabaseClient(uid);
   }
 }
+
 export class DatabaseClient {
   constructor(readonly uid: DatabaseClientId) {}
 

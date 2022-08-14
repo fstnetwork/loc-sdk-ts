@@ -1,4 +1,4 @@
-import { Database, GenericLogic, Logic, RailwayError } from "@fstnetwork/logic";
+import { GenericLogic, Logic, RailwayError } from "@fstnetwork/logic";
 
 @Logic()
 export class TestDatabase extends GenericLogic {
@@ -11,18 +11,7 @@ export class TestDatabase extends GenericLogic {
 
   async testQuery() {
     try {
-      let connection = new Database.OracleParameters({
-        host: "db.fst.network",
-        port: 1521,
-        serviceName: "ORCLCDB",
-        username: "user",
-        password: "password",
-        integratedSecurity: false,
-      });
-      let db = await this.context.agents.database?.connect({
-        databaseDriver: Database.Driver.Oracle,
-        connection,
-      });
+      let db = await this.context.agents.database?.acquire("test-oracle-db");
       let resp = await db?.query(
         "SELECT * FROM saffron_runtime.tables WHERE 1=1;",
         []
@@ -47,10 +36,7 @@ export class TestDatabase extends GenericLogic {
 
   async testExecute() {
     try {
-      let db = await this.context.agents.database?.connect({
-        databaseDriver: Database.Driver.Oracle,
-        connectionString: "DatabaseConnectionString",
-      });
+      let db = await this.context.agents.database?.acquire("test-oracle-db");
 
       await db?.beginTransaction();
       let resp = await db?.execute(

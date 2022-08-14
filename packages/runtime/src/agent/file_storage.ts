@@ -1,14 +1,25 @@
 export class FileStorageAgent {
-  // TODO: consider to apply zero-copy buffer
-  async simpleGet(url: URL | string): Promise<Uint8Array> {
-    return Deno.core.opAsync(
-      "op_file_storage_agent_simple_get",
-      url instanceof URL ? url.href : url
+  constructor(readonly configurationId?: string) {}
+
+  async acquire(configurationName: string): Promise<FileStorageAgent> {
+    const configurationId = await Deno.core.opAsync(
+      "op_file_storage_agent_acquire",
+      configurationName
     );
+
+    return new FileStorageAgent(configurationId);
+  }
+
+  // TODO: consider to apply zero-copy buffer
+  async simpleGet(path: string): Promise<Uint8Array> {
+    return Deno.core.opAsync("op_file_storage_agent_simple_get", {
+      configurationId: this.configurationId,
+      path,
+    });
   }
 
   async simplePut(
-    url: URL | string,
+    path: string,
     data: Uint8Array | string,
     options?: FileStorage.PutOptions
   ): Promise<number> {
@@ -18,32 +29,33 @@ export class FileStorageAgent {
     return Deno.core.opAsync(
       "op_file_storage_agent_simple_put",
       {
-        url: url instanceof URL ? url.href : url,
+        configurationId: this.configurationId,
+        path,
         ensureDir: options?.ensureDir ?? false,
       },
       byteArray
     );
   }
 
-  async delete(url: URL | string): Promise<void> {
-    return Deno.core.opAsync(
-      "op_file_storage_agent_delete",
-      url instanceof URL ? url.href : url
-    );
+  async delete(path: string): Promise<void> {
+    return Deno.core.opAsync("op_file_storage_agent_delete", {
+      configurationId: this.configurationId,
+      path,
+    });
   }
 
-  async list(url: URL | string): Promise<Array<FileStorage.FileType>> {
-    return Deno.core.opAsync(
-      "op_file_storage_agent_list",
-      url instanceof URL ? url.href : url
-    );
+  async list(path: string): Promise<Array<FileStorage.FileType>> {
+    return Deno.core.opAsync("op_file_storage_agent_list", {
+      configurationId: this.configurationId,
+      path,
+    });
   }
 
-  async createDirAll(url: URL | string): Promise<void> {
-    return Deno.core.opAsync(
-      "op_file_storage_agent_create_dir_all",
-      url instanceof URL ? url.href : url
-    );
+  async createDirAll(path: string): Promise<void> {
+    return Deno.core.opAsync("op_file_storage_agent_create_dir_all", {
+      configurationId: this.configurationId,
+      path,
+    });
   }
 }
 

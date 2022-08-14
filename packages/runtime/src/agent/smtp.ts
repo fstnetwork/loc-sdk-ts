@@ -1,18 +1,9 @@
 export class SmtpAgent {
-  async connect(
-    host: string,
-    username?: string,
-    password?: string
-  ): Promise<SmtpAgentHub> {
-    let credential = null;
-    if (username !== null && password != null) {
-      credential = { username, password };
-    }
-
-    const uid = await Deno.core.opAsync("op_smtp_agent_connect", {
-      host,
-      credential,
-    });
+  async acquire(configurationName: string): Promise<SmtpAgentHub> {
+    const uid = await Deno.core.opAsync(
+      "op_smtp_agent_acquire",
+      configurationName
+    );
 
     return new SmtpAgentHub(uid);
   }

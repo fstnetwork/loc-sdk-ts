@@ -7,11 +7,7 @@ export class TestSmtp extends GenericLogic {
 
     let server;
     try {
-      server = await this.context.agents.smtp?.connect(
-        "smtp.gmail.com",
-        "kumanoko@fstk.io",
-        "password"
-      )!;
+      server = await this.context.agents.smtp?.acquire("test-smtp-server")!;
     } catch (error) {
       await this.context.agents.sessionStorage.putString(
         "connect_error",

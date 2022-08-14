@@ -17,11 +17,11 @@ export class TestHttp extends GenericLogic {
   }
 
   async testHttpGet() {
-    let resp = await this.context.agents.http?.get(
-      "http://mock:8080",
-      {},
-      Http.ContentType.Json
+    const httpAgent = await this.context.agents.http?.acquire(
+      "test-http-server"
     )!;
+
+    let resp = await httpAgent.get("/resource", {}, Http.ContentType.Json)!;
 
     await this.context.agents.sessionStorage.putJson(
       "GET.status",
@@ -38,8 +38,12 @@ export class TestHttp extends GenericLogic {
   }
 
   async testHttpPost() {
-    let resp = await this.context.agents.http?.post(
-      "http://mock:8080",
+    const httpAgent = await this.context.agents.http?.acquire(
+      "test-http-server"
+    )!;
+
+    let resp = await httpAgent.post(
+      "/resource",
       {
         "content-type": "application/json",
       },
@@ -62,8 +66,12 @@ export class TestHttp extends GenericLogic {
   }
 
   async testHttpPut() {
-    let resp = await this.context.agents.http?.put(
-      "http://mock:8080",
+    const httpAgent = await this.context.agents.http?.acquire(
+      "test-http-server"
+    )!;
+
+    let resp = await httpAgent.put(
+      "/resource/1",
       {
         "content-type": "application/json",
       },
@@ -91,8 +99,12 @@ export class TestHttp extends GenericLogic {
   }
 
   async testHttpPatch() {
-    let resp = await this.context.agents.http?.patch(
-      "http://mock:8080",
+    const httpAgent = await this.context.agents.http?.acquire(
+      "test-http-server"
+    )!;
+
+    let resp = await httpAgent.patch(
+      "/resource/1",
       {
         "content-type": "application/json",
       },
@@ -118,8 +130,12 @@ export class TestHttp extends GenericLogic {
   }
 
   async testHttpDelete() {
-    let resp = await this.context.agents.http?.delete(
-      "http://mock:8080",
+    const httpAgent = await this.context.agents.http?.acquire(
+      "test-http-server"
+    )!;
+
+    let resp = await httpAgent.delete(
+      "/resource/1",
       {
         "content-type": "application/json",
       },

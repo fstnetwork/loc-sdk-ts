@@ -15,6 +15,14 @@ export type Payload =
   | {
       event: EventPayload;
     };
+export type Address =
+  | {
+      socketAddr: SocketAddress;
+    }
+  | {
+      pipe: Pipe;
+    };
+export type Protocol = "tcp" | "udp";
 export type Subscriber = {
   kafka: KafkaSubscriber;
 };
@@ -28,13 +36,14 @@ export interface HttpPayload {
    */
   apiGatewayIdentityContext: DataSourceIdentityContext;
   /**
-   * The identity context of API
+   * The identity context of API Route
    */
-  apiIdentityContext: DataSourceIdentityContext;
+  apiRouteIdentityContext: DataSourceIdentityContext;
   /**
    * A base64-encoded string
    */
   body: number[];
+  destination?: Peer | null;
   headers: {
     [k: string]: unknown;
   };
@@ -44,6 +53,7 @@ export interface HttpPayload {
   query: string;
   requestId: string;
   scheme: string;
+  source?: Peer | null;
   version: "HTTP/0.9" | "HTTP/1.0" | "HTTP/1.1" | "HTTP/2.0" | "HTTP/3.0";
   [k: string]: unknown;
 }
@@ -56,6 +66,20 @@ export interface DataSourceIdentityContext {
    * Name
    */
   name: string;
+  [k: string]: unknown;
+}
+export interface Peer {
+  address: Address;
+  [k: string]: unknown;
+}
+export interface SocketAddress {
+  address: string;
+  protocol: Protocol;
+  [k: string]: unknown;
+}
+export interface Pipe {
+  mode: number;
+  path: string;
   [k: string]: unknown;
 }
 /**

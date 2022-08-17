@@ -13,7 +13,7 @@ export class TestHttpPayload extends GenericLogic {
       if ("http" in this.context.payload) {
         const {
           apiGatewayIdentityContext,
-          apiIdentityContext,
+          apiRouteIdentityContext,
           headers,
           host,
           method,
@@ -29,7 +29,7 @@ export class TestHttpPayload extends GenericLogic {
 
         this.context.agents.logging.info({
           apiGatewayIdentityContext,
-          apiIdentityContext,
+          apiRouteIdentityContext,
           headers,
           host,
           method,

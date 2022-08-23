@@ -1,4 +1,4 @@
 [codespell]
-skip = .git,target,.pnp.cjs,.yarn
+skip = .git,target,.pnp.cjs,.yarn,yarn.lock
 check-filenames =
 check-hidden =

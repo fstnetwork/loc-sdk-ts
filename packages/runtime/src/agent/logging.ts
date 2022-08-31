@@ -23,7 +23,7 @@ export class LoggingAgent {
     let message;
 
     if (typeof value === "string") {
-      message = { String: value };
+      message = { Plaintext: value };
     } else {
       message = { Json: value };
     }

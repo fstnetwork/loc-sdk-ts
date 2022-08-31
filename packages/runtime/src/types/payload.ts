@@ -34,11 +34,11 @@ export interface HttpPayload {
   /**
    * The identity context of API Gateway
    */
-  apiGatewayIdentityContext: DataSourceIdentityContext;
+  apiGatewayIdentityContext: TriggerIdentityContext;
   /**
    * The identity context of API Route
    */
-  apiRouteIdentityContext: DataSourceIdentityContext;
+  apiRouteIdentityContext: TriggerIdentityContext;
   /**
    * A base64-encoded string
    */
@@ -57,7 +57,7 @@ export interface HttpPayload {
   version: "HTTP/0.9" | "HTTP/1.0" | "HTTP/1.1" | "HTTP/2.0" | "HTTP/3.0";
   [k: string]: unknown;
 }
-export interface DataSourceIdentityContext {
+export interface TriggerIdentityContext {
   /**
    * Saffron internal id
    */
@@ -86,7 +86,7 @@ export interface Pipe {
  * Payload represents a Message Queue Message
  */
 export interface MessageQueuePayload {
-  clientIdentityContext: DataSourceIdentityContext;
+  clientIdentityContext: TriggerIdentityContext;
   data: number[];
   subscriber: Subscriber;
   [k: string]: unknown;

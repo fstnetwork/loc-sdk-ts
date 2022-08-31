@@ -18,7 +18,7 @@ export type { AggregatorContext, GenericContext } from "./context";
 export type { Railway, RailwayError, Task } from "./primitive";
 export type { IdentityContext } from "./types/event";
 export type {
-  DataSourceIdentityContext,
+  TriggerIdentityContext,
   EventPayload,
   HttpPayload,
   MessageQueuePayload,

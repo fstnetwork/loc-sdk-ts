@@ -12,4 +12,4 @@ export { LoggingAgent } from "./logging";
 export { Parameter } from "./parameter";
 export { ResultAgent } from "./result";
 export { SessionStorageAgent } from "./session_storage";
-export { SmtpAgentHub, SmtpAgent, Smtp } from "./smtp";
+export { MailAgentClient, MailAgent, Mail } from "./mail";

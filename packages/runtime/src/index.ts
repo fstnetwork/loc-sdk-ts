@@ -1,7 +1,7 @@
 import { AggregatorContext, GenericContext } from "./context";
 import { Runtime } from "./runtime";
 
-export { Database, Parameter, Http, Smtp } from "./agent";
+export { Database, Parameter, Http, Mail } from "./agent";
 export type {
   DatabaseAgent,
   EventAgent,
@@ -11,8 +11,8 @@ export type {
   LoggingAgent,
   ResultAgent,
   SessionStorageAgent,
-  SmtpAgent,
-  SmtpAgentHub,
+  MailAgent,
+  MailAgentClient,
 } from "./agent";
 export type { AggregatorContext, GenericContext } from "./context";
 export type { Railway, RailwayError, Task } from "./primitive";

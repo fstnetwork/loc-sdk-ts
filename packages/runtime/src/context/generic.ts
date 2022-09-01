@@ -7,7 +7,7 @@ import {
   LocalStorageAgent,
   LoggingAgent,
   SessionStorageAgent,
-  SmtpAgent,
+  MailAgent,
 } from "../agent";
 
 export class GenericAgents {
@@ -19,7 +19,7 @@ export class GenericAgents {
   readonly http?: HttpAgent;
   readonly fileStorage?: FileStorageAgent;
   readonly database?: DatabaseAgent;
-  readonly smtp?: SmtpAgent;
+  readonly mail?: MailAgent;
 
   constructor() {
     this.sessionStorage = new SessionStorageAgent();
@@ -30,7 +30,7 @@ export class GenericAgents {
     this.fileStorage = new FileStorageAgent();
     this.localStorage = new LocalStorageAgent();
     this.database = new DatabaseAgent();
-    this.smtp = new SmtpAgent();
+    this.mail = new MailAgent();
   }
 }
 

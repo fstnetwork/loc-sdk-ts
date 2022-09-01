@@ -9,5 +9,5 @@ export {
 } from "./logic";
 
 export const Http = Saffron.Http;
-export const Smtp = Saffron.Smtp;
+export const Mail = Saffron.Mail;
 export const Parameter = Saffron.Parameter;

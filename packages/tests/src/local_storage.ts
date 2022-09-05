@@ -1,47 +1,42 @@
-import { GenericLogic, Logic, RailwayError } from "@fstnetwork/logic";
+import {
+  GenericLogic,
+  LocalStorageAgent,
+  Logic,
+  LoggingAgent,
+  RailwayError,
+} from "@fstnetwork/logic";
 
 @Logic()
 export class TestLocalStorage extends GenericLogic {
   async run() {
-    this.context.agents.logging.info("test TestLocalStorage");
+    LoggingAgent.info("test TestLocalStorage");
 
     // test putString by string
-    await this.context.agents.localStorage?.putString("fstnetwork", "awesome");
+    await LocalStorageAgent.putString("fstnetwork", "awesome");
 
     // test putByteArray by byte array
-    let arr = Deno.core.encode("bar");
-    await this.context.agents.localStorage?.putByteArray("fst", arr);
+    const arr = Deno.core.encode("bar");
+    await LocalStorageAgent?.putByteArray("fst", arr);
 
     // test putByteArray by Uint8Array
-    await this.context.agents.localStorage?.putByteArray(
-      "kawa",
-      new Uint8Array([121, 111])
-    );
+    await LocalStorageAgent?.putByteArray("kawa", new Uint8Array([121, 111]));
 
     // test putByteArray by string
-    await this.context.agents.localStorage?.putByteArray(
-      "byteArrayByString",
-      "fromStr"
-    );
+    await LocalStorageAgent?.putByteArray("byteArrayByString", "fromStr");
 
-    await this.context.agents.localStorage?.putJson("foo", 1 as Number);
-    let bar = (await this.context.agents.localStorage?.get("foo")) + 3;
-    await this.context.agents.localStorage?.putJson("bar", bar);
-    await this.context.agents.localStorage?.putJson("baz", { baz: 777 });
+    await LocalStorageAgent?.putJson("foo", 1 as Number);
+    const bar = (await LocalStorageAgent?.get("foo")) + 3;
+    await LocalStorageAgent?.putJson("bar", bar);
+    await LocalStorageAgent?.putJson("baz", { baz: 777 });
 
-    await this.context.agents.localStorage?.putString(
-      "deleteMe",
-      "shouldDelete"
-    );
-    await this.context.agents.localStorage?.delete("deleteMe");
+    await LocalStorageAgent?.putString("deleteMe", "shouldDelete");
+    await LocalStorageAgent?.delete("deleteMe");
 
     const expected = Uint8Array.from([0x94, 0x87, 0x94, 0x87]);
-    await this.context.agents.localStorage?.putByteArray("is87", expected);
+    await LocalStorageAgent?.putByteArray("is87", expected);
 
-    const bytes = (await this.context.agents.localStorage?.get(
-      "is87"
-    )) as Uint8Array;
-    await this.context.agents.localStorage?.putJson("is87_check", {
+    const bytes = (await LocalStorageAgent?.get("is87")) as Uint8Array;
+    await LocalStorageAgent?.putJson("is87_check", {
       isUint8Array: bytes instanceof Uint8Array,
       isEqual:
         expected.length == bytes.length &&
@@ -50,6 +45,6 @@ export class TestLocalStorage extends GenericLogic {
   }
 
   async handleError(error: RailwayError) {
-    this.context.agents.logging.error(`${error}`);
+    LoggingAgent.error(`${error}`);
   }
 }

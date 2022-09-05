@@ -1,11 +1,17 @@
-import { GenericLogic, Logic, RailwayError } from "@fstnetwork/logic";
+import {
+  EventAgent,
+  GenericLogic,
+  Logic,
+  LoggingAgent,
+  RailwayError,
+} from "@fstnetwork/logic";
 
 @Logic()
 export class TestEvent extends GenericLogic {
   async run() {
-    this.context.agents.logging.info("test TestEvent");
+    LoggingAgent.info("test TestEvent");
 
-    await this.context.agents.eventStore.emit([
+    await EventAgent.emit([
       {
         labelName: "labelName",
         sourceDigitalIdentity: "sourceDigitalIdentity",
@@ -15,7 +21,7 @@ export class TestEvent extends GenericLogic {
       },
     ]);
 
-    await this.context.agents.eventStore.emit([
+    await EventAgent.emit([
       {
         labelName: "labelName",
         sourceDID: "sourceDID",
@@ -63,7 +69,7 @@ export class TestEvent extends GenericLogic {
         size: 0,
         sorts: [],
       };
-      await this.context.agents.eventStore.search(searchReq);
+      await EventAgent.search(searchReq);
     }
 
     {
@@ -104,11 +110,11 @@ export class TestEvent extends GenericLogic {
           gte: 1625124173000,
         },
       };
-      await this.context.agents.eventStore.searchWithPattern(patternReq);
+      await EventAgent.searchWithPattern(patternReq);
     }
   }
 
   async handleError(error: RailwayError) {
-    this.context.agents.logging.error(`${error}`);
+    LoggingAgent.error(`${error}`);
   }
 }

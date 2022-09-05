@@ -5,8 +5,8 @@ export {
   DatabaseClientId,
 } from "./database";
 export { EventAgent, Event } from "./event";
-export { FileStorageAgent } from "./file_storage";
-export { HttpAgent, Http } from "./http";
+export { FileStorageAgent, FileStorageAgentClient } from "./file_storage";
+export { HttpAgent, HttpAgentClient, Http } from "./http";
 export { LocalStorageAgent } from "./local_storage";
 export { LoggingAgent } from "./logging";
 export { Parameter } from "./parameter";

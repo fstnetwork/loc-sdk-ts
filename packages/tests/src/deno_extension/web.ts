@@ -1,60 +1,57 @@
-import { GenericLogic, Logic, RailwayError } from "@fstnetwork/logic";
+import {
+  GenericLogic,
+  Logic,
+  LoggingAgent,
+  RailwayError,
+  SessionStorageAgent,
+} from "@fstnetwork/logic";
 
 @Logic()
 export class TestWeb extends GenericLogic {
   async run() {
-    this.context.agents.logging.info("test TestWeb");
+    LoggingAgent.info("test TestWeb");
 
     const base64EncodeText = btoa("hello world");
-    await this.context.agents.sessionStorage.putByteArray(
+    await SessionStorageAgent.putByteArray(
       "base64EncodeText",
       Deno.core.encode(base64EncodeText)
     );
 
     const base64PlainText = atob(base64EncodeText);
-    await this.context.agents.sessionStorage.putByteArray(
+    await SessionStorageAgent.putByteArray(
       "base64PlainText_uint8Array",
       Deno.core.encode(base64PlainText)
     );
     const base64PlainTextString = atob("TWFnaWM=");
-    await this.context.agents.sessionStorage.putByteArray(
+    await SessionStorageAgent.putByteArray(
       "base64PlainText_string",
       Deno.core.encode(base64PlainTextString)
     );
 
-    let uint8array = new TextEncoder().encode("Hi 你好 🐳");
-    await this.context.agents.sessionStorage.putByteArray(
-      "uint8array",
-      uint8array
-    );
+    const uint8array = new TextEncoder().encode("Hi 你好 🐳");
+    await SessionStorageAgent.putByteArray("uint8array", uint8array);
 
-    let string = new TextDecoder().decode(uint8array);
-    await this.context.agents.sessionStorage.putString("string", string);
+    const string = new TextDecoder().decode(uint8array);
+    await SessionStorageAgent.putString("string", string);
 
-    let blob = new Blob([JSON.stringify({ hello: "world" })], {
+    const blob = new Blob([JSON.stringify({ hello: "world" })], {
       type: "application/json",
     });
-    await this.context.agents.sessionStorage.putJson(
-      "blob_size",
-      blob.size as Number
-    );
-    await this.context.agents.sessionStorage.putString("blob_type", blob.type);
+    await SessionStorageAgent.putJson("blob_size", blob.size as number);
+    await SessionStorageAgent.putString("blob_type", blob.type);
 
-    let reader = new FileReader();
+    const reader = new FileReader();
     reader.addEventListener("loadend", async () => {
       // reader.result contains the contents of blob as a typed array
-      let decoder = new TextDecoder();
-      let result = decoder.decode(reader.result);
+      const decoder = new TextDecoder();
+      const result = decoder.decode(reader.result);
 
-      await this.context.agents.sessionStorage.putString(
-        "fileReader_result",
-        result
-      );
+      await SessionStorageAgent.putString("fileReader_result", result);
     });
     reader.readAsArrayBuffer(blob);
   }
 
   async handleError(error: RailwayError) {
-    this.context.agents.logging.error(`${error}`);
+    LoggingAgent.error(`${error}`);
   }
 }

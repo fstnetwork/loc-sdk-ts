@@ -1,14 +1,19 @@
-import { GenericLogic, Logic, RailwayError } from "@fstnetwork/logic";
+import {
+  GenericLogic,
+  Logic,
+  LoggingAgent,
+  RailwayError,
+} from "@fstnetwork/logic";
 
 @Logic()
 export class TestHttpPayload extends GenericLogic {
   async run() {
     {
-      this.context.agents.logging.info(this.context.task);
+      LoggingAgent.info(this.context.task);
 
-      this.context.agents.logging.info("test HttpPayload");
-      this.context.agents.logging.info(typeof this.context.payload);
-      this.context.agents.logging.info(`${"http" in this.context.payload}`);
+      LoggingAgent.info("test HttpPayload");
+      LoggingAgent.info(typeof this.context.payload);
+      LoggingAgent.info(`${"http" in this.context.payload}`);
 
       if ("http" in this.context.payload) {
         const {
@@ -25,9 +30,9 @@ export class TestHttpPayload extends GenericLogic {
           body,
         } = this.context.payload.http;
 
-        this.context.agents.logging.info(body.constructor.name);
+        LoggingAgent.info(body.constructor.name);
 
-        this.context.agents.logging.info({
+        LoggingAgent.info({
           apiGatewayIdentityContext,
           apiRouteIdentityContext,
           headers,
@@ -45,6 +50,6 @@ export class TestHttpPayload extends GenericLogic {
   }
 
   async handleError(error: RailwayError) {
-    this.context.agents.logging.error(`${error}`);
+    LoggingAgent.error(`${error}`);
   }
 }

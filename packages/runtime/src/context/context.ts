@@ -8,16 +8,16 @@ export abstract class AbstractContext {
 
   get payload() {
     if (this.#payload === undefined) {
-      this.#payload = initializePayload()
+      this.#payload = initializePayload();
     }
-    return this.#payload
+    return this.#payload;
   }
 
   get task() {
     if (this.#task === undefined) {
-      this.#task = initializeTask()
+      this.#task = initializeTask();
     }
-    return this.#task
+    return this.#task;
   }
 }
 

@@ -1,14 +1,16 @@
-export class HttpAgent {
-  constructor(readonly configurationId?: string) {}
-
-  async acquire(configurationName: string): Promise<HttpAgent> {
+export const HttpAgent = {
+  async acquire(configurationName: string): Promise<HttpAgentClient> {
     const configurationId = await Deno.core.opAsync(
       "op_http_agent_acquire",
       configurationName
     );
 
-    return new HttpAgent(configurationId);
-  }
+    return new HttpAgentClient(configurationId);
+  },
+};
+
+export class HttpAgentClient {
+  constructor(readonly configurationId?: string) {}
 
   async send(
     request: Http.Request,
@@ -94,7 +96,7 @@ export class HttpAgent {
 }
 
 function urlQueryString(init: any): string {
-  let params: [string, string][] = [];
+  const params: [string, string][] = [];
 
   if (typeof init === "string") {
     if (init[0] === "?") {

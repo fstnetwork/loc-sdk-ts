@@ -1,4 +1,4 @@
-export class MailAgent {
+export const MailAgent = {
   async acquire(configurationName: string): Promise<MailAgentClient> {
     const uid = await Deno.core.opAsync(
       "op_mail_agent_acquire",
@@ -6,8 +6,8 @@ export class MailAgent {
     );
 
     return new MailAgentClient(uid);
-  }
-}
+  },
+};
 
 export class MailAgentClient {
   constructor(readonly uid: string) {}

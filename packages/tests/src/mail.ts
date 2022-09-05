@@ -1,15 +1,23 @@
-import { GenericLogic, Logic, Mail, RailwayError } from "@fstnetwork/logic";
+import {
+  GenericLogic,
+  Logic,
+  LoggingAgent,
+  Mail,
+  MailAgent,
+  RailwayError,
+  SessionStorageAgent,
+} from "@fstnetwork/logic";
 
 @Logic()
 export class TestMail extends GenericLogic {
   async run() {
-    this.context.agents.logging.info("test TestMailAgent");
+    LoggingAgent.info("test TestMailAgent");
 
     let server;
     try {
-      server = await this.context.agents.mail?.acquire("test-smtp-server")!;
+      server = await MailAgent?.acquire("test-smtp-server")!;
     } catch (error) {
-      await this.context.agents.sessionStorage.putString(
+      await SessionStorageAgent.putString(
         "connect_error",
         `Failed to connect SMTP server: ${error}`
       );
@@ -27,7 +35,7 @@ export class TestMail extends GenericLogic {
           .setBody("BODY HERE")
       );
     } catch (error) {
-      await this.context.agents.sessionStorage.putString(
+      await SessionStorageAgent.putString(
         "send_error",
         `Failed to send mail using SMTP: ${error}`
       );
@@ -36,6 +44,6 @@ export class TestMail extends GenericLogic {
   }
 
   async handleError(error: RailwayError) {
-    this.context.agents.logging.error(`${error}`);
+    LoggingAgent.error(`${error}`);
   }
 }

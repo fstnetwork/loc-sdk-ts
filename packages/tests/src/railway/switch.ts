@@ -1,19 +1,24 @@
-import { GenericLogic, Logic, RailwayError } from "@fstnetwork/logic";
+import {
+  GenericLogic,
+  Logic,
+  LoggingAgent,
+  RailwayError,
+} from "@fstnetwork/logic";
 
 @Logic()
 export class TestRailwaySwitch extends GenericLogic {
   async run() {
-    this.context.agents.logging.info("on Railway Ok");
+    LoggingAgent.info("on Railway Ok");
     throw new URIError("invalid URI");
   }
 
   async handleError(error: RailwayError) {
-    this.context.agents.logging.info("on Railway Error");
-    this.context.agents.logging.info(`Name: ${error.name}`);
-    this.context.agents.logging.info(
+    LoggingAgent.info("on Railway Error");
+    LoggingAgent.info(`Name: ${error.name}`);
+    LoggingAgent.info(
       `Logic Permanent Identity: ${error.logicPermanentIdentity}`
     );
-    this.context.agents.logging.info(`Logic Revision: ${error.logicRevision}`);
-    this.context.agents.logging.info(`Err: ${error.message}`);
+    LoggingAgent.info(`Logic Revision: ${error.logicRevision}`);
+    LoggingAgent.info(`Err: ${error.message}`);
   }
 }

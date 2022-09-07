@@ -1,6 +1,6 @@
 import { Pattern, PatternResult, Search, SearchResult } from "../types/event";
 
-export class EventAgent {
+export const EventAgent = {
   async emit(events: Event.Event[]): Promise<void> {
     const eventsArgs = events.map((event) => {
       const {
@@ -35,16 +35,16 @@ export class EventAgent {
     });
 
     await Deno.core.opAsync("op_event_agent_emit", eventsArgs);
-  }
+  },
 
   async search(request: Search): Promise<SearchResult> {
     return Deno.core.opAsync("op_event_agent_search", request);
-  }
+  },
 
   async searchWithPattern(request: Pattern): Promise<PatternResult> {
     return Deno.core.opAsync("op_event_agent_search_with_pattern", request);
-  }
-}
+  },
+};
 
 export namespace Event {
   export interface Event {

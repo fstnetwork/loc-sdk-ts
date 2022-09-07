@@ -1,18 +1,18 @@
-export class SmtpAgent {
-  async acquire(configurationName: string): Promise<SmtpAgentHub> {
+export const MailAgent = {
+  async acquire(configurationName: string): Promise<MailAgentClient> {
     const uid = await Deno.core.opAsync(
-      "op_smtp_agent_acquire",
+      "op_mail_agent_acquire",
       configurationName
     );
 
-    return new SmtpAgentHub(uid);
-  }
-}
+    return new MailAgentClient(uid);
+  },
+};
 
-export class SmtpAgentHub {
+export class MailAgentClient {
   constructor(readonly uid: string) {}
 
-  async send(mail: Smtp.Mail) {
+  async send(mail: Mail.Mail) {
     if (mail.sender.mail === null) {
       throw new TypeError("mail sender should not be empty");
     }
@@ -26,11 +26,11 @@ export class SmtpAgentHub {
       throw new TypeError("mail body should not be empty");
     }
 
-    return Deno.core.opAsync("op_smtp_agent_send", { uid: this.uid, mail });
+    return Deno.core.opAsync("op_mail_agent_send", { uid: this.uid, mail });
   }
 }
 
-export namespace Smtp {
+export namespace Mail {
   export interface MailBox {
     name: string;
     mail: string;

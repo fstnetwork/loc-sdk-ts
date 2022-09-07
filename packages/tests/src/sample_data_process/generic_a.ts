@@ -1,15 +1,18 @@
-import { GenericLogic, Logic, RailwayError } from "@fstnetwork/logic";
+import {
+  EventAgent,
+  GenericLogic,
+  Logic,
+  RailwayError,
+  SessionStorageAgent,
+} from "@fstnetwork/logic";
 
 @Logic()
 export class GenericA extends GenericLogic {
   async run() {
-    await this.context.agents.sessionStorage.putJson(
-      "fstnetwork",
-      6000 as Number
-    );
-    await this.context.agents.sessionStorage.putJson("magic", 9487 as Number);
+    await SessionStorageAgent.putJson("fstnetwork", 6000 as number);
+    await SessionStorageAgent.putJson("magic", 9487 as number);
 
-    await this.context.agents.eventStore.emit([
+    await EventAgent.emit([
       {
         labelName: "test-label",
         sourceDigitalIdentity: "my-source-id",

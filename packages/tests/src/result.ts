@@ -1,9 +1,14 @@
-import { AggregatorLogic, Logic, RailwayError } from "@fstnetwork/logic";
+import {
+  AggregatorLogic,
+  Logic,
+  RailwayError,
+  ResultAgent,
+} from "@fstnetwork/logic";
 
 @Logic()
 export class TestResult extends AggregatorLogic {
   async run() {
-    this.context.agents.result.finalize({
+    ResultAgent.finalize({
       fstnetwork: "awesome",
       magicNumber: 9487,
       result2: null,

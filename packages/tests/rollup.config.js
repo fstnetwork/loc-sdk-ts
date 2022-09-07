@@ -44,7 +44,7 @@ export default defineConfig([
   testCase("sample_data_process/generic_a"),
   testCase("sample_data_process/generic_b"),
   testCase("session_storage"),
-  testCase("smtp"),
+  testCase("mail"),
   testCase("timeout_data_process/aggregator"),
   testCase("timeout_data_process/generic_a"),
 ]);

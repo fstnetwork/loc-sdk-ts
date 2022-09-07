@@ -1,12 +1,17 @@
-import { AggregatorContext, RailwayError } from "@fstnetwork/logic";
+import {
+  AggregatorContext,
+  LoggingAgent,
+  RailwayError,
+  ResultAgent,
+} from "@fstnetwork/logic";
 
 Object.assign(globalThis, {
-  async run(ctx: AggregatorContext) {
-    ctx.agents.result.finalize({
+  async run(_ctx: AggregatorContext) {
+    ResultAgent.finalize({
       result: 16 - 9,
     });
   },
-  async handleError(ctx: AggregatorContext, error: RailwayError) {
-    ctx.agents.logging.error(`${error}`);
+  async handleError(_ctx: AggregatorContext, error: RailwayError) {
+    LoggingAgent.error(`${error}`);
   },
 });

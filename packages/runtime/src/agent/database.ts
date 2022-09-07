@@ -1,8 +1,4 @@
-export class DatabaseClientId {
-  constructor(readonly dataSourceId: string, readonly connectionId: string) {}
-}
-
-export class DatabaseAgent {
+export const DatabaseAgent = {
   async acquire(configurationName: string): Promise<DatabaseClient> {
     const uid = await Deno.core.opAsync(
       "op_database_agent_acquire",
@@ -10,7 +6,11 @@ export class DatabaseAgent {
     );
 
     return new DatabaseClient(uid);
-  }
+  },
+};
+
+export class DatabaseClientId {
+  constructor(readonly dataSourceId: string, readonly connectionId: string) {}
 }
 
 export class DatabaseClient {
@@ -22,7 +22,7 @@ export class DatabaseClient {
       rows: any[];
     }
 
-    let results: QueryResults = await Deno.core.opAsync(
+    const results: QueryResults = await Deno.core.opAsync(
       "op_database_agent_query",
       {
         uid: this.uid,
@@ -33,7 +33,7 @@ export class DatabaseClient {
 
     results.rows = results.rows.reduce((newRows: any[], row: any) => {
       type Row = { [key: string]: any };
-      let newRow: Row = {};
+      const newRow: Row = {};
       for (let i = 0; i < results.columns.length; i++) {
         const columnName = results?.columns[i]?.name;
         if (columnName !== undefined) {

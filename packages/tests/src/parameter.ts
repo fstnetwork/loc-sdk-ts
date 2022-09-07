@@ -1,6 +1,7 @@
 import {
   GenericLogic,
   Logic,
+  LoggingAgent,
   Parameter,
   RailwayError,
 } from "@fstnetwork/logic";
@@ -11,11 +12,11 @@ export class TestParameter extends GenericLogic {
     const homeless = Parameter.get("homeless");
     const doge = Parameter.get("shibainu");
 
-    this.context.agents.logging.info({
+    LoggingAgent.info({
       homeless: homeless === null,
     });
 
-    this.context.agents.logging.info({
+    LoggingAgent.info({
       shibainu: doge,
     });
   }

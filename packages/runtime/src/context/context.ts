@@ -3,12 +3,21 @@ import { Task } from "../primitive";
 import { Payload } from "../types/payload";
 
 export abstract class AbstractContext {
-  readonly payload: Payload;
-  readonly task: Task;
+  #payload?: Payload;
+  #task?: Task;
 
-  constructor() {
-    this.payload = initializePayload();
-    this.task = initializeTask();
+  get payload() {
+    if (this.#payload === undefined) {
+      this.#payload = initializePayload();
+    }
+    return this.#payload;
+  }
+
+  get task() {
+    if (this.#task === undefined) {
+      this.#task = initializeTask();
+    }
+    return this.#task;
   }
 }
 

@@ -1,4 +1,9 @@
-import { GenericLogic, Logic, RailwayError } from "@fstnetwork/logic";
+import {
+  GenericLogic,
+  Logic,
+  LoggingAgent,
+  RailwayError,
+} from "@fstnetwork/logic";
 
 @Logic()
 export class TestRailwayInternalSwitch extends GenericLogic {
@@ -7,11 +12,11 @@ export class TestRailwayInternalSwitch extends GenericLogic {
   }
 
   async handleError(error: RailwayError) {
-    this.context.agents.logging.info("on Railway Error");
-    this.context.agents.logging.info(
+    LoggingAgent.info("on Railway Error");
+    LoggingAgent.info(
       `Logic Permanent Identity: ${error.logicPermanentIdentity}`
     );
-    this.context.agents.logging.info(`Logic Revision: ${error.logicRevision}`);
-    this.context.agents.logging.info(`Err: ${error.message}`);
+    LoggingAgent.info(`Logic Revision: ${error.logicRevision}`);
+    LoggingAgent.info(`Err: ${error.message}`);
   }
 }

@@ -1,14 +1,16 @@
-export class FileStorageAgent {
-  constructor(readonly configurationId?: string) {}
-
-  async acquire(configurationName: string): Promise<FileStorageAgent> {
+export const FileStorageAgent = {
+  async acquire(configurationName: string): Promise<FileStorageAgentClient> {
     const configurationId = await Deno.core.opAsync(
       "op_file_storage_agent_acquire",
       configurationName
     );
 
-    return new FileStorageAgent(configurationId);
-  }
+    return new FileStorageAgentClient(configurationId);
+  },
+};
+
+export class FileStorageAgentClient {
+  constructor(readonly configurationId?: string) {}
 
   // TODO: consider to apply zero-copy buffer
   async simpleGet(path: string): Promise<Uint8Array> {

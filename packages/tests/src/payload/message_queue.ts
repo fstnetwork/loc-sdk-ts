@@ -11,13 +11,15 @@ export class TestMessageQueuePayload extends GenericLogic {
     {
       LoggingAgent.info(this.context.task);
 
-      LoggingAgent.info("test MessageQueuePayload");
-      LoggingAgent.info(typeof this.context.payload);
-      LoggingAgent.info(`${"messageQueue" in this.context.payload}`);
+      const payload = await this.context.payload();
 
-      if ("messageQueue" in this.context.payload) {
+      LoggingAgent.info("test MessageQueuePayload");
+      LoggingAgent.info(typeof payload);
+      LoggingAgent.info(`${"messageQueue" in payload}`);
+
+      if ("messageQueue" in payload) {
         const { clientIdentityContext, subscriber, data } =
-          this.context.payload.messageQueue;
+          payload.messageQueue;
 
         LoggingAgent.info(data.constructor.name);
 

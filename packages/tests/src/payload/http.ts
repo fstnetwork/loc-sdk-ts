@@ -11,11 +11,13 @@ export class TestHttpPayload extends GenericLogic {
     {
       LoggingAgent.info(this.context.task);
 
-      LoggingAgent.info("test HttpPayload");
-      LoggingAgent.info(typeof this.context.payload);
-      LoggingAgent.info(`${"http" in this.context.payload}`);
+      const payload = await this.context.payload();
 
-      if ("http" in this.context.payload) {
+      LoggingAgent.info("test HttpPayload");
+      LoggingAgent.info(typeof payload);
+      LoggingAgent.info(`${"http" in payload}`);
+
+      if ("http" in payload) {
         const {
           apiGatewayIdentityContext,
           apiRouteIdentityContext,
@@ -28,7 +30,7 @@ export class TestHttpPayload extends GenericLogic {
           scheme,
           version,
           body,
-        } = this.context.payload.http;
+        } = payload.http;
 
         LoggingAgent.info(body.constructor.name);
 

@@ -22,21 +22,7 @@ export abstract class AbstractContext {
 }
 
 async function initializePayload(): Promise<Payload> {
-  const payload = await Deno.core.opAsync("op_initialize_payload");
-  if ("http" in payload) {
-    payload.http.body = Uint8Array.from(atob(payload.http.body), (c) =>
-      c.charCodeAt(0)
-    );
-  }
-
-  if ("messageQueue" in payload) {
-    payload.messageQueue.data = Uint8Array.from(
-      atob(payload.messageQueue.data),
-      (c) => c.charCodeAt(0)
-    );
-  }
-
-  return payload;
+  return Deno.core.opAsync("op_initialize_payload");
 }
 
 function initializeTask(): Task {

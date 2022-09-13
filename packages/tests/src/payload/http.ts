@@ -21,31 +21,35 @@ export class TestHttpPayload extends GenericLogic {
         const {
           apiGatewayIdentityContext,
           apiRouteIdentityContext,
-          headers,
-          host,
-          method,
-          path,
-          query,
           requestId,
-          scheme,
-          version,
-          body,
+          request: {
+            data,
+            headers,
+            host,
+            method,
+            path,
+            query,
+            scheme,
+            version,
+          },
         } = payload.http;
 
-        LoggingAgent.info(body.constructor.name);
+        LoggingAgent.info(data.constructor.name);
 
         LoggingAgent.info({
           apiGatewayIdentityContext,
           apiRouteIdentityContext,
-          headers,
-          host,
-          method,
-          path,
-          query,
           requestId,
-          scheme,
-          version,
-          body: Array.from(body),
+          request: {
+            data: Array.from(data),
+            headers,
+            host,
+            method,
+            path,
+            query,
+            scheme,
+            version,
+          },
         });
       }
     }

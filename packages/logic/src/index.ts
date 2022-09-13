@@ -5,7 +5,7 @@ export {
   Context,
   EventPayload,
   HttpPayload,
-  MessageQueuePayload,
+  MessagePayload,
 } from "./logic";
 
 export const Http = Saffron.Http;

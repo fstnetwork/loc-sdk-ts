@@ -5,7 +5,7 @@ import {
 } from "@fstnetwork/runtime";
 export {
   EventPayload,
-  MessageQueuePayload,
+  MessagePayload,
   HttpPayload,
   Database,
 } from "@fstnetwork/runtime";

@@ -70,7 +70,7 @@ export interface EventJsonSchema {
  * via the `definition` "Aggregation".
  */
 export interface Aggregation {
-  after: {
+  after?: {
     [k: string]: string;
   };
   queries: Query[];

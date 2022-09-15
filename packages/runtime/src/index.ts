@@ -31,10 +31,10 @@ export type {
   SearchResult,
 } from "./types/event";
 export type {
-  TriggerIdentityContext,
+  IdentityContextFor_Uuid as NonVersionedIdentityContext,
   EventPayload,
   HttpPayload,
-  MessageQueuePayload,
+  MessagePayload,
   Payload,
 } from "./types/payload";
 

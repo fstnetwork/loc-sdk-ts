@@ -10,7 +10,7 @@ export type Payload =
       http: HttpPayload;
     }
   | {
-      messageQueue: MessageQueuePayload;
+      messageQueue: MessagePayload;
     }
   | {
       event: EventPayload;
@@ -23,6 +23,7 @@ export type Address =
       pipe: Pipe;
     };
 export type Protocol = "tcp" | "udp";
+export type HttpRequest = HttpRequestFor_Data;
 export type Subscriber = {
   kafka: KafkaSubscriber;
 };
@@ -34,32 +35,20 @@ export interface HttpPayload {
   /**
    * The identity context of API Gateway
    */
-  apiGatewayIdentityContext: TriggerIdentityContext;
+  apiGatewayIdentityContext: IdentityContextFor_Uuid;
   /**
    * The identity context of API Route
    */
-  apiRouteIdentityContext: TriggerIdentityContext;
-  /**
-   * A base64-encoded string
-   */
-  body: number[];
+  apiRouteIdentityContext: IdentityContextFor_Uuid;
   destination?: Peer | null;
-  headers: {
-    [k: string]: unknown;
-  };
-  host: string;
-  method: string;
-  path: string;
-  query: string;
+  request: HttpRequest;
   requestId: string;
-  scheme: string;
   source?: Peer | null;
-  version: "HTTP/0.9" | "HTTP/1.0" | "HTTP/1.1" | "HTTP/2.0" | "HTTP/3.0";
   [k: string]: unknown;
 }
-export interface TriggerIdentityContext {
+export interface IdentityContextFor_Uuid {
   /**
-   * Saffron internal id
+   * Identity
    */
   id: string;
   /**
@@ -82,11 +71,24 @@ export interface Pipe {
   path: string;
   [k: string]: unknown;
 }
+export interface HttpRequestFor_Data {
+  data: number[];
+  headers: {
+    [k: string]: unknown;
+  };
+  host: string;
+  method: string;
+  path: string;
+  query: string;
+  scheme: string;
+  version: "HTTP/0.9" | "HTTP/1.0" | "HTTP/1.1" | "HTTP/2.0" | "HTTP/3.0";
+  [k: string]: unknown;
+}
 /**
  * Payload represents a Message Queue Message
  */
-export interface MessageQueuePayload {
-  clientIdentityContext: TriggerIdentityContext;
+export interface MessagePayload {
+  clientIdentityContext: IdentityContextFor_Uuid;
   data: number[];
   subscriber: Subscriber;
   [k: string]: unknown;

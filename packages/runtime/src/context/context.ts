@@ -6,14 +6,14 @@ export abstract class AbstractContext {
   #payload?: Payload;
   #task?: Task;
 
-  get payload() {
+  async payload(): Promise<Payload> {
     if (this.#payload === undefined) {
-      this.#payload = initializePayload();
+      this.#payload = await initializePayload();
     }
     return this.#payload;
   }
 
-  get task() {
+  get task(): Task {
     if (this.#task === undefined) {
       this.#task = initializeTask();
     }
@@ -21,22 +21,8 @@ export abstract class AbstractContext {
   }
 }
 
-function initializePayload(): Payload {
-  const payload = Deno.core.opSync("op_initialize_payload");
-  if ("http" in payload) {
-    payload.http.body = Uint8Array.from(atob(payload.http.body), (c) =>
-      c.charCodeAt(0)
-    );
-  }
-
-  if ("messageQueue" in payload) {
-    payload.messageQueue.data = Uint8Array.from(
-      atob(payload.messageQueue.data),
-      (c) => c.charCodeAt(0)
-    );
-  }
-
-  return payload;
+async function initializePayload(): Promise<Payload> {
+  return Deno.core.opAsync("op_initialize_payload");
 }
 
 function initializeTask(): Task {

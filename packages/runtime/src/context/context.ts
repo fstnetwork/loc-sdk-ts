@@ -8,23 +8,23 @@ export abstract class AbstractContext {
 
   async payload(): Promise<Payload> {
     if (this.#payload === undefined) {
-      this.#payload = await initializePayload();
+      this.#payload = await fetchPayload();
     }
     return this.#payload;
   }
 
   get task(): Task {
     if (this.#task === undefined) {
-      this.#task = initializeTask();
+      this.#task = fetchTask();
     }
     return this.#task;
   }
 }
 
-async function initializePayload(): Promise<Payload> {
-  return Deno.core.opAsync("op_initialize_payload");
+async function fetchPayload(): Promise<Payload> {
+  return Deno.core.opAsync("op_fetch_payload");
 }
 
-function initializeTask(): Task {
-  return Deno.core.opSync("op_initialize_task");
+function fetchTask(): Task {
+  return Deno.core.opSync("op_fetch_task");
 }

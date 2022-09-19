@@ -9,7 +9,7 @@ export { FileStorageAgent, FileStorageAgentClient } from "./file_storage";
 export { HttpAgent, HttpAgentClient, Http } from "./http";
 export { LocalStorageAgent } from "./local_storage";
 export { LoggingAgent } from "./logging";
-export { Parameter } from "./parameter";
+export { LogicVariable } from "./logic_variable";
 export { ResultAgent } from "./result";
 export { SessionStorageAgent } from "./session_storage";
 export { MailAgentClient, MailAgent, Mail } from "./mail";

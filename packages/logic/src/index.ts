@@ -13,7 +13,7 @@ export const Mail = Saffron.Mail;
 
 export const LocalStorageAgent = Saffron.LocalStorageAgent;
 export const SessionStorageAgent = Saffron.SessionStorageAgent;
-export const Parameter = Saffron.Parameter;
+export const LogicVariable = Saffron.LogicVariable;
 
 export const DatabaseAgent = Saffron.DatabaseAgent;
 export const EventAgent = Saffron.EventAgent;

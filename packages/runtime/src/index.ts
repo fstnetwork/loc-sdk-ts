@@ -19,7 +19,7 @@ export {
   Mail,
   MailAgent,
   MailAgentClient,
-  Parameter,
+  LogicVariable,
 } from "./agent";
 export type { AggregatorContext, GenericContext } from "./context";
 export type { Railway, RailwayError, Task } from "./primitive";

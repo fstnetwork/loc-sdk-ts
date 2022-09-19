@@ -1,16 +1,16 @@
 import {
   GenericLogic,
   Logic,
+  LogicVariable,
   LoggingAgent,
-  Parameter,
   RailwayError,
 } from "@fstnetwork/logic";
 
 @Logic()
-export class TestParameter extends GenericLogic {
+export class TestLogicVariable extends GenericLogic {
   async run() {
-    const homeless = Parameter.get("homeless");
-    const doge = Parameter.get("shibainu");
+    const homeless = LogicVariable.get("homeless");
+    const doge = LogicVariable.get("shibainu");
 
     LoggingAgent.info({
       homeless: homeless === null,

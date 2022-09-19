@@ -30,7 +30,7 @@ export default defineConfig([
   testCase("http"),
   testCase("local_storage"),
   testCase("logging"),
-  testCase("parameter"),
+  testCase("logic_variable"),
   testCase("payload/event"),
   testCase("payload/http"),
   testCase("payload/message_queue"),

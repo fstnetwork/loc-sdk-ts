@@ -1,50 +1,61 @@
-import { GenericLogic, Logic, RailwayError } from "@fstnetwork/logic";
+import {
+  GenericLogic,
+  Logic,
+  LoggingAgent,
+  RailwayError,
+} from "@fstnetwork/logic";
 
 @Logic()
 export class TestHttpPayload extends GenericLogic {
   async run() {
     {
-      this.context.agents.logging.info(this.context.task);
+      LoggingAgent.info(this.context.task);
 
-      this.context.agents.logging.info("test HttpPayload");
-      this.context.agents.logging.info(typeof this.context.payload);
-      this.context.agents.logging.info(`${"http" in this.context.payload}`);
+      const payload = await this.context.payload();
 
-      if ("http" in this.context.payload) {
+      LoggingAgent.info("test HttpPayload");
+      LoggingAgent.info(typeof payload);
+      LoggingAgent.info(`${"http" in payload}`);
+
+      if ("http" in payload) {
         const {
           apiGatewayIdentityContext,
-          apiIdentityContext,
-          headers,
-          host,
-          method,
-          path,
-          query,
+          apiRouteIdentityContext,
           requestId,
-          scheme,
-          version,
-          body,
-        } = this.context.payload.http;
+          request: {
+            data,
+            headers,
+            host,
+            method,
+            path,
+            query,
+            scheme,
+            version,
+          },
+        } = payload.http;
 
-        this.context.agents.logging.info(body.constructor.name);
+        LoggingAgent.info(data.constructor.name);
 
-        this.context.agents.logging.info({
+        LoggingAgent.info({
           apiGatewayIdentityContext,
-          apiIdentityContext,
-          headers,
-          host,
-          method,
-          path,
-          query,
+          apiRouteIdentityContext,
           requestId,
-          scheme,
-          version,
-          body: Array.from(body),
+          request: {
+            data: Array.from(data),
+            headers,
+            host,
+            method,
+            path,
+            query,
+            scheme,
+            version,
+          },
         });
       }
     }
   }
 
   async handleError(error: RailwayError) {
-    this.context.agents.logging.error(`${error}`);
+    LoggingAgent.error(`${error}`);
   }
 }

@@ -1,24 +1,29 @@
-import { GenericLogic, Logic, RailwayError } from "@fstnetwork/logic";
+import {
+  GenericLogic,
+  Logic,
+  LoggingAgent,
+  RailwayError,
+} from "@fstnetwork/logic";
 
 @Logic()
 export class TestMessageQueuePayload extends GenericLogic {
   async run() {
     {
-      this.context.agents.logging.info(this.context.task);
+      LoggingAgent.info(this.context.task);
 
-      this.context.agents.logging.info("test MessageQueuePayload");
-      this.context.agents.logging.info(typeof this.context.payload);
-      this.context.agents.logging.info(
-        `${"messageQueue" in this.context.payload}`
-      );
+      const payload = await this.context.payload();
 
-      if ("messageQueue" in this.context.payload) {
+      LoggingAgent.info("test MessageQueuePayload");
+      LoggingAgent.info(typeof payload);
+      LoggingAgent.info(`${"messageQueue" in payload}`);
+
+      if ("messageQueue" in payload) {
         const { clientIdentityContext, subscriber, data } =
-          this.context.payload.messageQueue;
+          payload.messageQueue;
 
-        this.context.agents.logging.info(data.constructor.name);
+        LoggingAgent.info(data.constructor.name);
 
-        this.context.agents.logging.info({
+        LoggingAgent.info({
           clientIdentityContext,
           subscriber,
           data: Array.from(data),
@@ -28,6 +33,6 @@ export class TestMessageQueuePayload extends GenericLogic {
   }
 
   async handleError(error: RailwayError) {
-    this.context.agents.logging.error(`${error}`);
+    LoggingAgent.error(`${error}`);
   }
 }

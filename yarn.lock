@@ -57,18 +57,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@fstnetwork/loc-logic-sdk@workspace:packages/loc-logic-sdk"
   dependencies:
-    "@fstnetwork/logic": "workspace:0.6.0"
-    "@fstnetwork/runtime": "workspace:0.6.0"
+    "@fstnetwork/logic": "workspace:0.7.0"
+    "@fstnetwork/runtime": "workspace:0.7.0"
     rimraf: ^3.0.2
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
 
-"@fstnetwork/logic@workspace:*, @fstnetwork/logic@workspace:0.6.0, @fstnetwork/logic@workspace:packages/logic":
+"@fstnetwork/logic@workspace:*, @fstnetwork/logic@workspace:0.7.0, @fstnetwork/logic@workspace:packages/logic":
   version: 0.0.0-use.local
   resolution: "@fstnetwork/logic@workspace:packages/logic"
   dependencies:
-    "@fstnetwork/runtime": "workspace:0.6.0"
+    "@fstnetwork/runtime": "workspace:0.7.0"
     rimraf: ^3.0.2
     typescript: ^4.7.4
   languageName: unknown
@@ -83,15 +83,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@fstnetwork/runtime@workspace:0.6.0, @fstnetwork/runtime@workspace:packages/runtime":
+"@fstnetwork/runtime@workspace:0.7.0, @fstnetwork/runtime@workspace:packages/runtime":
   version: 0.0.0-use.local
   resolution: "@fstnetwork/runtime@workspace:packages/runtime"
   dependencies:
-    "@rollup/plugin-typescript": ^8.3.3
+    "@rollup/plugin-typescript": ^8.4.0
     "@types/node": ^18.0.1
     json-schema-to-typescript: ^10.1.5
     rimraf: ^3.0.2
-    rollup: ^2.77.0
+    rollup: ^2.78.1
     rollup-plugin-dts: ^4.2.2
     ts-node: ^10.9.1
     tslib: ^2.4.0
@@ -105,9 +105,9 @@ __metadata:
   dependencies:
     "@fstnetwork/logic": "workspace:*"
     "@rollup/plugin-node-resolve": ^13.3.0
-    "@rollup/plugin-typescript": ^8.3.3
+    "@rollup/plugin-typescript": ^8.4.0
     rimraf: ^3.0.2
-    rollup: ^2.77.0
+    rollup: ^2.78.1
     tslib: ^2.4.0
     typescript: ^4.7.4
   languageName: unknown
@@ -170,9 +170,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-typescript@npm:^8.3.3":
-  version: 8.3.3
-  resolution: "@rollup/plugin-typescript@npm:8.3.3"
+"@rollup/plugin-typescript@npm:^8.4.0":
+  version: 8.4.0
+  resolution: "@rollup/plugin-typescript@npm:8.4.0"
   dependencies:
     "@rollup/pluginutils": ^3.1.0
     resolve: ^1.17.0
@@ -183,7 +183,7 @@ __metadata:
   peerDependenciesMeta:
     tslib:
       optional: true
-  checksum: c255f8bc3b4d94b81a96d7bf5ba426e4e0a9dc68b96be48d97c6646c1c7dcd08319d08805d93306adfa57f87b080ff4a05198e581592ecf6aba06b752006b5f5
+  checksum: 1236b9b6fa4d368fc34514ec388b2584a443797bf081bf861a40476267d6c3cdbb3edf5659b6e0030e99e15b25f464664e7301ffeeabf661b3d81738320ee64e
   languageName: node
   linkType: hard
 
@@ -1490,9 +1490,9 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.77.0":
-  version: 2.77.0
-  resolution: "rollup@npm:2.77.0"
+"rollup@npm:^2.78.1":
+  version: 2.78.1
+  resolution: "rollup@npm:2.78.1"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -1500,7 +1500,7 @@ fsevents@~2.3.2:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 74ccc98429709984a89af636250833e7502d87f1d9c6d96ebfe4b52030ebf94b9f6b84b8ab476670329a61d54b681d35eecdc601bac5b5396b099b1ea69970ef
+  checksum: 9034814383ca5bdb4bea6d499270aeb31cdb0bb884f81b0c6a1d19c63cc973f040e6ee09b7af8a7169dd231c090f4b44ef8b99c4bfdf884aceeb3dcefb8cfa14
   languageName: node
   linkType: hard
 
@@ -1757,7 +1757,7 @@ fsevents@~2.3.2:
 
 "typescript@patch:typescript@^4.7.4#~builtin<compat/typescript>":
   version: 4.7.4
-  resolution: "typescript@patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"
+  resolution: "typescript@patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver

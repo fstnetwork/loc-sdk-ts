@@ -3,33 +3,28 @@ import { Task } from "../primitive";
 import { Payload } from "../types/payload";
 
 export abstract class AbstractContext {
-  readonly payload: Payload;
-  readonly task: Task;
+  #payload?: Payload;
+  #task?: Task;
 
-  constructor() {
-    this.payload = initializePayload();
-    this.task = initializeTask();
+  async payload(): Promise<Payload> {
+    if (this.#payload === undefined) {
+      this.#payload = await fetchPayload();
+    }
+    return this.#payload;
+  }
+
+  get task(): Task {
+    if (this.#task === undefined) {
+      this.#task = fetchTask();
+    }
+    return this.#task;
   }
 }
 
-function initializePayload(): Payload {
-  const payload = Deno.core.opSync("op_initialize_payload");
-  if ("http" in payload) {
-    payload.http.body = Uint8Array.from(atob(payload.http.body), (c) =>
-      c.charCodeAt(0)
-    );
-  }
-
-  if ("messageQueue" in payload) {
-    payload.messageQueue.data = Uint8Array.from(
-      atob(payload.messageQueue.data),
-      (c) => c.charCodeAt(0)
-    );
-  }
-
-  return payload;
+async function fetchPayload(): Promise<Payload> {
+  return Deno.core.opAsync("op_fetch_payload");
 }
 
-function initializeTask(): Task {
-  return Deno.core.opSync("op_initialize_task");
+function fetchTask(): Task {
+  return Deno.core.opSync("op_fetch_task");
 }

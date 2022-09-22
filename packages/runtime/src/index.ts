@@ -1,27 +1,40 @@
 import { AggregatorContext, GenericContext } from "./context";
 import { Runtime } from "./runtime";
 
-export { Smtp, Http, Database } from "./agent";
-export type {
+export {
+  Database,
   DatabaseAgent,
+  DatabaseClient,
+  Event,
   EventAgent,
   FileStorageAgent,
+  FileStorageAgentClient,
+  Http,
   HttpAgent,
+  HttpAgentClient,
   LocalStorageAgent,
   LoggingAgent,
   ResultAgent,
   SessionStorageAgent,
-  SmtpAgent,
-  SmtpAgentHub,
+  Mail,
+  MailAgent,
+  MailAgentClient,
+  LogicVariable,
 } from "./agent";
 export type { AggregatorContext, GenericContext } from "./context";
 export type { Railway, RailwayError, Task } from "./primitive";
-export type { IdentityContext } from "./types/event";
 export type {
-  DataSourceIdentityContext,
+  IdentityContext,
+  Pattern,
+  PatternResult,
+  Search,
+  SearchResult,
+} from "./types/event";
+export type {
+  IdentityContextFor_Uuid as NonVersionedIdentityContext,
   EventPayload,
   HttpPayload,
-  MessageQueuePayload,
+  MessagePayload,
   Payload,
 } from "./types/payload";
 

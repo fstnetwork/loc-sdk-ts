@@ -5,9 +5,21 @@ export {
   Context,
   EventPayload,
   HttpPayload,
-  MessageQueuePayload,
+  MessagePayload,
 } from "./logic";
 
-export const Database = Saffron.Database;
 export const Http = Saffron.Http;
-export const Smtp = Saffron.Smtp;
+export const Mail = Saffron.Mail;
+
+export const LocalStorageAgent = Saffron.LocalStorageAgent;
+export const SessionStorageAgent = Saffron.SessionStorageAgent;
+export const LogicVariable = Saffron.LogicVariable;
+
+export const DatabaseAgent = Saffron.DatabaseAgent;
+export const EventAgent = Saffron.EventAgent;
+export const FileStorageAgent = Saffron.FileStorageAgent;
+export const HttpAgent = Saffron.HttpAgent;
+export const LoggingAgent = Saffron.LoggingAgent;
+export const MailAgent = Saffron.MailAgent;
+
+export const ResultAgent = Saffron.ResultAgent;

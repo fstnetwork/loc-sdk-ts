@@ -1,11 +1,17 @@
-import { GenericLogic, Logic, RailwayError } from "@fstnetwork/logic";
+import {
+  EventAgent,
+  GenericLogic,
+  Logic,
+  LoggingAgent,
+  RailwayError,
+} from "@fstnetwork/logic";
 
 @Logic()
 export class TestEvent extends GenericLogic {
   async run() {
-    this.context.agents.logging.info("test TestEvent");
+    LoggingAgent.info("test TestEvent");
 
-    await this.context.agents.eventStore.emit([
+    await EventAgent.emit([
       {
         labelName: "labelName",
         sourceDigitalIdentity: "sourceDigitalIdentity",
@@ -15,7 +21,7 @@ export class TestEvent extends GenericLogic {
       },
     ]);
 
-    await this.context.agents.eventStore.emit([
+    await EventAgent.emit([
       {
         labelName: "labelName",
         sourceDID: "sourceDID",
@@ -52,10 +58,9 @@ export class TestEvent extends GenericLogic {
       const searchReq = {
         queries: [
           {
-            Match: {
-              field: "source_digital_identity",
-              value: "b184ad67-448b-47ae-84aa-9cd97705e5b7",
-            },
+            type: "match" as const,
+            field: "source_digital_identity",
+            value: "b184ad67-448b-47ae-84aa-9cd97705e5b7",
           },
         ],
         excludes: [],
@@ -64,7 +69,7 @@ export class TestEvent extends GenericLogic {
         size: 0,
         sorts: [],
       };
-      await this.context.agents.eventStore.search(searchReq);
+      await EventAgent.search(searchReq);
     }
 
     {
@@ -73,16 +78,14 @@ export class TestEvent extends GenericLogic {
           {
             conditions: [
               {
-                Eq: {
-                  field: "source_digital_identity",
-                  value: "b184ad67-448b-47ae-84aa-9cd97705e5b7",
-                },
+                field: "source_digital_identity",
+                op: "eq" as const,
+                value: "b184ad67-448b-47ae-84aa-9cd97705e5b7",
               },
               {
-                NotEq: {
-                  field: "label_id",
-                  value: "label_3",
-                },
+                field: "label_id",
+                op: "ne" as const,
+                value: "label_3",
               },
             ],
             sharedFields: [],
@@ -91,10 +94,9 @@ export class TestEvent extends GenericLogic {
           {
             conditions: [
               {
-                Eq: {
-                  field: "source_digital_identity",
-                  value: "c700f07f-920f-4be8-aa52-c8c42e1578de",
-                },
+                field: "source_digital_identity",
+                op: "eq" as const,
+                value: "c700f07f-920f-4be8-aa52-c8c42e1578de",
               },
             ],
             sharedFields: [],
@@ -102,20 +104,17 @@ export class TestEvent extends GenericLogic {
           },
         ],
         filter: {
-          Range: {
-            field: "timestamp",
-            value: {
-              lte: 1625122259000,
-              gte: 1625124173000,
-            },
-          },
+          type: "range" as const,
+          field: "timestamp",
+          lte: 1625122259000,
+          gte: 1625124173000,
         },
       };
-      await this.context.agents.eventStore.searchWithPattern(patternReq);
+      await EventAgent.searchWithPattern(patternReq);
     }
   }
 
   async handleError(error: RailwayError) {
-    this.context.agents.logging.error(`${error}`);
+    LoggingAgent.error(`${error}`);
   }
 }

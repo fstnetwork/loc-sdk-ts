@@ -1,19 +1,23 @@
-import { GenericLogic, Logic, Smtp, RailwayError } from "@fstnetwork/logic";
+import {
+  GenericLogic,
+  Logic,
+  LoggingAgent,
+  Mail,
+  MailAgent,
+  RailwayError,
+  SessionStorageAgent,
+} from "@fstnetwork/logic";
 
 @Logic()
-export class TestSmtp extends GenericLogic {
+export class TestMail extends GenericLogic {
   async run() {
-    this.context.agents.logging.info("test TestSmtp");
+    LoggingAgent.info("test TestMailAgent");
 
     let server;
     try {
-      server = await this.context.agents.smtp?.connect(
-        "smtp.gmail.com",
-        "kumanoko@fstk.io",
-        "password"
-      )!;
+      server = await MailAgent?.acquire("test-smtp-server")!;
     } catch (error) {
-      await this.context.agents.sessionStorage.putString(
+      await SessionStorageAgent.putString(
         "connect_error",
         `Failed to connect SMTP server: ${error}`
       );
@@ -22,7 +26,7 @@ export class TestSmtp extends GenericLogic {
 
     try {
       await server.send(
-        new Smtp.Mail()
+        new Mail.Mail()
           .setSender("noreply@fstk.io", "noReply")
           .setReceivers("notfound@fstk.io", "404")
           .setReceivers("babayaga@fstk.io")
@@ -31,7 +35,7 @@ export class TestSmtp extends GenericLogic {
           .setBody("BODY HERE")
       );
     } catch (error) {
-      await this.context.agents.sessionStorage.putString(
+      await SessionStorageAgent.putString(
         "send_error",
         `Failed to send mail using SMTP: ${error}`
       );
@@ -40,6 +44,6 @@ export class TestSmtp extends GenericLogic {
   }
 
   async handleError(error: RailwayError) {
-    this.context.agents.logging.error(`${error}`);
+    LoggingAgent.error(`${error}`);
   }
 }

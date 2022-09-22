@@ -1,9 +1,17 @@
-import { GenericLogic, Logic, Http, RailwayError } from "@fstnetwork/logic";
+import {
+  GenericLogic,
+  Logic,
+  LoggingAgent,
+  Http,
+  HttpAgent,
+  RailwayError,
+  SessionStorageAgent,
+} from "@fstnetwork/logic";
 
 @Logic()
 export class TestHttp extends GenericLogic {
   async run() {
-    this.context.agents.logging.info("test TestHttp");
+    LoggingAgent.info("test TestHttp");
 
     await this.testHttpGet();
     await this.testHttpPost();
@@ -13,33 +21,24 @@ export class TestHttp extends GenericLogic {
   }
 
   async handleError(error: RailwayError) {
-    this.context.agents.logging.error(`${error}`);
+    LoggingAgent.error(`${error}`);
   }
 
   async testHttpGet() {
-    let resp = await this.context.agents.http?.get(
-      "http://mock:8080",
-      {},
-      Http.ContentType.Json
-    )!;
+    const httpAgent = await HttpAgent?.acquire("test-http-server")!;
 
-    await this.context.agents.sessionStorage.putJson(
-      "GET.status",
-      resp.status as Number
-    );
-    await this.context.agents.sessionStorage.putJson(
-      "GET.headers",
-      resp.headers
-    );
-    await this.context.agents.sessionStorage.putByteArray(
-      "GET.body",
-      resp.body
-    );
+    let resp = await httpAgent.get("/resource", {}, Http.ContentType.Json)!;
+
+    await SessionStorageAgent.putJson("GET.status", resp.status as Number);
+    await SessionStorageAgent.putJson("GET.headers", resp.headers);
+    await SessionStorageAgent.putByteArray("GET.body", resp.body);
   }
 
   async testHttpPost() {
-    let resp = await this.context.agents.http?.post(
-      "http://mock:8080",
+    const httpAgent = await HttpAgent?.acquire("test-http-server")!;
+
+    const resp = await httpAgent.post(
+      "/resource",
       {
         "content-type": "application/json",
       },
@@ -47,23 +46,16 @@ export class TestHttp extends GenericLogic {
       new Uint8Array([123, 34, 97, 34, 58, 51, 51, 125])
     )!;
 
-    await this.context.agents.sessionStorage.putJson(
-      "POST.status",
-      resp.status as Number
-    );
-    await this.context.agents.sessionStorage.putJson(
-      "POST.headers",
-      resp.headers
-    );
-    await this.context.agents.sessionStorage.putByteArray(
-      "POST.body",
-      resp.body
-    );
+    await SessionStorageAgent.putJson("POST.status", resp.status as number);
+    await SessionStorageAgent.putJson("POST.headers", resp.headers);
+    await SessionStorageAgent.putByteArray("POST.body", resp.body);
   }
 
   async testHttpPut() {
-    let resp = await this.context.agents.http?.put(
-      "http://mock:8080",
+    const httpAgent = await HttpAgent?.acquire("test-http-server")!;
+
+    const resp = await httpAgent.put(
+      "/resource/1",
       {
         "content-type": "application/json",
       },
@@ -76,23 +68,16 @@ export class TestHttp extends GenericLogic {
       ])
     )!;
 
-    await this.context.agents.sessionStorage.putJson(
-      "PUT.status",
-      resp.status as Number
-    );
-    await this.context.agents.sessionStorage.putJson(
-      "PUT.headers",
-      resp.headers
-    );
-    await this.context.agents.sessionStorage.putByteArray(
-      "PUT.body",
-      resp.body
-    );
+    await SessionStorageAgent.putJson("PUT.status", resp.status as number);
+    await SessionStorageAgent.putJson("PUT.headers", resp.headers);
+    await SessionStorageAgent.putByteArray("PUT.body", resp.body);
   }
 
   async testHttpPatch() {
-    let resp = await this.context.agents.http?.patch(
-      "http://mock:8080",
+    const httpAgent = await HttpAgent?.acquire("test-http-server")!;
+
+    const resp = await httpAgent.patch(
+      "/resource/1",
       {
         "content-type": "application/json",
       },
@@ -103,23 +88,16 @@ export class TestHttp extends GenericLogic {
       ])
     )!;
 
-    await this.context.agents.sessionStorage.putJson(
-      "PATCH.status",
-      resp.status as Number
-    );
-    await this.context.agents.sessionStorage.putJson(
-      "PATCH.headers",
-      resp.headers
-    );
-    await this.context.agents.sessionStorage.putByteArray(
-      "PATCH.body",
-      resp.body
-    );
+    await SessionStorageAgent.putJson("PATCH.status", resp.status as number);
+    await SessionStorageAgent.putJson("PATCH.headers", resp.headers);
+    await SessionStorageAgent.putByteArray("PATCH.body", resp.body);
   }
 
   async testHttpDelete() {
-    let resp = await this.context.agents.http?.delete(
-      "http://mock:8080",
+    const httpAgent = await HttpAgent?.acquire("test-http-server")!;
+
+    const resp = await httpAgent.delete(
+      "/resource/1",
       {
         "content-type": "application/json",
       },
@@ -127,17 +105,8 @@ export class TestHttp extends GenericLogic {
       new Uint8Array()
     )!;
 
-    await this.context.agents.sessionStorage.putJson(
-      "DELETE.status",
-      resp.status as Number
-    );
-    await this.context.agents.sessionStorage.putJson(
-      "DELETE.headers",
-      resp.headers
-    );
-    await this.context.agents.sessionStorage.putByteArray(
-      "DELETE.body",
-      resp.body
-    );
+    await SessionStorageAgent.putJson("DELETE.status", resp.status as number);
+    await SessionStorageAgent.putJson("DELETE.headers", resp.headers);
+    await SessionStorageAgent.putByteArray("DELETE.body", resp.body);
   }
 }

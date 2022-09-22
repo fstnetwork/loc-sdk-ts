@@ -1,20 +1,25 @@
-import { GenericLogic, Logic, RailwayError } from "@fstnetwork/logic";
+import {
+  GenericLogic,
+  Logic,
+  LoggingAgent,
+  RailwayError,
+} from "@fstnetwork/logic";
 
 @Logic()
 export class TestLogging extends GenericLogic {
   async run() {
-    this.context.agents.logging.error("error log");
-    this.context.agents.logging.warn("warn log");
-    this.context.agents.logging.info("info log");
-    this.context.agents.logging.debug("debug log");
-    this.context.agents.logging.trace("trace log");
+    LoggingAgent.error("error log");
+    LoggingAgent.warn("warn log");
+    LoggingAgent.info("info log");
+    LoggingAgent.debug("debug log");
+    LoggingAgent.trace("trace log");
 
-    this.context.agents.logging.info({
+    LoggingAgent.info({
       abc: 87,
     });
   }
 
   async handleError(error: RailwayError) {
-    this.context.agents.logging.error(`${error}`);
+    LoggingAgent.error(`${error}`);
   }
 }

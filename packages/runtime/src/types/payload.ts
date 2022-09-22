@@ -10,11 +10,20 @@ export type Payload =
       http: HttpPayload;
     }
   | {
-      messageQueue: MessageQueuePayload;
+      messageQueue: MessagePayload;
     }
   | {
       event: EventPayload;
     };
+export type Address =
+  | {
+      socketAddr: SocketAddress;
+    }
+  | {
+      pipe: Pipe;
+    };
+export type Protocol = "tcp" | "udp";
+export type HttpRequest = HttpRequestFor_Data;
 export type Subscriber = {
   kafka: KafkaSubscriber;
 };
@@ -26,30 +35,20 @@ export interface HttpPayload {
   /**
    * The identity context of API Gateway
    */
-  apiGatewayIdentityContext: DataSourceIdentityContext;
+  apiGatewayIdentityContext: IdentityContextFor_Uuid;
   /**
-   * The identity context of API
+   * The identity context of API Route
    */
-  apiIdentityContext: DataSourceIdentityContext;
-  /**
-   * A base64-encoded string
-   */
-  body: number[];
-  headers: {
-    [k: string]: unknown;
-  };
-  host: string;
-  method: string;
-  path: string;
-  query: string;
+  apiRouteIdentityContext: IdentityContextFor_Uuid;
+  destination?: Peer | null;
+  request: HttpRequest;
   requestId: string;
-  scheme: string;
-  version: "HTTP/0.9" | "HTTP/1.0" | "HTTP/1.1" | "HTTP/2.0" | "HTTP/3.0";
+  source?: Peer | null;
   [k: string]: unknown;
 }
-export interface DataSourceIdentityContext {
+export interface IdentityContextFor_Uuid {
   /**
-   * Saffron internal id
+   * Identity
    */
   id: string;
   /**
@@ -58,11 +57,38 @@ export interface DataSourceIdentityContext {
   name: string;
   [k: string]: unknown;
 }
+export interface Peer {
+  address: Address;
+  [k: string]: unknown;
+}
+export interface SocketAddress {
+  address: string;
+  protocol: Protocol;
+  [k: string]: unknown;
+}
+export interface Pipe {
+  mode: number;
+  path: string;
+  [k: string]: unknown;
+}
+export interface HttpRequestFor_Data {
+  data: number[];
+  headers: {
+    [k: string]: unknown;
+  };
+  host: string;
+  method: string;
+  path: string;
+  query: string;
+  scheme: string;
+  version: "HTTP/0.9" | "HTTP/1.0" | "HTTP/1.1" | "HTTP/2.0" | "HTTP/3.0";
+  [k: string]: unknown;
+}
 /**
  * Payload represents a Message Queue Message
  */
-export interface MessageQueuePayload {
-  clientIdentityContext: DataSourceIdentityContext;
+export interface MessagePayload {
+  clientIdentityContext: IdentityContextFor_Uuid;
   data: number[];
   subscriber: Subscriber;
   [k: string]: unknown;

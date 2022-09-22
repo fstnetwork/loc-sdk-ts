@@ -1,82 +1,102 @@
-export class HttpAgent {
+export const HttpAgent = {
+  async acquire(configurationName: string): Promise<HttpAgentClient> {
+    const configurationId = await Deno.core.opAsync(
+      "op_http_agent_acquire",
+      configurationName
+    );
+
+    return new HttpAgentClient(configurationId);
+  },
+};
+
+export class HttpAgentClient {
+  constructor(readonly configurationId?: string) {}
+
   async send(
     request: Http.Request,
     config: Http.Config | null
   ): Promise<Http.Response> {
-    const { method, url, headers, contentType, body } = request;
-    const req = { method, url, headers, contentType, config };
+    const { method, path, headers, contentType, body } = request;
+    const req = {
+      configurationId: this.configurationId,
+      method,
+      path,
+      headers,
+      contentType,
+      config,
+    };
 
     return Deno.core.opAsync("op_http_agent_send", req, body);
   }
 
   async get(
-    url: string,
+    path: string,
     headers: Record<string, string>,
     contentType: Http.ContentType,
     body: Uint8Array | null = null,
     config: Http.Config | null = null
   ): Promise<Http.Response> {
     return this.send(
-      new Http.Request(Http.Method.GET, url, headers, contentType, body),
+      new Http.Request(Http.Method.GET, path, headers, contentType, body),
       config
     );
   }
 
   async post(
-    url: string,
+    path: string,
     headers: Record<string, string>,
     contentType: Http.ContentType,
     body: Uint8Array | null,
     config: Http.Config | null = null
   ): Promise<Http.Response> {
     return this.send(
-      new Http.Request(Http.Method.POST, url, headers, contentType, body),
+      new Http.Request(Http.Method.POST, path, headers, contentType, body),
       config
     );
   }
 
   async patch(
-    url: string,
+    path: string,
     headers: Record<string, string>,
     contentType: Http.ContentType,
     body: Uint8Array | null,
     config: Http.Config | null = null
   ): Promise<Http.Response> {
     return this.send(
-      new Http.Request(Http.Method.PATCH, url, headers, contentType, body),
+      new Http.Request(Http.Method.PATCH, path, headers, contentType, body),
       config
     );
   }
 
   async put(
-    url: string,
+    path: string,
     headers: Record<string, string>,
     contentType: Http.ContentType,
     body: Uint8Array | null,
     config: Http.Config | null = null
   ): Promise<Http.Response> {
     return this.send(
-      new Http.Request(Http.Method.PUT, url, headers, contentType, body),
+      new Http.Request(Http.Method.PUT, path, headers, contentType, body),
       config
     );
   }
 
   async delete(
-    url: string,
+    path: string,
     headers: Record<string, string>,
     contentType: Http.ContentType,
     body: Uint8Array | null,
     config: Http.Config | null = null
   ): Promise<Http.Response> {
     return this.send(
-      new Http.Request(Http.Method.DELETE, url, headers, contentType, body),
+      new Http.Request(Http.Method.DELETE, path, headers, contentType, body),
       config
     );
   }
 }
 
 function urlQueryString(init: any): string {
-  let params: [string, string][] = [];
+  const params: [string, string][] = [];
 
   if (typeof init === "string") {
     if (init[0] === "?") {
@@ -109,27 +129,27 @@ export namespace Http {
 
   export enum ContentType {
     None = "None",
-    PlantText = "PlantText",
+    PlainText = "PlainText",
     Json = "Json",
     Form = "Form",
   }
 
   export class Request {
     method: Method;
-    url: String;
+    path: String;
     headers: Record<string, string>;
     contentType: ContentType;
     body: Uint8Array | null;
 
     constructor(
       method: Method = Method.GET,
-      url: string = "",
+      path: string = "",
       headers: Record<string, string> = {},
       contentType: ContentType = ContentType.None,
       body: Uint8Array | null = null
     ) {
       this.method = method;
-      this.url = url;
+      this.path = path;
       this.headers = headers;
       this.contentType = contentType;
       this.body = body;

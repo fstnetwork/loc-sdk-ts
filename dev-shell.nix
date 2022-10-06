@@ -6,7 +6,6 @@ pkgs.mkShell rec {
   buildInputs = with pkgs; [
     nix-update
     nixpkgs-fmt
-    nodePackages.prettier
     yarn2nix
   ];
 

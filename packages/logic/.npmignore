@@ -2,6 +2,6 @@
 **/__tests__/**
 __typetests__
 src/*
-!src/types.d.ts
+!src/*.d.ts
 tsconfig.json
 tsconfig.tsbuildinfo

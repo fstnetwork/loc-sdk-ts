@@ -7,3 +7,7 @@ dist/
 .yarn/*
 
 .direnv
+
+lib.deno_core.d.ts
+lib.deno_url.d.ts
+lib.deno_web.d.ts

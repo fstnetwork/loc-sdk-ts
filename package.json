@@ -14,11 +14,28 @@
     "build:tests": "yarn workspace @fstnetwork/tests run build",
     "build:loc-logic-sdk": "yarn workspace @fstnetwork/loc-logic-sdk run build",
     "clean": "yarn workspaces foreach -i -p -v run clean",
-    "format": "prettier --write '**/*.{js,jsx,ts,tsx,json}' && nixpkgs-fmt ."
+    "format": "prettier --write '**/*.{js,jsx,ts,tsx,json}' && nixpkgs-fmt .",
+    "lint": "eslint packages --ext .ts",
+    "lint:fix": "eslint packages --fix --ext .ts"
   },
   "devDependencies": {
+    "@types/eslint": "^8",
     "@types/node": "^18.0.1",
-    "typescript": "^4.7.4"
+    "@types/prettier": "^2",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "eslint": "^8.0.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-typescript": "^0.14.0",
+    "prettier": "^2.7.1",
+    "typescript": "*",
+    "typescript-eslint-parser": "^22.0.0"
   },
   "packageManager": "yarn@3.2.2"
 }

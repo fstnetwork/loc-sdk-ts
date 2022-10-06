@@ -3,7 +3,7 @@ import {
   Logic,
   LoggingAgent,
   RailwayError,
-} from "@fstnetwork/logic";
+} from '@fstnetwork/logic';
 
 @Logic()
 export class TestHttpPayload extends GenericLogic {
@@ -13,11 +13,11 @@ export class TestHttpPayload extends GenericLogic {
 
       const payload = await this.context.payload();
 
-      LoggingAgent.info("test HttpPayload");
+      LoggingAgent.info('test HttpPayload');
       LoggingAgent.info(typeof payload);
-      LoggingAgent.info(`${"http" in payload}`);
+      LoggingAgent.info(`${'http' in payload}`);
 
-      if ("http" in payload) {
+      if ('http' in payload) {
         const {
           apiGatewayIdentityContext,
           apiRouteIdentityContext,

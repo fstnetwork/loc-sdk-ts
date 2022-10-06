@@ -3,7 +3,7 @@ import {
   LoggingAgent,
   RailwayError,
   ResultAgent,
-} from "@fstnetwork/logic";
+} from '@fstnetwork/logic';
 
 Object.assign(globalThis, {
   async run(_ctx: AggregatorContext) {

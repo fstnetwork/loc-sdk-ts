@@ -2,13 +2,14 @@ import {
   AggregatorContext,
   GenericContext,
   RailwayError,
-} from "@fstnetwork/runtime";
+} from '@fstnetwork/runtime';
+
 export {
   EventPayload,
   MessagePayload,
   HttpPayload,
   Database,
-} from "@fstnetwork/runtime";
+} from '@fstnetwork/runtime';
 
 export abstract class AbstractLogic {
   abstract run(): Promise<void>;

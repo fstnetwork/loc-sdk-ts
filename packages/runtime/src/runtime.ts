@@ -1,26 +1,21 @@
-import { Railway, RailwayError } from "./primitive";
+import { Railway, RailwayError } from './primitive';
+import { RuntimeError } from './runtimeError';
 
-export interface Main {
-  (): Promise<void>;
-}
+export type Main = () => Promise<void>;
 
-export interface ErrorHandler {
-  (error: RailwayError): Promise<void>;
-}
+export type ErrorHandler = (error: RailwayError) => Promise<void>;
 
-export async function empty() {}
+export async function empty(): Promise<void> {
 
-export class RuntimeError extends Error {
-  constructor(message?: string) {
-    super(message);
-    this.name = this.constructor.name;
-  }
 }
 
 export class Runtime<C> {
   #context: C;
+
   #run: boolean;
+
   #main: Main;
+
   #errorHandler: ErrorHandler;
 
   constructor(context: C) {
@@ -32,14 +27,14 @@ export class Runtime<C> {
 
   registerMain(main: Main) {
     if (this.#main !== empty) {
-      throw new RuntimeError("main is already registered");
+      throw new RuntimeError('main is already registered');
     }
     this.#main = main;
   }
 
   registerErrorHandler(errorHandler: ErrorHandler) {
     if (this.#errorHandler !== empty) {
-      throw new RuntimeError("error handler is already registered");
+      throw new RuntimeError('error handler is already registered');
     }
     this.#errorHandler = errorHandler;
   }
@@ -50,16 +45,16 @@ export class Runtime<C> {
 
   async run() {
     if (this.#run) {
-      throw new RuntimeError("already executed");
+      throw new RuntimeError('already executed');
     }
 
     if (
-      this.#main === empty &&
-      this.#errorHandler === empty &&
-      globalThis.run instanceof Function &&
-      globalThis.run.length === 1 &&
-      globalThis.handleError instanceof Function &&
-      globalThis.handleError.length === 2
+      this.#main === empty
+      && this.#errorHandler === empty
+      && globalThis.run instanceof Function
+      && globalThis.run.length === 1
+      && globalThis.handleError instanceof Function
+      && globalThis.handleError.length === 2
     ) {
       this.#main = globalThis.run.bind(null, this.#context);
       this.#errorHandler = globalThis.handleError.bind(null, this.#context);
@@ -81,6 +76,6 @@ export class Runtime<C> {
 declare global {
   export var run: undefined | (<C>(ctx: C) => Promise<void>);
   export var handleError:
-    | undefined
-    | (<C>(ctx: C, error: RailwayError) => Promise<void>);
+  | undefined
+  | (<C>(ctx: C, error: RailwayError) => Promise<void>);
 }

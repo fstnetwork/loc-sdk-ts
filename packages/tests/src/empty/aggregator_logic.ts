@@ -1,4 +1,4 @@
-import { AggregatorLogic, Logic, RailwayError } from "@fstnetwork/logic";
+import { AggregatorLogic, Logic, RailwayError } from '@fstnetwork/logic';
 
 @Logic()
 export class EmptyAggregatorLogic extends AggregatorLogic {

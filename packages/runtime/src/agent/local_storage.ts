@@ -1,10 +1,10 @@
 export const LocalStorageAgent = {
   async get(key: string): Promise<any> {
-    return Deno.core.opAsync("op_local_storage_agent_get", key);
+    return Deno.core.opAsync('op_local_storage_agent_get', key);
   },
 
   async putString(key: string, value: string, timeout?: number): Promise<void> {
-    await Deno.core.opAsync("op_local_storage_agent_put", {
+    await Deno.core.opAsync('op_local_storage_agent_put', {
       key,
       value: { String: value },
       timeout,
@@ -14,12 +14,11 @@ export const LocalStorageAgent = {
   async putByteArray(
     key: string,
     value: Uint8Array | string,
-    timeout?: number
+    timeout?: number,
   ): Promise<void> {
-    const byteArray: Uint8Array =
-      typeof value === "string" ? Deno.core.encode(value) : value;
+    const byteArray: Uint8Array = typeof value === 'string' ? Deno.core.encode(value) : value;
 
-    await Deno.core.opAsync("op_local_storage_agent_put", {
+    await Deno.core.opAsync('op_local_storage_agent_put', {
       key,
       value: { ByteArray: byteArray },
       timeout,
@@ -27,7 +26,7 @@ export const LocalStorageAgent = {
   },
 
   async putJson(key: string, value: object, timeout?: number): Promise<void> {
-    await Deno.core.opAsync("op_local_storage_agent_put", {
+    await Deno.core.opAsync('op_local_storage_agent_put', {
       key,
       value: { Json: value },
       timeout,
@@ -35,7 +34,7 @@ export const LocalStorageAgent = {
   },
 
   async delete(key: string): Promise<void> {
-    await Deno.core.opAsync("op_local_storage_agent_delete", key);
+    await Deno.core.opAsync('op_local_storage_agent_delete', key);
   },
 
   async remove(key: string): Promise<void> {

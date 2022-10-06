@@ -1,24 +1,24 @@
-import typescript from "@rollup/plugin-typescript";
-import { defineConfig } from "rollup";
-import dts from "rollup-plugin-dts";
+import typescript from '@rollup/plugin-typescript'
+import { defineConfig } from 'rollup'
+import dts from 'rollup-plugin-dts'
 
 export default defineConfig([
   {
-    input: "src/index.ts",
+    input: 'src/index.ts',
     output: {
-      name: "Saffron",
-      dir: "target",
-      format: "umd",
-      sourcemap: "inline",
+      name: 'Saffron',
+      dir: 'target',
+      format: 'umd',
+      sourcemap: 'inline',
     },
-    plugins: [typescript({ tsconfig: "./tsconfig.json" })],
+    plugins: [typescript({ tsconfig: './tsconfig.json' })],
   },
   {
-    input: "target/dts/index.d.ts",
+    input: 'target/dts/index.d.ts',
     output: {
-      file: "target/index.d.ts",
-      format: "es",
+      file: 'target/index.d.ts',
+      format: 'es',
     },
     plugins: [dts()],
   },
-]);
+])

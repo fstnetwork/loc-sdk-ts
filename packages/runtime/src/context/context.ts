@@ -1,9 +1,10 @@
-import { Task } from "../primitive";
+import { Task } from '../primitive';
 
-import { Payload } from "../types/payload";
+import { Payload } from '../types/payload';
 
 export abstract class AbstractContext {
   #payload?: Payload;
+
   #task?: Task;
 
   async payload(): Promise<Payload> {
@@ -22,9 +23,9 @@ export abstract class AbstractContext {
 }
 
 async function fetchPayload(): Promise<Payload> {
-  return Deno.core.opAsync("op_fetch_payload");
+  return Deno.core.opAsync('op_fetch_payload');
 }
 
 function fetchTask(): Task {
-  return Deno.core.opSync("op_fetch_task");
+  return Deno.core.opSync('op_fetch_task');
 }

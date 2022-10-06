@@ -3,7 +3,7 @@ import {
   Logic,
   LoggingAgent,
   RailwayError,
-} from "@fstnetwork/logic";
+} from '@fstnetwork/logic';
 
 @Logic()
 export class TestMessageQueuePayload extends GenericLogic {
@@ -13,13 +13,12 @@ export class TestMessageQueuePayload extends GenericLogic {
 
       const payload = await this.context.payload();
 
-      LoggingAgent.info("test MessageQueuePayload");
+      LoggingAgent.info('test MessageQueuePayload');
       LoggingAgent.info(typeof payload);
-      LoggingAgent.info(`${"messageQueue" in payload}`);
+      LoggingAgent.info(`${'messageQueue' in payload}`);
 
-      if ("messageQueue" in payload) {
-        const { clientIdentityContext, subscriber, data } =
-          payload.messageQueue;
+      if ('messageQueue' in payload) {
+        const { clientIdentityContext, subscriber, data } = payload.messageQueue;
 
         LoggingAgent.info(data.constructor.name);
 

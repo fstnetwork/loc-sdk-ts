@@ -1,5 +1,5 @@
 export const ResultAgent = {
   finalize(value: object): void {
-    Deno.core.opSync("op_result_agent_set", value);
+    Deno.core.opSync('op_result_agent_set', value);
   },
 };

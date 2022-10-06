@@ -1,4 +1,4 @@
-import { AbstractContext } from "./context";
+import { AbstractContext } from './context';
 
 export class GenericContext extends AbstractContext {
   constructor() {

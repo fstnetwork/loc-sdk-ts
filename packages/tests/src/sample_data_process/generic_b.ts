@@ -3,13 +3,13 @@ import {
   Logic,
   RailwayError,
   SessionStorageAgent,
-} from "@fstnetwork/logic";
+} from '@fstnetwork/logic';
 
 @Logic()
 export class GenericB extends GenericLogic {
   async run() {
-    const value = (await SessionStorageAgent.get("fstnetwork")) as number;
-    await SessionStorageAgent.putJson("kuma", (Number(value) + 6000) as number);
+    const value = (await SessionStorageAgent.get('fstnetwork')) as number;
+    await SessionStorageAgent.putJson('kuma', Number(value) + 6000);
   }
 
   async handleError(_error: RailwayError) {}

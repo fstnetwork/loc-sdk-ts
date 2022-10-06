@@ -1,4 +1,4 @@
-import { GenericLogic, Logic, RailwayError } from "@fstnetwork/logic";
+import { GenericLogic, Logic, RailwayError } from '@fstnetwork/logic';
 
 @Logic()
 export class EmptyGenericLogic extends GenericLogic {

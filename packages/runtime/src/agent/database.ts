@@ -1,8 +1,8 @@
 export const DatabaseAgent = {
   async acquire(configurationName: string): Promise<DatabaseClient> {
     const uid = await Deno.core.opAsync(
-      "op_database_agent_acquire",
-      configurationName
+      'op_database_agent_acquire',
+      configurationName,
     );
 
     return new DatabaseClient(uid);
@@ -18,21 +18,23 @@ export class DatabaseClient {
 
   async query(rawSql: string, params: any[]): Promise<Database.QueryResults> {
     interface QueryResults {
-      columns: Database.QueryResultColumn[];
-      rows: any[];
+      columns: Database.QueryResultColumn[]
+      rows: any[]
     }
 
     const results: QueryResults = await Deno.core.opAsync(
-      "op_database_agent_query",
+      'op_database_agent_query',
       {
         uid: this.uid,
         rawSql,
         params,
-      }
+      },
     );
 
     results.rows = results.rows.reduce((newRows: any[], row: any) => {
-      type Row = { [key: string]: any };
+      interface Row {
+        [key: string]: any
+      }
       const newRow: Row = {};
       for (let i = 0; i < results.columns.length; i++) {
         const columnName = results?.columns[i]?.name;
@@ -49,11 +51,11 @@ export class DatabaseClient {
   }
 
   async release(): Promise<void> {
-    await Deno.core.opAsync("op_database_agent_release", this.uid);
+    await Deno.core.opAsync('op_database_agent_release', this.uid);
   }
 
   async execute(rawSql: string, params: any[]) {
-    return Deno.core.opAsync("op_database_agent_execute", {
+    return Deno.core.opAsync('op_database_agent_execute', {
       uid: this.uid,
       rawSql,
       params,
@@ -61,27 +63,27 @@ export class DatabaseClient {
   }
 
   async beginTransaction(): Promise<DatabaseClient> {
-    await Deno.core.opAsync("op_database_agent_begin_transaction", this.uid);
+    await Deno.core.opAsync('op_database_agent_begin_transaction', this.uid);
     return this;
   }
 
   async commitTransaction(): Promise<void> {
-    await Deno.core.opAsync("op_database_agent_commit_transaction", this.uid);
+    await Deno.core.opAsync('op_database_agent_commit_transaction', this.uid);
   }
 
   async rollbackTransaction(): Promise<void> {
-    await Deno.core.opAsync("op_database_agent_rollback_transaction", this.uid);
+    await Deno.core.opAsync('op_database_agent_rollback_transaction', this.uid);
   }
 }
 
 export namespace Database {
   export interface QueryResultColumn {
-    name: string;
-    type: string;
+    name: string
+    type: string
   }
 
   export interface QueryResults {
-    columns: QueryResultColumn[];
-    rows: { [key: string]: any }[];
+    columns: QueryResultColumn[]
+    rows: Array<{ [key: string]: any }>
   }
 }

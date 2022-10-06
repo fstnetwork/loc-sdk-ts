@@ -1,8 +1,8 @@
 export const HttpAgent = {
   async acquire(configurationName: string): Promise<HttpAgentClient> {
     const configurationId = await Deno.core.opAsync(
-      "op_http_agent_acquire",
-      configurationName
+      'op_http_agent_acquire',
+      configurationName,
     );
 
     return new HttpAgentClient(configurationId);
@@ -14,9 +14,11 @@ export class HttpAgentClient {
 
   async send(
     request: Http.Request,
-    config: Http.Config | null
+    config: Http.Config | null,
   ): Promise<Http.Response> {
-    const { method, path, headers, contentType, body } = request;
+    const {
+      method, path, headers, contentType, body,
+    } = request;
     const req = {
       configurationId: this.configurationId,
       method,
@@ -26,7 +28,7 @@ export class HttpAgentClient {
       config,
     };
 
-    return Deno.core.opAsync("op_http_agent_send", req, body);
+    return Deno.core.opAsync('op_http_agent_send', req, body);
   }
 
   async get(
@@ -34,11 +36,11 @@ export class HttpAgentClient {
     headers: Record<string, string>,
     contentType: Http.ContentType,
     body: Uint8Array | null = null,
-    config: Http.Config | null = null
+    config: Http.Config | null = null,
   ): Promise<Http.Response> {
     return this.send(
       new Http.Request(Http.Method.GET, path, headers, contentType, body),
-      config
+      config,
     );
   }
 
@@ -47,11 +49,11 @@ export class HttpAgentClient {
     headers: Record<string, string>,
     contentType: Http.ContentType,
     body: Uint8Array | null,
-    config: Http.Config | null = null
+    config: Http.Config | null = null,
   ): Promise<Http.Response> {
     return this.send(
       new Http.Request(Http.Method.POST, path, headers, contentType, body),
-      config
+      config,
     );
   }
 
@@ -60,11 +62,11 @@ export class HttpAgentClient {
     headers: Record<string, string>,
     contentType: Http.ContentType,
     body: Uint8Array | null,
-    config: Http.Config | null = null
+    config: Http.Config | null = null,
   ): Promise<Http.Response> {
     return this.send(
       new Http.Request(Http.Method.PATCH, path, headers, contentType, body),
-      config
+      config,
     );
   }
 
@@ -73,11 +75,11 @@ export class HttpAgentClient {
     headers: Record<string, string>,
     contentType: Http.ContentType,
     body: Uint8Array | null,
-    config: Http.Config | null = null
+    config: Http.Config | null = null,
   ): Promise<Http.Response> {
     return this.send(
       new Http.Request(Http.Method.PUT, path, headers, contentType, body),
-      config
+      config,
     );
   }
 
@@ -86,24 +88,25 @@ export class HttpAgentClient {
     headers: Record<string, string>,
     contentType: Http.ContentType,
     body: Uint8Array | null,
-    config: Http.Config | null = null
+    config: Http.Config | null = null,
   ): Promise<Http.Response> {
     return this.send(
       new Http.Request(Http.Method.DELETE, path, headers, contentType, body),
-      config
+      config,
     );
   }
 }
 
 function urlQueryString(init: any): string {
-  const params: [string, string][] = [];
+  const params: Array<[string, string]> = [];
 
-  if (typeof init === "string") {
-    if (init[0] === "?") {
+  if (typeof init === 'string') {
+    if (init[0] === '?') {
       init = init.slice(1);
     }
     return init;
-  } else if (Array.isArray(init)) {
+  }
+  if (Array.isArray(init)) {
     for (const pair of init) {
       // If pair does not contain exactly two items, then throw a TypeError.
 
@@ -115,38 +118,42 @@ function urlQueryString(init: any): string {
     }
   }
 
-  return params.map((p) => `${encodeURI(p[0])}=${encodeURI(p[1])}`).join("&");
+  return params.map((p) => `${encodeURI(p[0])}=${encodeURI(p[1])}`).join('&');
 }
 
 export namespace Http {
   export enum Method {
-    GET = "Get",
-    POST = "Post",
-    PATCH = "Patch",
-    PUT = "Put",
-    DELETE = "Delete",
+    GET = 'Get',
+    POST = 'Post',
+    PATCH = 'Patch',
+    PUT = 'Put',
+    DELETE = 'Delete',
   }
 
   export enum ContentType {
-    None = "None",
-    PlainText = "PlainText",
-    Json = "Json",
-    Form = "Form",
+    None = 'None',
+    PlainText = 'PlainText',
+    Json = 'Json',
+    Form = 'Form',
   }
 
   export class Request {
     method: Method;
-    path: String;
+
+    path: string;
+
     headers: Record<string, string>;
+
     contentType: ContentType;
+
     body: Uint8Array | null;
 
     constructor(
       method: Method = Method.GET,
-      path: string = "",
+      path = '',
       headers: Record<string, string> = {},
       contentType: ContentType = ContentType.None,
-      body: Uint8Array | null = null
+      body: Uint8Array | null = null,
     ) {
       this.method = method;
       this.path = path;
@@ -171,14 +178,14 @@ export namespace Http {
   export class Config {
     acceptInvalidCerts: boolean;
 
-    constructor(acceptInvalidCerts: boolean = false) {
+    constructor(acceptInvalidCerts = false) {
       this.acceptInvalidCerts = acceptInvalidCerts;
     }
   }
 
   export interface Response {
-    status: number;
-    headers: Record<string, string>;
-    body: Uint8Array;
+    status: number
+    headers: Record<string, string>
+    body: Uint8Array
   }
 }

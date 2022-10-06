@@ -3,13 +3,13 @@ import {
   Logic,
   RailwayError,
   SessionStorageAgent,
-} from "@fstnetwork/logic";
+} from '@fstnetwork/logic';
 
 @Logic()
 export class GenericA extends GenericLogic {
   async run() {
     let i = 0;
-    await SessionStorageAgent.putJson("fstnetwork", i as number);
+    await SessionStorageAgent.putJson('fstnetwork', i);
 
     while (true) {
       i++;

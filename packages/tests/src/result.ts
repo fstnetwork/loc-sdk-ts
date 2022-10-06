@@ -3,13 +3,13 @@ import {
   Logic,
   RailwayError,
   ResultAgent,
-} from "@fstnetwork/logic";
+} from '@fstnetwork/logic';
 
 @Logic()
 export class TestResult extends AggregatorLogic {
   async run() {
     ResultAgent.finalize({
-      fstnetwork: "awesome",
+      fstnetwork: 'awesome',
       magicNumber: 9487,
       result2: null,
       error: null,

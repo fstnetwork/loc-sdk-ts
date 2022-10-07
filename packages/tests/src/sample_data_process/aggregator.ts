@@ -1,17 +1,20 @@
 import {
   AggregatorLogic,
   Logic,
+  LoggingAgent,
   RailwayError,
   ResultAgent,
   SessionStorageAgent,
 } from '@fstnetwork/logic';
 
 @Logic()
-export class Aggregator extends AggregatorLogic {
+export default class Aggregator extends AggregatorLogic {
   async run() {
     const value = (await SessionStorageAgent.get('kuma')) as number;
     await ResultAgent.finalize({ kuma: value });
   }
 
-  async handleError(_error: RailwayError) {}
+  async handleError(error: RailwayError) {
+    LoggingAgent.error(`${error}`);
+  }
 }

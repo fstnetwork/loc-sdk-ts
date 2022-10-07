@@ -8,7 +8,7 @@ import {
 } from '@fstnetwork/logic';
 
 @Logic()
-export class TestFileStorage extends GenericLogic {
+export default class TestFileStorage extends GenericLogic {
   async run() {
     LoggingAgent.info('test TestFileStorage');
 
@@ -18,8 +18,8 @@ export class TestFileStorage extends GenericLogic {
 
   async testFtp() {
     const ftpFileStorageAgent = await FileStorageAgent?.acquire(
-      'test-ftp-server',
-    )!;
+      'test-ftp-server'
+    );
 
     const urlOne = '/test_dir/test_file_1.txt';
     // data: "put to ftp server"
@@ -54,14 +54,14 @@ export class TestFileStorage extends GenericLogic {
     const receivedDataThree = await ftpFileStorageAgent?.simpleGet(urlThree);
     await SessionStorageAgent.putByteArray(
       'receivedDataThree',
-      receivedDataThree,
+      receivedDataThree
     );
   }
 
   async testFilesystem() {
     const smbFileStorageAgent = await FileStorageAgent?.acquire(
-      'test-smb-server',
-    )!;
+      'test-smb-server'
+    );
 
     let url = '/sharing/r_file.txt';
     let content = Deno.core.encode('write r_file.txt');
@@ -87,7 +87,7 @@ export class TestFileStorage extends GenericLogic {
     const listResponse = await smbFileStorageAgent?.list(url);
     await SessionStorageAgent.putJson(
       'fileTestReceivedListResponse',
-      listResponse,
+      listResponse
     );
 
     url = '/sharing/not_exist/r_file.txt';

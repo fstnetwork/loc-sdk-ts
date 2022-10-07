@@ -1,20 +1,23 @@
 import {
   GenericLogic,
   Logic,
+  LoggingAgent,
   RailwayError,
   SessionStorageAgent,
 } from '@fstnetwork/logic';
 
 @Logic()
-export class GenericA extends GenericLogic {
+export default class GenericA extends GenericLogic {
   async run() {
     let i = 0;
     await SessionStorageAgent.putJson('fstnetwork', i);
 
     while (true) {
-      i++;
+      i += 1;
     }
   }
 
-  async handleError(_error: RailwayError) {}
+  async handleError(error: RailwayError) {
+    LoggingAgent.error(`${error}`);
+  }
 }

@@ -1,6 +1,6 @@
-import resolve from '@rollup/plugin-node-resolve'
-import typescript from '@rollup/plugin-typescript'
-import { defineConfig } from 'rollup'
+import resolve from '@rollup/plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
+import { defineConfig } from 'rollup';
 
 function testCase(path) {
   return defineConfig({
@@ -16,7 +16,7 @@ function testCase(path) {
     },
     plugins: [resolve(), typescript({ tsconfig: './tsconfig.json' })],
     external: ['@fstnetwork/runtime'],
-  })
+  });
 }
 
 export default defineConfig([
@@ -47,4 +47,4 @@ export default defineConfig([
   testCase('mail'),
   testCase('timeout_data_process/aggregator'),
   testCase('timeout_data_process/generic_a'),
-])
+]);

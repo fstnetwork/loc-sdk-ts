@@ -7,7 +7,7 @@ import {
 } from '@fstnetwork/logic';
 
 @Logic()
-export class TestSessionStorage extends GenericLogic {
+export default class TestSessionStorage extends GenericLogic {
   async run() {
     LoggingAgent.info('test TestSessionStorage');
 
@@ -25,8 +25,8 @@ export class TestSessionStorage extends GenericLogic {
     await SessionStorageAgent.putJson('is87_check', {
       isUint8Array: bytes instanceof Uint8Array,
       isEqual:
-        expected.length == bytes.length
-        && expected.every((element, index) => element === bytes[index]),
+        expected.length === bytes.length &&
+        expected.every((element, index) => element === bytes[index]),
     });
 
     await SessionStorageAgent.putString('deleteMe', 'shouldDelete');

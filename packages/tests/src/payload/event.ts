@@ -6,7 +6,7 @@ import {
 } from '@fstnetwork/logic';
 
 @Logic()
-export class TestEventPayload extends GenericLogic {
+export default class TestEventPayload extends GenericLogic {
   async run() {
     LoggingAgent.info(this.context.task);
 

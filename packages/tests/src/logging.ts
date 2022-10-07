@@ -6,7 +6,7 @@ import {
 } from '@fstnetwork/logic';
 
 @Logic()
-export class TestLogging extends GenericLogic {
+export default class TestLogging extends GenericLogic {
   async run() {
     LoggingAgent.error('error log');
     LoggingAgent.warn('warn log');

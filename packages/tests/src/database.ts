@@ -8,7 +8,7 @@ import {
 } from '@fstnetwork/logic';
 
 @Logic()
-export class TestDatabase extends GenericLogic {
+export default class TestDatabase extends GenericLogic {
   async run() {
     LoggingAgent.info('test TestDatabase');
 
@@ -21,22 +21,22 @@ export class TestDatabase extends GenericLogic {
       const db = await DatabaseAgent.acquire('test-oracle-db');
       const resp = await db?.query(
         'SELECT * FROM saffron_runtime.tables WHERE 1=1;',
-        [],
+        []
       );
       if (resp !== undefined) {
         await SessionStorageAgent.putJson(
           'database_test_query_resp_columns',
-          resp?.columns,
+          resp?.columns
         );
         await SessionStorageAgent.putJson(
           'database_test_query_resp_rows',
-          resp?.rows,
+          resp?.rows
         );
       }
     } catch (error) {
       await SessionStorageAgent.putString(
         'database_test_query_error',
-        `Failed to query SQL on Database: ${error}`,
+        `Failed to query SQL on Database: ${error}`
       );
     }
   }
@@ -48,7 +48,7 @@ export class TestDatabase extends GenericLogic {
       await db?.beginTransaction();
       const resp = await db?.execute(
         'INSERT INTO saffron_runtime.tables(id, name) VALUES ($1, $2);',
-        [4, 'usada'],
+        [4, 'usada']
       );
       await SessionStorageAgent.putJson('database_test_execute_resp', resp);
       await db?.commitTransaction();
@@ -56,7 +56,7 @@ export class TestDatabase extends GenericLogic {
     } catch (error) {
       await SessionStorageAgent.putString(
         'database_test_execute_error',
-        `Failed to execute SQL on Database: ${error}`,
+        `Failed to execute SQL on Database: ${error}`
       );
     }
   }

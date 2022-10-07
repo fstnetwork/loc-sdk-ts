@@ -9,17 +9,17 @@ import {
 } from '@fstnetwork/logic';
 
 @Logic()
-export class TestMail extends GenericLogic {
+export default class TestMail extends GenericLogic {
   async run() {
     LoggingAgent.info('test TestMailAgent');
 
     let server;
     try {
-      server = await MailAgent?.acquire('test-smtp-server')!;
+      server = await MailAgent?.acquire('test-smtp-server');
     } catch (error) {
       await SessionStorageAgent.putString(
         'connect_error',
-        `Failed to connect SMTP server: ${error}`,
+        `Failed to connect SMTP server: ${error}`
       );
       return;
     }
@@ -32,12 +32,12 @@ export class TestMail extends GenericLogic {
           .setReceivers('babayaga@fstk.io')
           .setCC('john.wick@fstk.io')
           .setSubject('SUBJECT HERE')
-          .setBody('BODY HERE'),
+          .setBody('BODY HERE')
       );
     } catch (error) {
       await SessionStorageAgent.putString(
         'send_error',
-        `Failed to send mail using SMTP: ${error}`,
+        `Failed to send mail using SMTP: ${error}`
       );
     }
   }

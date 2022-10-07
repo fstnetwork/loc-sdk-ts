@@ -2,7 +2,7 @@ export const HttpAgent = {
   async acquire(configurationName: string): Promise<HttpAgentClient> {
     const configurationId = await Deno.core.opAsync(
       'op_http_agent_acquire',
-      configurationName,
+      configurationName
     );
 
     return new HttpAgentClient(configurationId);
@@ -14,11 +14,9 @@ export class HttpAgentClient {
 
   async send(
     request: Http.Request,
-    config: Http.Config | null,
+    config: Http.Config | null
   ): Promise<Http.Response> {
-    const {
-      method, path, headers, contentType, body,
-    } = request;
+    const { method, path, headers, contentType, body } = request;
     const req = {
       configurationId: this.configurationId,
       method,
@@ -36,11 +34,11 @@ export class HttpAgentClient {
     headers: Record<string, string>,
     contentType: Http.ContentType,
     body: Uint8Array | null = null,
-    config: Http.Config | null = null,
+    config: Http.Config | null = null
   ): Promise<Http.Response> {
     return this.send(
       new Http.Request(Http.Method.GET, path, headers, contentType, body),
-      config,
+      config
     );
   }
 
@@ -49,11 +47,11 @@ export class HttpAgentClient {
     headers: Record<string, string>,
     contentType: Http.ContentType,
     body: Uint8Array | null,
-    config: Http.Config | null = null,
+    config: Http.Config | null = null
   ): Promise<Http.Response> {
     return this.send(
       new Http.Request(Http.Method.POST, path, headers, contentType, body),
-      config,
+      config
     );
   }
 
@@ -62,11 +60,11 @@ export class HttpAgentClient {
     headers: Record<string, string>,
     contentType: Http.ContentType,
     body: Uint8Array | null,
-    config: Http.Config | null = null,
+    config: Http.Config | null = null
   ): Promise<Http.Response> {
     return this.send(
       new Http.Request(Http.Method.PATCH, path, headers, contentType, body),
-      config,
+      config
     );
   }
 
@@ -75,11 +73,11 @@ export class HttpAgentClient {
     headers: Record<string, string>,
     contentType: Http.ContentType,
     body: Uint8Array | null,
-    config: Http.Config | null = null,
+    config: Http.Config | null = null
   ): Promise<Http.Response> {
     return this.send(
       new Http.Request(Http.Method.PUT, path, headers, contentType, body),
-      config,
+      config
     );
   }
 
@@ -88,11 +86,11 @@ export class HttpAgentClient {
     headers: Record<string, string>,
     contentType: Http.ContentType,
     body: Uint8Array | null,
-    config: Http.Config | null = null,
+    config: Http.Config | null = null
   ): Promise<Http.Response> {
     return this.send(
       new Http.Request(Http.Method.DELETE, path, headers, contentType, body),
-      config,
+      config
     );
   }
 }
@@ -102,6 +100,7 @@ function urlQueryString(init: any): string {
 
   if (typeof init === 'string') {
     if (init[0] === '?') {
+      // eslint-disable-next-line no-param-reassign
       init = init.slice(1);
     }
     return init;
@@ -153,7 +152,7 @@ export namespace Http {
       path = '',
       headers: Record<string, string> = {},
       contentType: ContentType = ContentType.None,
-      body: Uint8Array | null = null,
+      body: Uint8Array | null = null
     ) {
       this.method = method;
       this.path = path;
@@ -184,8 +183,8 @@ export namespace Http {
   }
 
   export interface Response {
-    status: number
-    headers: Record<string, string>
-    body: Uint8Array
+    status: number;
+    headers: Record<string, string>;
+    body: Uint8Array;
   }
 }

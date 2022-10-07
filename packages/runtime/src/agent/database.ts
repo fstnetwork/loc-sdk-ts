@@ -2,7 +2,7 @@ export const DatabaseAgent = {
   async acquire(configurationName: string): Promise<DatabaseClient> {
     const uid = await Deno.core.opAsync(
       'op_database_agent_acquire',
-      configurationName,
+      configurationName
     );
 
     return new DatabaseClient(uid);
@@ -18,8 +18,8 @@ export class DatabaseClient {
 
   async query(rawSql: string, params: any[]): Promise<Database.QueryResults> {
     interface QueryResults {
-      columns: Database.QueryResultColumn[]
-      rows: any[]
+      columns: Database.QueryResultColumn[];
+      rows: any[];
     }
 
     const results: QueryResults = await Deno.core.opAsync(
@@ -28,17 +28,18 @@ export class DatabaseClient {
         uid: this.uid,
         rawSql,
         params,
-      },
+      }
     );
 
     results.rows = results.rows.reduce((newRows: any[], row: any) => {
       interface Row {
-        [key: string]: any
+        [key: string]: any;
       }
       const newRow: Row = {};
       for (let i = 0; i < results.columns.length; i++) {
         const columnName = results?.columns[i]?.name;
         if (columnName !== undefined) {
+          // eslint-disable-next-line prefer-destructuring
           newRow[columnName] = Object.values(row[i])[0];
         }
       }
@@ -78,12 +79,12 @@ export class DatabaseClient {
 
 export namespace Database {
   export interface QueryResultColumn {
-    name: string
-    type: string
+    name: string;
+    type: string;
   }
 
   export interface QueryResults {
-    columns: QueryResultColumn[]
-    rows: Array<{ [key: string]: any }>
+    columns: QueryResultColumn[];
+    rows: Array<{ [key: string]: any }>;
   }
 }

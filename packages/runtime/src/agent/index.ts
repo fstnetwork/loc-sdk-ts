@@ -5,11 +5,11 @@ export {
   DatabaseClientId,
 } from './database';
 export { EventAgent, Event } from './event';
-export { FileStorageAgent, FileStorageAgentClient } from './file_storage';
+export { FileStorageAgent, FileStorageAgentClient } from './fileStorage';
 export { HttpAgent, HttpAgentClient, Http } from './http';
-export { LocalStorageAgent } from './local_storage';
+export { LocalStorageAgent } from './localStorage';
 export { LoggingAgent } from './logging';
-export { LogicVariable } from './logic_variable';
+export { LogicVariable } from './logicVariable';
 export { ResultAgent } from './result';
-export { SessionStorageAgent } from './session_storage';
+export { SessionStorageAgent } from './sessionStorage';
 export { MailAgentClient, MailAgent, Mail } from './mail';

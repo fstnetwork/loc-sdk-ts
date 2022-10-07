@@ -2,7 +2,7 @@ import { Task } from '../primitive';
 
 import { Payload } from '../types/payload';
 
-export abstract class AbstractContext {
+export default abstract class AbstractContext {
   #payload?: Payload;
 
   #task?: Task;

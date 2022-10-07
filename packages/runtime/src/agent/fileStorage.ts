@@ -2,7 +2,7 @@ export const FileStorageAgent = {
   async acquire(configurationName: string): Promise<FileStorageAgentClient> {
     const configurationId = await Deno.core.opAsync(
       'op_file_storage_agent_acquire',
-      configurationName,
+      configurationName
     );
 
     return new FileStorageAgentClient(configurationId);
@@ -23,9 +23,10 @@ export class FileStorageAgentClient {
   async simplePut(
     path: string,
     data: Uint8Array | string,
-    options?: FileStorage.PutOptions,
+    options?: FileStorage.PutOptions
   ): Promise<number> {
-    const byteArray: Uint8Array = typeof data === 'string' ? Deno.core.encode(data) : data;
+    const byteArray: Uint8Array =
+      typeof data === 'string' ? Deno.core.encode(data) : data;
 
     return Deno.core.opAsync(
       'op_file_storage_agent_simple_put',
@@ -34,7 +35,7 @@ export class FileStorageAgentClient {
         path,
         ensureDir: options?.ensureDir ?? false,
       },
-      byteArray,
+      byteArray
     );
   }
 
@@ -62,11 +63,11 @@ export class FileStorageAgentClient {
 
 export namespace FileStorage {
   export interface FileType {
-    type: 'file' | 'directory' | 'symbolicLink'
-    name: string
+    type: 'file' | 'directory' | 'symbolicLink';
+    name: string;
   }
 
   export interface PutOptions {
-    ensureDir?: boolean
+    ensureDir?: boolean;
   }
 }

@@ -1,6 +1,4 @@
-import {
-  Pattern, PatternResult, Search, SearchResult,
-} from '../types/event';
+import { Pattern, PatternResult, Search, SearchResult } from '../types/event';
 
 export const EventAgent = {
   async emit(events: Event.Event[]): Promise<void> {
@@ -44,29 +42,26 @@ export const EventAgent = {
   },
 
   async searchWithPattern(request: Pattern): Promise<PatternResult> {
-    return Deno.core.opAsync(
-      'op_event_agent_search_with_pattern',
-      request,
-    );
+    return Deno.core.opAsync('op_event_agent_search_with_pattern', request);
   },
 };
 
 export namespace Event {
   export interface Event {
-    labelName: string
-    sourceDigitalIdentity?: string
-    targetDigitalIdentity?: string
-    sourceDID?: string // sourceDID is an alias of sourceDigitalIdentity
-    targetDID?: string // targetDID is an alias of targetDigitalIdentity
-    meta: string
-    type: string
+    labelName: string;
+    sourceDigitalIdentity?: string;
+    targetDigitalIdentity?: string;
+    sourceDID?: string; // sourceDID is an alias of sourceDigitalIdentity
+    targetDID?: string; // targetDID is an alias of targetDigitalIdentity
+    meta: string;
+    type: string;
   }
 
   export interface EventArgs {
-    labelName: string
-    sourceDigitalIdentity: string
-    targetDigitalIdentity: string
-    meta: string
-    type: string
+    labelName: string;
+    sourceDigitalIdentity: string;
+    targetDigitalIdentity: string;
+    meta: string;
+    type: string;
   }
 }

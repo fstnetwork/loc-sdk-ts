@@ -43,6 +43,7 @@ Object.assign(globalThis, {
   GenericContext,
 });
 
+// eslint-disable-next-line import/no-mutable-exports
 export let runtime: Runtime<AggregatorContext | GenericContext>;
 
 export function genericLogic() {

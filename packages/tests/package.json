@@ -8,8 +8,10 @@
     "build": "rollup -c",
     "clean": "rimraf target"
   },
+  "dependencies": {
+    "@fstnetwork/logic": "workspace:*"
+  },
   "devDependencies": {
-    "@fstnetwork/logic": "workspace:*",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.4.0",
     "rimraf": "^3.0.2",

@@ -9,7 +9,7 @@ import {
 } from '@fstnetwork/logic';
 
 @Logic()
-export class TestHttp extends GenericLogic {
+export default class TestHttp extends GenericLogic {
   async run() {
     LoggingAgent.info('test TestHttp');
 
@@ -25,9 +25,9 @@ export class TestHttp extends GenericLogic {
   }
 
   async testHttpGet() {
-    const httpAgent = await HttpAgent?.acquire('test-http-server')!;
+    const httpAgent = await HttpAgent?.acquire('test-http-server');
 
-    const resp = await httpAgent.get('/resource', {}, Http.ContentType.Json)!;
+    const resp = await httpAgent.get('/resource', {}, Http.ContentType.Json);
 
     await SessionStorageAgent.putJson('GET.status', resp.status as number);
     await SessionStorageAgent.putJson('GET.headers', resp.headers);
@@ -35,7 +35,7 @@ export class TestHttp extends GenericLogic {
   }
 
   async testHttpPost() {
-    const httpAgent = await HttpAgent?.acquire('test-http-server')!;
+    const httpAgent = await HttpAgent?.acquire('test-http-server');
 
     const resp = await httpAgent.post(
       '/resource',
@@ -43,8 +43,8 @@ export class TestHttp extends GenericLogic {
         'content-type': 'application/json',
       },
       Http.ContentType.Json,
-      new Uint8Array([123, 34, 97, 34, 58, 51, 51, 125]),
-    )!;
+      new Uint8Array([123, 34, 97, 34, 58, 51, 51, 125])
+    );
 
     await SessionStorageAgent.putJson('POST.status', resp.status as number);
     await SessionStorageAgent.putJson('POST.headers', resp.headers);
@@ -52,7 +52,7 @@ export class TestHttp extends GenericLogic {
   }
 
   async testHttpPut() {
-    const httpAgent = await HttpAgent?.acquire('test-http-server')!;
+    const httpAgent = await HttpAgent?.acquire('test-http-server');
 
     const resp = await httpAgent.put(
       '/resource/1',
@@ -65,8 +65,8 @@ export class TestHttp extends GenericLogic {
         99, 107, 32, 100, 97, 116, 97, 49, 34, 44, 34, 100, 97, 116, 97, 50, 34,
         58, 34, 112, 117, 116, 32, 109, 111, 99, 107, 32, 100, 97, 116, 97, 50,
         34, 125,
-      ]),
-    )!;
+      ])
+    );
 
     await SessionStorageAgent.putJson('PUT.status', resp.status as number);
     await SessionStorageAgent.putJson('PUT.headers', resp.headers);
@@ -74,7 +74,7 @@ export class TestHttp extends GenericLogic {
   }
 
   async testHttpPatch() {
-    const httpAgent = await HttpAgent?.acquire('test-http-server')!;
+    const httpAgent = await HttpAgent?.acquire('test-http-server');
 
     const resp = await httpAgent.patch(
       '/resource/1',
@@ -85,8 +85,8 @@ export class TestHttp extends GenericLogic {
       new Uint8Array([
         123, 34, 100, 97, 116, 97, 49, 34, 58, 34, 112, 117, 116, 32, 109, 111,
         99, 107, 32, 100, 97, 116, 97, 49, 34, 125,
-      ]),
-    )!;
+      ])
+    );
 
     await SessionStorageAgent.putJson('PATCH.status', resp.status as number);
     await SessionStorageAgent.putJson('PATCH.headers', resp.headers);
@@ -94,7 +94,7 @@ export class TestHttp extends GenericLogic {
   }
 
   async testHttpDelete() {
-    const httpAgent = await HttpAgent?.acquire('test-http-server')!;
+    const httpAgent = await HttpAgent?.acquire('test-http-server');
 
     const resp = await httpAgent.delete(
       '/resource/1',
@@ -102,8 +102,8 @@ export class TestHttp extends GenericLogic {
         'content-type': 'application/json',
       },
       Http.ContentType.Json,
-      new Uint8Array(),
-    )!;
+      new Uint8Array()
+    );
 
     await SessionStorageAgent.putJson('DELETE.status', resp.status as number);
     await SessionStorageAgent.putJson('DELETE.headers', resp.headers);

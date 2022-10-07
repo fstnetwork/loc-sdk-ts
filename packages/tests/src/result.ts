@@ -1,12 +1,13 @@
 import {
   AggregatorLogic,
+  LoggingAgent,
   Logic,
   RailwayError,
   ResultAgent,
 } from '@fstnetwork/logic';
 
 @Logic()
-export class TestResult extends AggregatorLogic {
+export default class TestResult extends AggregatorLogic {
   async run() {
     ResultAgent.finalize({
       fstnetwork: 'awesome',
@@ -16,5 +17,7 @@ export class TestResult extends AggregatorLogic {
     });
   }
 
-  async handleError(_error: RailwayError) {}
+  async handleError(error: RailwayError) {
+    LoggingAgent.error(`${error}`);
+  }
 }

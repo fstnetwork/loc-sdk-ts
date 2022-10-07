@@ -7,7 +7,7 @@ import {
 } from '@fstnetwork/logic';
 
 @Logic()
-export class TestLocalStorage extends GenericLogic {
+export default class TestLocalStorage extends GenericLogic {
   async run() {
     LoggingAgent.info('test TestLocalStorage');
 
@@ -24,9 +24,9 @@ export class TestLocalStorage extends GenericLogic {
     // test putByteArray by string
     await LocalStorageAgent?.putByteArray('byteArrayByString', 'fromStr');
 
-    await LocalStorageAgent?.putJson('foo', 1 as number);
-    const bar = (await LocalStorageAgent?.get('foo')) + 3;
-    await LocalStorageAgent?.putJson('bar', bar);
+    await LocalStorageAgent?.putJson('foo', 1);
+    const bar = await LocalStorageAgent?.get('foo');
+    await LocalStorageAgent?.putJson('bar', bar + 3);
     await LocalStorageAgent?.putJson('baz', { baz: 777 });
 
     await LocalStorageAgent?.putString('deleteMe', 'shouldDelete');
@@ -39,8 +39,8 @@ export class TestLocalStorage extends GenericLogic {
     await LocalStorageAgent?.putJson('is87_check', {
       isUint8Array: bytes instanceof Uint8Array,
       isEqual:
-        expected.length == bytes.length
-        && expected.every((element, index) => element === bytes[index]),
+        expected.length === bytes.length &&
+        expected.every((element, index) => element === bytes[index]),
     });
   }
 

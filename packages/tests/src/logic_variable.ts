@@ -7,7 +7,7 @@ import {
 } from '@fstnetwork/logic';
 
 @Logic()
-export class TestLogicVariable extends GenericLogic {
+export default class TestLogicVariable extends GenericLogic {
   async run() {
     const homeless = LogicVariable.get('homeless');
     const doge = LogicVariable.get('shibainu');
@@ -21,5 +21,7 @@ export class TestLogicVariable extends GenericLogic {
     });
   }
 
-  async handleError(_error: RailwayError) {}
+  async handleError(error: RailwayError) {
+    LoggingAgent.error(`${error}`);
+  }
 }

@@ -7,7 +7,7 @@ import {
 } from '@fstnetwork/logic';
 
 @Logic()
-export class TestUrl extends GenericLogic {
+export default class TestUrl extends GenericLogic {
   async run() {
     LoggingAgent.info('test TestUrl');
 
@@ -22,12 +22,12 @@ export class TestUrl extends GenericLogic {
     const searchParams = new URLSearchParams('a=Apple&b=Banana');
     await SessionStorageAgent.putString(
       'searchParams_a',
-      searchParams.get('a') as string,
+      searchParams.get('a') as string
     );
     searchParams.append('c', 'California');
     await SessionStorageAgent.putString(
       'searchParams_c',
-      searchParams.get('c') as string,
+      searchParams.get('c') as string
     );
   }
 

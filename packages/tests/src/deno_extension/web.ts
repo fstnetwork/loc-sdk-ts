@@ -7,25 +7,25 @@ import {
 } from '@fstnetwork/logic';
 
 @Logic()
-export class TestWeb extends GenericLogic {
+export default class TestWeb extends GenericLogic {
   async run() {
     LoggingAgent.info('test TestWeb');
 
     const base64EncodeText = btoa('hello world');
     await SessionStorageAgent.putByteArray(
       'base64EncodeText',
-      Deno.core.encode(base64EncodeText),
+      Deno.core.encode(base64EncodeText)
     );
 
     const base64PlainText = atob(base64EncodeText);
     await SessionStorageAgent.putByteArray(
       'base64PlainText_uint8Array',
-      Deno.core.encode(base64PlainText),
+      Deno.core.encode(base64PlainText)
     );
     const base64PlainTextString = atob('TWFnaWM=');
     await SessionStorageAgent.putByteArray(
       'base64PlainText_string',
-      Deno.core.encode(base64PlainTextString),
+      Deno.core.encode(base64PlainTextString)
     );
 
     const uint8array = new TextEncoder().encode('Hi 你好 🐳');

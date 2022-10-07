@@ -6,7 +6,7 @@ import {
 } from '@fstnetwork/logic';
 
 @Logic()
-export class TestBeginWithOk extends GenericLogic {
+export default class TestBeginWithOk extends GenericLogic {
   async run() {
     LoggingAgent.info('on Railway Ok');
   }

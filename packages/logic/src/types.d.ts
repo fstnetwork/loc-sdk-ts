@@ -9,7 +9,5 @@ declare global {
   export const GenericContext: typeof Saffron.GenericContext;
 }
 
-export {
-  GenericLogic, AggregatorLogic, Context, Logic,
-} from './index';
+export { GenericLogic, AggregatorLogic, Context, Logic } from './index';
 export * from '@fstnetwork/runtime';

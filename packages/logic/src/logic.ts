@@ -37,6 +37,7 @@ export function Logic(): ClassDecorator {
 }
 
 export function Context(): PropertyDecorator {
+  // eslint-disable-next-line @typescript-eslint/ban-types
   return (target: Object, propertyKey: string | symbol) => {
     Object.defineProperty(target, propertyKey, {
       get() {

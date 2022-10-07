@@ -1,4 +1,6 @@
-export class Railway {
+import RailwayError from './railwayError';
+
+export default class Railway {
   static async isOk(): Promise<boolean> {
     return Deno.core.opAsync('op_railway_is_ok');
   }
@@ -21,32 +23,13 @@ export class Railway {
   }
 
   static async getError(): Promise<RailwayError> {
-    const {
-      name, message, logicPermanentIdentity, logicRevision,
-    } = await Deno.core.opAsync('op_railway_get_error');
+    const { name, message, logicPermanentIdentity, logicRevision } =
+      await Deno.core.opAsync('op_railway_get_error');
     return new RailwayError(
       name,
       message,
       logicPermanentIdentity,
-      logicRevision,
+      logicRevision
     );
-  }
-}
-
-export class RailwayError extends Error {
-  logicPermanentIdentity: string;
-
-  logicRevision: number;
-
-  constructor(
-    name: string,
-    message: string,
-    logicPermanentIdentity: string,
-    logicRevision: number,
-  ) {
-    super(message);
-    this.name = name;
-    this.logicPermanentIdentity = logicPermanentIdentity;
-    this.logicRevision = logicRevision;
   }
 }

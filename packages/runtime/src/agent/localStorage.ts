@@ -1,5 +1,6 @@
+// eslint-disable-next-line import/prefer-default-export
 export const LocalStorageAgent = {
-  async get(key: string): Promise<any> {
+  async get(key: string): Promise<any | null> {
     return Deno.core.opAsync('op_local_storage_agent_get', key);
   },
 
@@ -14,9 +15,10 @@ export const LocalStorageAgent = {
   async putByteArray(
     key: string,
     value: Uint8Array | string,
-    timeout?: number,
+    timeout?: number
   ): Promise<void> {
-    const byteArray: Uint8Array = typeof value === 'string' ? Deno.core.encode(value) : value;
+    const byteArray: Uint8Array =
+      typeof value === 'string' ? Deno.core.encode(value) : value;
 
     await Deno.core.opAsync('op_local_storage_agent_put', {
       key,
@@ -25,7 +27,11 @@ export const LocalStorageAgent = {
     });
   },
 
-  async putJson(key: string, value: object, timeout?: number): Promise<void> {
+  async putJson(
+    key: string,
+    value: object | number,
+    timeout?: number
+  ): Promise<void> {
     await Deno.core.opAsync('op_local_storage_agent_put', {
       key,
       value: { Json: value },

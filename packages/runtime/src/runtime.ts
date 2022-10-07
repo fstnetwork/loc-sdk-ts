@@ -1,13 +1,12 @@
 import { Railway, RailwayError } from './primitive';
-import { RuntimeError } from './runtimeError';
+import RuntimeError from './runtimeError';
 
 export type Main = () => Promise<void>;
 
 export type ErrorHandler = (error: RailwayError) => Promise<void>;
 
-export async function empty(): Promise<void> {
-
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+export async function empty(): Promise<void> {}
 
 export class Runtime<C> {
   #context: C;
@@ -49,12 +48,12 @@ export class Runtime<C> {
     }
 
     if (
-      this.#main === empty
-      && this.#errorHandler === empty
-      && globalThis.run instanceof Function
-      && globalThis.run.length === 1
-      && globalThis.handleError instanceof Function
-      && globalThis.handleError.length === 2
+      this.#main === empty &&
+      this.#errorHandler === empty &&
+      globalThis.run instanceof Function &&
+      globalThis.run.length === 1 &&
+      globalThis.handleError instanceof Function &&
+      globalThis.handleError.length === 2
     ) {
       this.#main = globalThis.run.bind(null, this.#context);
       this.#errorHandler = globalThis.handleError.bind(null, this.#context);
@@ -73,9 +72,10 @@ export class Runtime<C> {
   }
 }
 
+/* eslint-disable import/no-mutable-exports, no-var */
 declare global {
   export var run: undefined | (<C>(ctx: C) => Promise<void>);
   export var handleError:
-  | undefined
-  | (<C>(ctx: C, error: RailwayError) => Promise<void>);
+    | undefined
+    | (<C>(ctx: C, error: RailwayError) => Promise<void>);
 }

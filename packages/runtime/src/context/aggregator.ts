@@ -1,7 +1,5 @@
-import { AbstractContext } from './context';
+import AbstractContext from './context';
 
-export class AggregatorContext extends AbstractContext {
-  constructor() {
-    super();
-  }
+export default class AggregatorContext extends AbstractContext {
+  //
 }

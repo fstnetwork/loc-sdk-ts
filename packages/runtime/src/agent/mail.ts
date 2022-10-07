@@ -2,7 +2,7 @@ export const MailAgent = {
   async acquire(configurationName: string): Promise<MailAgentClient> {
     const uid = await Deno.core.opAsync(
       'op_mail_agent_acquire',
-      configurationName,
+      configurationName
     );
 
     return new MailAgentClient(uid);
@@ -35,8 +35,8 @@ export class MailAgentClient {
 
 export namespace Mail {
   export interface MailBox {
-    name: string
-    mail: string
+    name: string;
+    mail: string;
   }
 
   export class Mail {

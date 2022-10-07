@@ -1,5 +1,8 @@
+// eslint-disable-next-line import/prefer-default-export
 export const SessionStorageAgent = {
-  async get(key: string): Promise<string | number | object | Uint8Array> {
+  async get(
+    key: string
+  ): Promise<string | number | object | Uint8Array | null> {
     return Deno.core.opAsync('op_session_storage_agent_get', key);
   },
 
@@ -19,9 +22,10 @@ export const SessionStorageAgent = {
 
   async putByteArray(
     key: string,
-    value: Uint8Array | string,
+    value: Uint8Array | string
   ): Promise<boolean> {
-    const byteArray: Uint8Array = typeof value === 'string' ? Deno.core.encode(value) : value;
+    const byteArray: Uint8Array =
+      typeof value === 'string' ? Deno.core.encode(value) : value;
 
     return Deno.core.opAsync('op_session_storage_agent_put', {
       key,

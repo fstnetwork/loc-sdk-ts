@@ -119,7 +119,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@fstnetwork/runtime@workspace:packages/runtime"
   dependencies:
-    "@rollup/plugin-typescript": ^8.4.0
+    "@rollup/plugin-typescript": ^9.0.2
     "@types/node": ^18.0.1
     json-schema-to-typescript: ^10.1.5
     rimraf: ^3.0.2
@@ -137,7 +137,7 @@ __metadata:
   dependencies:
     "@fstnetwork/logic": "workspace:*"
     "@rollup/plugin-node-resolve": ^13.3.0
-    "@rollup/plugin-typescript": ^8.4.0
+    "@rollup/plugin-typescript": ^9.0.2
     rimraf: ^3.0.2
     rollup: ^3.2.5
     tslib: ^2.4.0
@@ -261,20 +261,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-typescript@npm:^8.4.0":
-  version: 8.4.0
-  resolution: "@rollup/plugin-typescript@npm:8.4.0"
+"@rollup/plugin-typescript@npm:^9.0.2":
+  version: 9.0.2
+  resolution: "@rollup/plugin-typescript@npm:9.0.2"
   dependencies:
-    "@rollup/pluginutils": ^3.1.0
-    resolve: ^1.17.0
+    "@rollup/pluginutils": ^5.0.1
+    resolve: ^1.22.1
   peerDependencies:
-    rollup: ^2.14.0
+    rollup: ^2.14.0||^3.0.0
     tslib: "*"
     typescript: ">=3.7.0"
   peerDependenciesMeta:
+    rollup:
+      optional: true
     tslib:
       optional: true
-  checksum: 1236b9b6fa4d368fc34514ec388b2584a443797bf081bf861a40476267d6c3cdbb3edf5659b6e0030e99e15b25f464664e7301ffeeabf661b3d81738320ee64e
+  checksum: 0b3a15e7402a8cf46a491003a0bfe6bf50294939133cf898c1dee0b9f1f8f4742242e81abd15effd8de2e9f3fe5fd81d01a03020341e1d3d0b7f4c6be21d989f
   languageName: node
   linkType: hard
 
@@ -288,6 +290,22 @@ __metadata:
   peerDependencies:
     rollup: ^1.20.0||^2.0.0
   checksum: 8be16e27863c219edbb25a4e6ec2fe0e1e451d9e917b6a43cf2ae5bc025a6b8faaa40f82a6e53b66d0de37b58ff472c6c3d57a83037ae635041f8df959d6d9aa
+  languageName: node
+  linkType: hard
+
+"@rollup/pluginutils@npm:^5.0.1":
+  version: 5.0.2
+  resolution: "@rollup/pluginutils@npm:5.0.2"
+  dependencies:
+    "@types/estree": ^1.0.0
+    estree-walker: ^2.0.2
+    picomatch: ^2.3.1
+  peerDependencies:
+    rollup: ^1.20.0||^2.0.0||^3.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: edea15e543bebc7dcac3b0ac8bc7b8e8e6dbd46e2864dbe5dd28072de1fbd5b0e10d545a610c0edaa178e8a7ac432e2a2a52e547ece1308471412caba47db8ce
   languageName: node
   linkType: hard
 
@@ -336,7 +354,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/estree@npm:*":
+"@types/estree@npm:*, @types/estree@npm:^1.0.0":
   version: 1.0.0
   resolution: "@types/estree@npm:1.0.0"
   checksum: 910d97fb7092c6738d30a7430ae4786a38542023c6302b95d46f49420b797f21619cdde11fa92b338366268795884111c2eb10356e4bd2c8ad5b92941e9e6443
@@ -1603,6 +1621,13 @@ __metadata:
   version: 1.0.1
   resolution: "estree-walker@npm:1.0.1"
   checksum: 7e70da539691f6db03a08e7ce94f394ce2eef4180e136d251af299d41f92fb2d28ebcd9a6e393e3728d7970aeb5358705ddf7209d52fbcb2dd4693f95dcf925f
+  languageName: node
+  linkType: hard
+
+"estree-walker@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "estree-walker@npm:2.0.2"
+  checksum: 6151e6f9828abe2259e57f5fd3761335bb0d2ebd76dc1a01048ccee22fabcfef3c0859300f6d83ff0d1927849368775ec5a6d265dde2f6de5a1be1721cd94efc
   languageName: node
   linkType: hard
 
@@ -2999,7 +3024,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"resolve@^1.17.0, resolve@^1.19.0":
+resolve@^1.19.0:
   version: 1.20.0
   resolution: "resolve@npm:1.20.0"
   dependencies:
@@ -3022,7 +3047,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@^1.17.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.19.0#~builtin<compat/resolve>":
+"resolve@patch:resolve@^1.19.0#~builtin<compat/resolve>":
   version: 1.20.0
   resolution: "resolve@patch:resolve@npm%3A1.20.0#~builtin<compat/resolve>::version=1.20.0&hash=07638b"
   dependencies:

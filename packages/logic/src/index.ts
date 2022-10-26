@@ -8,7 +8,6 @@ export {
   MessagePayload,
 } from './logic';
 
-export const { Http } = Saffron;
 export const { Mail } = Saffron;
 
 export const { LocalStorageAgent } = Saffron;

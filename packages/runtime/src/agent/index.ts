@@ -6,7 +6,7 @@ export {
 } from './database';
 export { EventAgent, Event } from './event';
 export { FileStorageAgent, FileStorageAgentClient } from './fileStorage';
-export { HttpAgent, HttpAgentClient, Http } from './http';
+export { HttpAgent, HttpAgentClient } from './http';
 export { LocalStorageAgent } from './localStorage';
 export { LoggingAgent } from './logging';
 export { LogicVariable } from './logicVariable';

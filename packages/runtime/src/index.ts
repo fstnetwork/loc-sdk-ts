@@ -9,7 +9,6 @@ export {
   EventAgent,
   FileStorageAgent,
   FileStorageAgentClient,
-  Http,
   HttpAgent,
   HttpAgentClient,
   LocalStorageAgent,

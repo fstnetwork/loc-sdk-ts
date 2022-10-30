@@ -1,4 +1,4 @@
-// reference: https://github.com/denoland/deno/blob/v1.26.0/ext/web/lib.deno_web.d.ts
+// reference: https://github.com/denoland/deno/blob/v1.27.0/ext/web/lib.deno_web.d.ts
 
 // Copyright 2018-2022 the Deno authors. All rights reserved. MIT license.
 

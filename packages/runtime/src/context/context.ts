@@ -27,5 +27,5 @@ async function fetchPayload(): Promise<Payload> {
 }
 
 function fetchTask(): Task {
-  return Deno.core.opSync('op_fetch_task');
+  return Deno.core.ops['op_fetch_task']?.();
 }

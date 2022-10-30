@@ -30,6 +30,6 @@ export const LoggingAgent = {
     }
 
     const record = { level, message };
-    Deno.core.opSync('op_log', record);
+    Deno.core.ops['op_log']?.(record);
   },
 };

@@ -96,7 +96,7 @@ __metadata:
   resolution: "@fstnetwork/root@workspace:."
   dependencies:
     "@types/eslint": ^8
-    "@types/node": ^18.0.1
+    "@types/node": ^18.11.9
     "@types/prettier": ^2
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.39.0
@@ -120,7 +120,7 @@ __metadata:
   resolution: "@fstnetwork/runtime@workspace:packages/runtime"
   dependencies:
     "@rollup/plugin-typescript": ^9.0.2
-    "@types/node": ^18.0.1
+    "@types/node": ^18.11.9
     json-schema-to-typescript: ^10.1.5
     rimraf: ^3.0.2
     rollup: ^3.2.5
@@ -403,10 +403,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.0.1":
-  version: 18.0.1
-  resolution: "@types/node@npm:18.0.1"
-  checksum: be14b251c54cc2b4ca78ac6eadf2fe5e831e487f2e17848f21d576295945b538271dcc674d0bba582b3f8d95b84f6826e99b6ba4710c76f165a8bdd4d4f0618e
+"@types/node@npm:^18.11.9":
+  version: 18.11.9
+  resolution: "@types/node@npm:18.11.9"
+  checksum: cc0aae109e9b7adefc32eecb838d6fad931663bb06484b5e9cbbbf74865c721b03d16fd8d74ad90e31dbe093d956a7c2c306ba5429ba0c00f3f7505103d7a496
   languageName: node
   linkType: hard
 

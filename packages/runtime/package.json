@@ -13,12 +13,12 @@
     "clean": "rimraf target"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "^8.4.0",
+    "@rollup/plugin-typescript": "^9.0.2",
     "@types/node": "^18.0.1",
     "json-schema-to-typescript": "^10.1.5",
     "rimraf": "^3.0.2",
-    "rollup": "^2.78.1",
-    "rollup-plugin-dts": "^4.2.2",
+    "rollup": "^3.2.5",
+    "rollup-plugin-dts": "^5.0.0",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4"

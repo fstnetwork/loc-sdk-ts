@@ -1563,7 +1563,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }],\
         ["npm:0.10.61", {\
-          "packageLocation": "./.yarn/cache/es5-ext-npm-0.10.61-53173b2421-2f2034e91e.zip/node_modules/es5-ext/",\
+          "packageLocation": "./.yarn/unplugged/es5-ext-npm-0.10.61-53173b2421/node_modules/es5-ext/",\
           "packageDependencies": [\
             ["es5-ext", "npm:0.10.61"],\
             ["es6-iterator", "npm:2.0.3"],\

@@ -23,7 +23,7 @@ export {
 export type { AggregatorContext, GenericContext } from './context';
 export type { Railway, RailwayError, Task } from './primitive';
 export type {
-  IdentityContext,
+  VersionedIdentityContext,
   Pattern,
   PatternResult,
   Search,

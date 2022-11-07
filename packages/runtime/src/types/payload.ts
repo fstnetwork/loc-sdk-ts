@@ -24,10 +24,10 @@ export type Address =
       pipe: Pipe;
     };
 export type Protocol = 'tcp' | 'udp';
-export type HttpRequest = HttpRequestFor_Data;
-export interface Subscriber {
+export type HttpRequest = HttpRequestFor_DataBytes;
+export type Subscriber = {
   kafka: KafkaSubscriber;
-}
+};
 
 /**
  * Payload represent a HTTP request
@@ -72,7 +72,10 @@ export interface Pipe {
   path: string;
   [k: string]: unknown;
 }
-export interface HttpRequestFor_Data {
+export interface HttpRequestFor_DataBytes {
+  /**
+   * A base64-encoded string
+   */
   data: number[];
   headers: {
     [k: string]: unknown;
@@ -90,6 +93,9 @@ export interface HttpRequestFor_Data {
  */
 export interface MessagePayload {
   clientIdentityContext: IdentityContextFor_Uuid;
+  /**
+   * A base64-encoded string
+   */
   data: number[];
   subscriber: Subscriber;
   [k: string]: unknown;

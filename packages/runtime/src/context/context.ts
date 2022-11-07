@@ -27,7 +27,7 @@ async function fetchPayload(): Promise<Payload> {
 }
 
 function fetchTask(): Task {
-  let task = Deno.core.ops['op_fetch_task']?.();
+  const task = Deno.core.ops['op_fetch_task']?.();
 
   // NOTE: update task struct to match `0.7` interface, and we will update the `Task` interface on version `0.8.0`
   task.taskId = {

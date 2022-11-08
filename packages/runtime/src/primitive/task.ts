@@ -1,15 +1,14 @@
-import { IdentityContext } from '../types/event';
+import { VersionedIdentityContext } from '../types/event';
 
 export interface Task {
-  // NOTE: let `taskId` match the current response, need to discuss the better design and interface change.
-  taskId: TaskId;
-  startAt: Date;
-  dataProcess: IdentityContext;
-  currentLogic?: IdentityContext;
-  executedLogics: IdentityContext[];
+  taskId: TaskKey;
+  startTimestamp: Date;
+  dataProcess: VersionedIdentityContext;
+  currentLogic?: VersionedIdentityContext;
+  executedLogics: VersionedIdentityContext[];
 }
 
-export interface TaskId {
-  id: string;
+export interface TaskKey {
   executionId: string;
+  taskId: string;
 }

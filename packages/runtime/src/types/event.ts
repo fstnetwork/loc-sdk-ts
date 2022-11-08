@@ -115,10 +115,10 @@ export interface Condition {
  * via the `definition` "Event".
  */
 export interface Event {
-  dataProcessIdentityContext: IdentityContext;
+  dataProcessIdentityContext: VersionedIdentityContext;
   executionId: string;
   label: Label;
-  logicIdentityContext: IdentityContext;
+  logicIdentityContext: VersionedIdentityContext;
   meta: string;
   sequence: number;
   sourceDigitalIdentity: string;
@@ -130,9 +130,9 @@ export interface Event {
 }
 /**
  * This interface was referenced by `EventJsonSchema`'s JSON-Schema
- * via the `definition` "IdentityContext".
+ * via the `definition` "VersionedIdentityContext".
  */
-export interface IdentityContext {
+export interface VersionedIdentityContext {
   /**
    * Name
    */

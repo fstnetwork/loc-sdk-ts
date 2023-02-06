@@ -1,4 +1,4 @@
-import { Pattern, PatternResult, Search, SearchResult } from "../types/event";
+import { Pattern, PatternResult, Search, SearchResult } from '../types/event';
 
 export const EventAgent = {
   async emit(events: Event.Event[]): Promise<void> {
@@ -15,12 +15,12 @@ export const EventAgent = {
 
       const source = sourceDID ?? sourceDigitalIdentity ?? undefined;
       if (source === undefined) {
-        throw Error("sourceDigitalIdentity is undefined");
+        throw Error('sourceDigitalIdentity is undefined');
       }
 
       const target = targetDID ?? targetDigitalIdentity ?? undefined;
       if (target === undefined) {
-        throw Error("targetDigitalIdentity is undefined");
+        throw Error('targetDigitalIdentity is undefined');
       }
 
       const eventArgs = {
@@ -34,15 +34,15 @@ export const EventAgent = {
       return eventArgs;
     });
 
-    await Deno.core.opAsync("op_event_agent_emit", eventsArgs);
+    await Deno.core.opAsync('op_event_agent_emit', eventsArgs);
   },
 
   async search(request: Search): Promise<SearchResult> {
-    return Deno.core.opAsync("op_event_agent_search", request);
+    return Deno.core.opAsync('op_event_agent_search', request);
   },
 
   async searchWithPattern(request: Pattern): Promise<PatternResult> {
-    return Deno.core.opAsync("op_event_agent_search_with_pattern", request);
+    return Deno.core.opAsync('op_event_agent_search_with_pattern', request);
   },
 };
 

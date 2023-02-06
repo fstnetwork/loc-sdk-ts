@@ -3,16 +3,16 @@ import {
   Logic,
   LoggingAgent,
   RailwayError,
-} from "@fstnetwork/logic";
+} from '@fstnetwork/logic';
 
 @Logic()
-export class TestLogging extends GenericLogic {
+export default class TestLogging extends GenericLogic {
   async run() {
-    LoggingAgent.error("error log");
-    LoggingAgent.warn("warn log");
-    LoggingAgent.info("info log");
-    LoggingAgent.debug("debug log");
-    LoggingAgent.trace("trace log");
+    LoggingAgent.error('error log');
+    LoggingAgent.warn('warn log');
+    LoggingAgent.info('info log');
+    LoggingAgent.debug('debug log');
+    LoggingAgent.trace('trace log');
 
     LoggingAgent.info({
       abc: 87,

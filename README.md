@@ -1,1 +1,1 @@
-# LOC SDK for TypeScript
+# LOC Logic SDK for JavaScript/TypeScript

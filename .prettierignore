@@ -7,3 +7,9 @@ dist/
 .yarn/*
 
 .direnv
+
+lib.deno_core.d.ts
+lib.deno_url.d.ts
+lib.deno_web.d.ts
+packages/runtime/src/agent/http/lib.deno_fetch.d.ts
+packages/runtime/src/agent/http/internal.d.ts

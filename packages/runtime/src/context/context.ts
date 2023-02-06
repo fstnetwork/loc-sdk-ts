@@ -1,9 +1,10 @@
-import { Task } from "../primitive";
+import { Task } from '../primitive';
 
-import { Payload } from "../types/payload";
+import { Payload } from '../types/payload';
 
-export abstract class AbstractContext {
+export default abstract class AbstractContext {
   #payload?: Payload;
+
   #task?: Task;
 
   async payload(): Promise<Payload> {
@@ -22,9 +23,20 @@ export abstract class AbstractContext {
 }
 
 async function fetchPayload(): Promise<Payload> {
-  return Deno.core.opAsync("op_fetch_payload");
+  return Deno.core.opAsync('op_fetch_payload');
 }
 
 function fetchTask(): Task {
-  return Deno.core.opSync("op_fetch_task");
+  const task = Deno.core.ops['op_fetch_task']?.();
+
+  // NOTE: update task struct to match `0.7` interface, and we will update the `Task` interface on version `0.8.0`
+  task.taskId = {
+    id: task.taskKey.taskId,
+    executionId: task.taskKey.executionId,
+  };
+  task.startAt = task.startTimestamp;
+  task.taskKey = undefined;
+  task.startTimestamp = undefined;
+
+  return task;
 }

@@ -3,16 +3,16 @@ import {
   Logic,
   LoggingAgent,
   RailwayError,
-} from "@fstnetwork/logic";
+} from '@fstnetwork/logic';
 
 @Logic()
-export class TestRailwayInternalSwitch extends GenericLogic {
+export default class TestRailwayInternalSwitch extends GenericLogic {
   async run() {
-    throw Error("my error message");
+    throw Error('my error message');
   }
 
   async handleError(error: RailwayError) {
-    LoggingAgent.info("on Railway Error");
+    LoggingAgent.info('on Railway Error');
     LoggingAgent.info(
       `Logic Permanent Identity: ${error.logicPermanentIdentity}`
     );

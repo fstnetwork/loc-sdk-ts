@@ -4,30 +4,30 @@ import {
   LoggingAgent,
   RailwayError,
   SessionStorageAgent,
-} from "@fstnetwork/logic";
+} from '@fstnetwork/logic';
 
 @Logic()
-export class TestUrl extends GenericLogic {
+export default class TestUrl extends GenericLogic {
   async run() {
-    LoggingAgent.info("test TestUrl");
+    LoggingAgent.info('test TestUrl');
 
-    const baseURL = new URL("https://fst.dev");
-    await SessionStorageAgent.putString("baseURL_href", baseURL.href);
+    const baseURL = new URL('https://fst.dev');
+    await SessionStorageAgent.putString('baseURL_href', baseURL.href);
 
-    const withPath = new URL("/fst-quick-start/", baseURL);
-    await SessionStorageAgent.putString("withPath_href", withPath.href);
-    await SessionStorageAgent.putString("withPath_protocol", withPath.protocol);
-    await SessionStorageAgent.putString("withPath_host", withPath.host);
+    const withPath = new URL('/fst-quick-start/', baseURL);
+    await SessionStorageAgent.putString('withPath_href', withPath.href);
+    await SessionStorageAgent.putString('withPath_protocol', withPath.protocol);
+    await SessionStorageAgent.putString('withPath_host', withPath.host);
 
-    const searchParams = new URLSearchParams("a=Apple&b=Banana");
+    const searchParams = new URLSearchParams('a=Apple&b=Banana');
     await SessionStorageAgent.putString(
-      "searchParams_a",
-      searchParams.get("a") as string
+      'searchParams_a',
+      searchParams.get('a') as string
     );
-    searchParams.append("c", "California");
+    searchParams.append('c', 'California');
     await SessionStorageAgent.putString(
-      "searchParams_c",
-      searchParams.get("c") as string
+      'searchParams_c',
+      searchParams.get('c') as string
     );
   }
 

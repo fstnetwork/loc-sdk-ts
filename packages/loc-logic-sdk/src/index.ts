@@ -1,1 +1,1 @@
-export * from "@fstnetwork/logic";
+export * from '@fstnetwork/logic';

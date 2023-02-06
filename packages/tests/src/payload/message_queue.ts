@@ -3,32 +3,29 @@ import {
   Logic,
   LoggingAgent,
   RailwayError,
-} from "@fstnetwork/logic";
+} from '@fstnetwork/logic';
 
 @Logic()
-export class TestMessageQueuePayload extends GenericLogic {
+export default class TestMessageQueuePayload extends GenericLogic {
   async run() {
-    {
-      LoggingAgent.info(this.context.task);
+    LoggingAgent.info(this.context.task);
 
-      const payload = await this.context.payload();
+    const payload = await this.context.payload();
 
-      LoggingAgent.info("test MessageQueuePayload");
-      LoggingAgent.info(typeof payload);
-      LoggingAgent.info(`${"messageQueue" in payload}`);
+    LoggingAgent.info('test MessageQueuePayload');
+    LoggingAgent.info(typeof payload);
+    LoggingAgent.info(`${'messageQueue' in payload}`);
 
-      if ("messageQueue" in payload) {
-        const { clientIdentityContext, subscriber, data } =
-          payload.messageQueue;
+    if ('messageQueue' in payload) {
+      const { clientIdentityContext, subscriber, data } = payload.messageQueue;
 
-        LoggingAgent.info(data.constructor.name);
+      LoggingAgent.info(data.constructor.name);
 
-        LoggingAgent.info({
-          clientIdentityContext,
-          subscriber,
-          data: Array.from(data),
-        });
-      }
+      LoggingAgent.info({
+        clientIdentityContext,
+        subscriber,
+        data: Array.from(data),
+      });
     }
   }
 

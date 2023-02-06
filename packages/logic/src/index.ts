@@ -6,20 +6,19 @@ export {
   EventPayload,
   HttpPayload,
   MessagePayload,
-} from "./logic";
+} from './logic';
 
-export const Http = Saffron.Http;
-export const Mail = Saffron.Mail;
+export const { Mail } = Saffron;
 
-export const LocalStorageAgent = Saffron.LocalStorageAgent;
-export const SessionStorageAgent = Saffron.SessionStorageAgent;
-export const LogicVariable = Saffron.LogicVariable;
+export const { LocalStorageAgent } = Saffron;
+export const { SessionStorageAgent } = Saffron;
+export const { LogicVariable } = Saffron;
 
-export const DatabaseAgent = Saffron.DatabaseAgent;
-export const EventAgent = Saffron.EventAgent;
-export const FileStorageAgent = Saffron.FileStorageAgent;
-export const HttpAgent = Saffron.HttpAgent;
-export const LoggingAgent = Saffron.LoggingAgent;
-export const MailAgent = Saffron.MailAgent;
+export const { DatabaseAgent } = Saffron;
+export const { EventAgent } = Saffron;
+export const { FileStorageAgent } = Saffron;
+export const { HttpAgent } = Saffron;
+export const { LoggingAgent } = Saffron;
+export const { MailAgent } = Saffron;
 
-export const ResultAgent = Saffron.ResultAgent;
+export const { ResultAgent } = Saffron;

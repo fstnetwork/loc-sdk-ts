@@ -36,4 +36,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           yarn workspaces foreach --no-private --topological -v \
-            npm publish --access publish --tolerate-republish
+            npm publish --access public --tolerate-republish

@@ -3,7 +3,7 @@ name: Publish to NPM
 on:
   workflow_dispatch:
   release:
-    types: [created]
+    types: [published]
 
 env:
   NODE_VERSION: 16
@@ -19,10 +19,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: https://registry.npmjs.org
           cache: yarn
 
-      - name: Setup yarn
+      - name: Install yarn
         run: npm install -g yarn
 
       - name: Install dependencies
@@ -33,7 +33,9 @@ jobs:
 
       - name: Publish Packages
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          YARN_NPM_REGISTRY_SERVER: https://registry.npmjs.org
+          YARN_NPM_ALWAYS_AUTH: 'true'
         run: |
           yarn workspaces foreach --no-private --topological -v \
             npm publish --access public --tolerate-republish

@@ -1,7 +1,7 @@
 import { VersionedIdentityContext } from '../types/event';
 
 export interface Task {
-  taskId: TaskKey;
+  taskKey: TaskKey;
   startTimestamp: Date;
   dataProcess: VersionedIdentityContext;
   currentLogic?: VersionedIdentityContext;

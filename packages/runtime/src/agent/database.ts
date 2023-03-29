@@ -16,7 +16,10 @@ export class DatabaseClientId {
 export class DatabaseClient {
   constructor(readonly uid: DatabaseClientId) {}
 
-  async query(rawSql: string, params: any[]): Promise<Database.QueryResults> {
+  async query(
+    rawSql: string,
+    params: any[] = []
+  ): Promise<Database.QueryResults> {
     interface QueryResults {
       columns: Database.QueryResultColumn[];
       rows: any[];

@@ -54,7 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@types/eslint", "npm:8.4.6"],\
-            ["@types/node", "npm:18.14.6"],\
+            ["@types/node", "npm:18.15.11"],\
             ["@types/prettier", "npm:2.7.1"],\
             ["@typescript-eslint/eslint-plugin", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:5.54.0"],\
             ["@typescript-eslint/parser", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:5.54.0"],\
@@ -186,7 +186,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@fstnetwork/root", "workspace:."],\
             ["@types/eslint", "npm:8.4.6"],\
-            ["@types/node", "npm:18.14.6"],\
+            ["@types/node", "npm:18.15.11"],\
             ["@types/prettier", "npm:2.7.1"],\
             ["@typescript-eslint/eslint-plugin", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:5.54.0"],\
             ["@typescript-eslint/parser", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:5.54.0"],\
@@ -559,13 +559,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-node-npm-16.7.1-ed9db6a0db-fcf1a2c7b1.zip/node_modules/@types/node/",\
           "packageDependencies": [\
             ["@types/node", "npm:16.7.1"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["npm:18.14.6", {\
-          "packageLocation": "./.yarn/cache/@types-node-npm-18.14.6-7d0665d471-2f88f482ca.zip/node_modules/@types/node/",\
-          "packageDependencies": [\
-            ["@types/node", "npm:18.14.6"]\
           ],\
           "linkType": "HARD"\
         }],\

@@ -130,7 +130,7 @@ __metadata:
     "@types/node": ^18.11.9
     json-schema-to-typescript: ^12.0.0
     rimraf: ^4.4.1
-    rollup: ^3.18.0
+    rollup: ^3.21.5
     rollup-plugin-dts: ^5.2.0
     ts-node: ^10.9.1
     tslib: ^2.5.0
@@ -146,7 +146,7 @@ __metadata:
     "@rollup/plugin-node-resolve": ^15.0.1
     "@rollup/plugin-typescript": ^11.0.0
     rimraf: ^4.4.1
-    rollup: ^3.18.0
+    rollup: ^3.21.5
     tslib: ^2.5.0
     typescript: ^4.7.4
   languageName: unknown
@@ -3195,9 +3195,9 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.18.0":
-  version: 3.18.0
-  resolution: "rollup@npm:3.18.0"
+"rollup@npm:^3.21.5":
+  version: 3.21.5
+  resolution: "rollup@npm:3.21.5"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -3205,7 +3205,7 @@ fsevents@~2.3.2:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 0bcd1abb1cc383abdd09b5594de862ecb2f946e950954bb472a370289bdc4499aea8d04477be55ce205450d973d38ad255f0dc6926162500a251d73bf0e60e6f
+  checksum: dfe2e4002fbfbc0a67591595f137c23082c639b1a790854ebe8611264b945e77caaf8c8ec9365faf9580f5df9cb9a954915443df020dc2ee391c477659484cf0
   languageName: node
   linkType: hard
 

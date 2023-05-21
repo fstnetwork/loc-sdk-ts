@@ -54,7 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@types/eslint", "npm:8.4.6"],\
-            ["@types/node", "npm:18.14.6"],\
+            ["@types/node", "npm:20.2.3"],\
             ["@types/prettier", "npm:2.7.1"],\
             ["@typescript-eslint/eslint-plugin", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:5.54.0"],\
             ["@typescript-eslint/parser", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:5.54.0"],\
@@ -186,7 +186,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@fstnetwork/root", "workspace:."],\
             ["@types/eslint", "npm:8.4.6"],\
-            ["@types/node", "npm:18.14.6"],\
+            ["@types/node", "npm:20.2.3"],\
             ["@types/prettier", "npm:2.7.1"],\
             ["@typescript-eslint/eslint-plugin", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:5.54.0"],\
             ["@typescript-eslint/parser", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:5.54.0"],\
@@ -212,7 +212,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@fstnetwork/runtime", "workspace:packages/runtime"],\
             ["@rollup/plugin-typescript", "virtual:c21ce1d9cd6d89c78470b6c4e4c8eb3c63e89575be5e5a2bf6d6c4e4ac9b28bb76e26414b0632ae1aa987918ea27ecfccddd3f686ae66fad9f3c686b5b6c28b3#npm:11.0.0"],\
-            ["@types/node", "npm:18.15.11"],\
+            ["@types/node", "npm:20.2.3"],\
             ["json-schema-to-typescript", "npm:12.0.0"],\
             ["rimraf", "npm:4.4.1"],\
             ["rollup", "npm:3.18.0"],\
@@ -562,17 +562,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:18.14.6", {\
-          "packageLocation": "./.yarn/cache/@types-node-npm-18.14.6-7d0665d471-2f88f482ca.zip/node_modules/@types/node/",\
+        ["npm:20.2.3", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-20.2.3-0289426dd1-576065e8fc.zip/node_modules/@types/node/",\
           "packageDependencies": [\
-            ["@types/node", "npm:18.14.6"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["npm:18.15.11", {\
-          "packageLocation": "./.yarn/cache/@types-node-npm-18.15.11-fd8ceaaffd-977b4ad047.zip/node_modules/@types/node/",\
-          "packageDependencies": [\
-            ["@types/node", "npm:18.15.11"]\
+            ["@types/node", "npm:20.2.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4374,7 +4367,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@tsconfig/node12", "npm:1.0.9"],\
             ["@tsconfig/node14", "npm:1.0.1"],\
             ["@tsconfig/node16", "npm:1.0.2"],\
-            ["@types/node", "npm:18.15.11"],\
+            ["@types/node", "npm:20.2.3"],\
             ["@types/swc__core", null],\
             ["@types/swc__wasm", null],\
             ["@types/typescript", null],\

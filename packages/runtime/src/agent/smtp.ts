@@ -2,7 +2,9 @@ export class SmtpAgent {
   async connect(
     host: string,
     username?: string,
-    password?: string
+    password?: string,
+    port: number = 465,
+    secureConnection: Smtp.SecureConnection = Smtp.SecureConnection.Wrapper
   ): Promise<SmtpAgentHub> {
     let credential = null;
     if (username !== null && password != null) {
@@ -12,6 +14,8 @@ export class SmtpAgent {
     const uid = await Deno.core.opAsync("op_smtp_agent_connect", {
       host,
       credential,
+      port,
+      secureConnection,
     });
 
     return new SmtpAgentHub(uid);
@@ -40,6 +44,13 @@ export class SmtpAgentHub {
 }
 
 export namespace Smtp {
+  export enum SecureConnection {
+    None,
+    Opportunistic,
+    Required,
+    Wrapper,
+  }
+
   export interface MailBox {
     name: string;
     mail: string;

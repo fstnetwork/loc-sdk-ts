@@ -7,7 +7,7 @@ export default defineConfig([
     input: "src/index.ts",
     output: {
       name: "Saffron",
-      file: "target/index.js",
+      dir: "target",
       format: "umd",
       sourcemap: "inline",
     },

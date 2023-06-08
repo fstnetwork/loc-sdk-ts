@@ -1,10 +1,12 @@
 {
   "extends": "../../tsconfig.base",
   "compilerOptions": {
+    "allowJs": true,
     "rootDir": "src",
 
     "emitDeclarationOnly": true,
-    "outDir": "dts"
+    "declarationDir": "./target/dts",
+    "declaration": true
   },
   "include": ["src/**/*"],
   "exclude": ["target"],

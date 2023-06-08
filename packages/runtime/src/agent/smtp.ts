@@ -45,10 +45,10 @@ export class SmtpAgentHub {
 
 export namespace Smtp {
   export enum SecureConnection {
-    None,
-    Opportunistic,
-    Required,
-    Wrapper,
+    None = "None",
+    Opportunistic = "Opportunistic",
+    Required = "Required",
+    Wrapper = "Wrapper",
   }
 
   export interface MailBox {

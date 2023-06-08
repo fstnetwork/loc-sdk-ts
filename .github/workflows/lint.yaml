@@ -8,12 +8,15 @@ on:
       - release/*
       - feature/*
       - ci/*
+    tags:
+      - v*
   pull_request:
 
 env:
   CI: 1
   CARGO_TERM_COLOR: always
   NIGHTLY_TOOLCHAIN: nightly-2022-04-13
+  NODE_VERSION: 16
 
 jobs:
   format:
@@ -33,7 +36,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: ${{ env.NODE_VERSION }}
 
       - name: Install nixpkgs-fmt
         run: |
@@ -47,7 +50,7 @@ jobs:
           nixpkgs-fmt --check .
 
       - name: Run prettier
-        uses: creyD/prettier_action@v4.2
+        uses: creyD/prettier_action@v4.3
         with:
           dry: true
           prettier_options: --check **/*.{js,ts,md,json,yaml}
@@ -61,7 +64,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run commitlint
-        uses: wagoid/commitlint-github-action@v5.0.2
+        uses: wagoid/commitlint-github-action@v5.3.1
         with:
           firstParent: false
 

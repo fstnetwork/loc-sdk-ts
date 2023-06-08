@@ -17,7 +17,7 @@ env:
   CI: 1
   CARGO_TERM_COLOR: always
   NIGHTLY_TOOLCHAIN: nightly-2023-02-20
-  NODE_VERSION: 16
+  NODE_VERSION: 18
 
 jobs:
   format:

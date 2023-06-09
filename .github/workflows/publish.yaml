@@ -35,7 +35,7 @@ jobs:
         env:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           YARN_NPM_REGISTRY_SERVER: https://registry.npmjs.org
-          YARN_NPM_ALWAYS_AUTH: 'true'
+          YARN_NPM_ALWAYS_AUTH: "true"
         run: |
           yarn workspaces foreach --no-private --topological -v \
             npm publish --access public --tolerate-republish

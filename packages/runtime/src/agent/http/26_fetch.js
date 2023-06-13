@@ -90,20 +90,13 @@ async function opFetch(
   bodyLength,
   body
 ) {
-  const headersMap = {};
-  if (headers?.length) {
-    headers.forEach(([name, value]) => {
-      headersMap[name] = value;
-    });
-  }
-
   return core.opAsync(
     'op_http_agent_prepare',
     {
       configurationId,
       method,
       path,
-      headers: headersMap,
+      headers: headers ?? [],
       hasBody,
       bodyLength,
     },

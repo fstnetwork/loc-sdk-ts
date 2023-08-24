@@ -13,7 +13,7 @@ export abstract class AbstractContext {
 }
 
 function initializePayload(): Payload {
-  const payload = Deno.core.opSync("op_initialize_payload");
+  const payload = Deno.core.ops["op_initialize_payload"]?.();
   if ("http" in payload) {
     payload.http.body = Uint8Array.from(atob(payload.http.body), (c) =>
       c.charCodeAt(0)
@@ -31,5 +31,5 @@ function initializePayload(): Payload {
 }
 
 function initializeTask(): Task {
-  return Deno.core.opSync("op_initialize_task");
+  return Deno.core.ops["op_initialize_task"]?.();
 }

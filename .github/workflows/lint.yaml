@@ -53,6 +53,7 @@ jobs:
         uses: creyD/prettier_action@v4.3
         with:
           dry: true
+          prettier_version: 2.7.1 # follow the version that provide by nixpkgs base dev environment
           prettier_options: --check **/*.{js,ts,md,json,yaml}
 
   commit:

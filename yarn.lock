@@ -110,7 +110,7 @@ __metadata:
     eslint: "npm:^8.35.0"
     eslint-config-airbnb-base: "npm:^15.0.0"
     eslint-config-airbnb-typescript: "npm:^17.0.0"
-    eslint-config-prettier: "npm:^8.6.0"
+    eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-import: "npm:^2.27.5"
     eslint-plugin-n: "npm:^15.6.1"
     eslint-plugin-prettier: "npm:^4.2.1"
@@ -1350,14 +1350,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.6.0":
-  version: 8.6.0
-  resolution: "eslint-config-prettier@npm:8.6.0"
+"eslint-config-prettier@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "eslint-config-prettier@npm:9.1.0"
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
     eslint-config-prettier: bin/cli.js
-  checksum: dcb22c140e47c74ffa6c55297bf107c2ebd9e594c92b33960f6a21defc5b2842f8bc6af9b79acf3e6f23a776ea770ff2ade3dd9797f4cf051f01eff8ff235347
+  checksum: 411e3b3b1c7aa04e3e0f20d561271b3b909014956c4dba51c878bf1a23dbb8c800a3be235c46c4732c70827276e540b6eed4636d9b09b444fd0a8e07f0fcd830
   languageName: node
   linkType: hard
 

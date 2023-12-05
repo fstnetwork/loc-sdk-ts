@@ -84,7 +84,7 @@ __metadata:
     "@fstnetwork/logic": "workspace:*"
     "@fstnetwork/runtime": "workspace:*"
     rimraf: "npm:^4.4.1"
-    typescript: "npm:^4.7.4"
+    typescript: "npm:^5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -94,7 +94,7 @@ __metadata:
   dependencies:
     "@fstnetwork/runtime": "workspace:*"
     rimraf: "npm:^4.4.1"
-    typescript: "npm:^4.7.4"
+    typescript: "npm:^5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -134,7 +134,7 @@ __metadata:
     rollup-plugin-dts: "npm:^5.2.0"
     ts-node: "npm:^10.9.1"
     tslib: "npm:^2.5.3"
-    typescript: "npm:^4.7.4"
+    typescript: "npm:^5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -148,7 +148,7 @@ __metadata:
     rimraf: "npm:^4.4.1"
     rollup: "npm:^3.18.0"
     tslib: "npm:^2.5.3"
-    typescript: "npm:^4.7.4"
+    typescript: "npm:^5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -3727,13 +3727,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.7.4":
-  version: 4.7.4
-  resolution: "typescript@npm:4.7.4"
+"typescript@npm:^5.3.2":
+  version: 5.3.2
+  resolution: "typescript@npm:5.3.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: f056b2313a7df95268ac63dc4ddcb7aed1b7d5a6bbc933d11c3fcd0a77712e16b24bdf4403acc529ade5c27a2a477e25124e899587e8ca3f19685c7ab954c6f3
+  checksum: 415e5fb6611f5713e460bad48039f00bcfdbde53a2f911727862d5aa9c5d5edd250059a419df382d8f031709e15a169c41eb62b6a401da5eec7ac0f4e359d6ac
   languageName: node
   linkType: hard
 
@@ -3747,13 +3747,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^4.7.4#optional!builtin<compat/typescript>":
-  version: 4.7.4
-  resolution: "typescript@patch:typescript@npm%3A4.7.4#optional!builtin<compat/typescript>::version=4.7.4&hash=65a307"
+"typescript@patch:typescript@npm%3A^5.3.2#optional!builtin<compat/typescript>":
+  version: 5.3.2
+  resolution: "typescript@patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: cd6f51368ba0f8c458a44ca8b05684e9cda49acbb4e7dcf40c4720cd1534f68c2d139ec6f179bb9996e6fe9d0c7a04846db55a048f51fd2f3c41fbce0a004971
+  checksum: 1b45cdfb577a78ae7a9a9d0b77a7b772142cb98ba05e4e5aefba7044a028ded885bcecef63166407a5986645cea816fe4986894336aacd5e791796ea79a6a7ed
   languageName: node
   linkType: hard
 

@@ -126,7 +126,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@fstnetwork/runtime@workspace:packages/runtime"
   dependencies:
-    "@rollup/plugin-typescript": "npm:^11.0.0"
+    "@rollup/plugin-typescript": "npm:^11.1.5"
     "@types/node": "npm:^18.11.9"
     json-schema-to-typescript: "npm:^12.0.0"
     rimraf: "npm:^4.4.1"
@@ -144,7 +144,7 @@ __metadata:
   dependencies:
     "@fstnetwork/logic": "workspace:*"
     "@rollup/plugin-node-resolve": "npm:^15.0.1"
-    "@rollup/plugin-typescript": "npm:^11.0.0"
+    "@rollup/plugin-typescript": "npm:^11.1.5"
     rimraf: "npm:^4.4.1"
     rollup: "npm:^3.18.0"
     tslib: "npm:^2.5.3"
@@ -264,14 +264,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-typescript@npm:^11.0.0":
-  version: 11.0.0
-  resolution: "@rollup/plugin-typescript@npm:11.0.0"
+"@rollup/plugin-typescript@npm:^11.1.5":
+  version: 11.1.5
+  resolution: "@rollup/plugin-typescript@npm:11.1.5"
   dependencies:
     "@rollup/pluginutils": "npm:^5.0.1"
     resolve: "npm:^1.22.1"
   peerDependencies:
-    rollup: ^2.14.0||^3.0.0
+    rollup: ^2.14.0||^3.0.0||^4.0.0
     tslib: "*"
     typescript: ">=3.7.0"
   peerDependenciesMeta:
@@ -279,7 +279,7 @@ __metadata:
       optional: true
     tslib:
       optional: true
-  checksum: ea240f1fd656329a088fa54eb3f0e3a8b9d9f47cc1c99fcdbf6bccb531763d8c767c7b43c666295d3ae30112576dc464a1f30d0257a5d740863c3ddee11f8070
+  checksum: 3048c7837bcaae3770e6977aa22b34b7da3862f14f25a22249c83867be1a3f78138c0a62b28efd22037890dfd6933e960007da6667a945dcef45f585a581f1aa
   languageName: node
   linkType: hard
 

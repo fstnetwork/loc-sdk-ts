@@ -47,7 +47,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@types/eslint", "npm:8.4.6"],\
-          ["@types/node", "npm:18.14.6"],\
+          ["@types/node", "npm:20.10.3"],\
           ["@types/prettier", "npm:3.0.0"],\
           ["@typescript-eslint/eslint-plugin", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:6.13.2"],\
           ["@typescript-eslint/parser", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:6.13.2"],\
@@ -212,7 +212,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@fstnetwork/root", "workspace:."],\
           ["@types/eslint", "npm:8.4.6"],\
-          ["@types/node", "npm:18.14.6"],\
+          ["@types/node", "npm:20.10.3"],\
           ["@types/prettier", "npm:3.0.0"],\
           ["@typescript-eslint/eslint-plugin", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:6.13.2"],\
           ["@typescript-eslint/parser", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:6.13.2"],\
@@ -238,7 +238,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@fstnetwork/runtime", "workspace:packages/runtime"],\
           ["@rollup/plugin-typescript", "virtual:c21ce1d9cd6d89c78470b6c4e4c8eb3c63e89575be5e5a2bf6d6c4e4ac9b28bb76e26414b0632ae1aa987918ea27ecfccddd3f686ae66fad9f3c686b5b6c28b3#npm:11.1.5"],\
-          ["@types/node", "npm:18.15.11"],\
+          ["@types/node", "npm:20.10.3"],\
           ["json-schema-to-typescript", "npm:13.1.1"],\
           ["rimraf", "npm:5.0.5"],\
           ["rollup", "npm:4.6.1"],\
@@ -758,17 +758,11 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:18.14.6", {\
-        "packageLocation": "./.yarn/cache/@types-node-npm-18.14.6-7d0665d471-9072f790c9.zip/node_modules/@types/node/",\
+      ["npm:20.10.3", {\
+        "packageLocation": "./.yarn/cache/@types-node-npm-20.10.3-d385a9ec0a-7cb506abb0.zip/node_modules/@types/node/",\
         "packageDependencies": [\
-          ["@types/node", "npm:18.14.6"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:18.15.11", {\
-        "packageLocation": "./.yarn/cache/@types-node-npm-18.15.11-fd8ceaaffd-ffadc25bea.zip/node_modules/@types/node/",\
-        "packageDependencies": [\
-          ["@types/node", "npm:18.15.11"]\
+          ["@types/node", "npm:20.10.3"],\
+          ["undici-types", "npm:5.26.5"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5348,7 +5342,7 @@ const RAW_RUNTIME_STATE =
           ["@tsconfig/node12", "npm:1.0.9"],\
           ["@tsconfig/node14", "npm:1.0.1"],\
           ["@tsconfig/node16", "npm:1.0.2"],\
-          ["@types/node", "npm:18.15.11"],\
+          ["@types/node", "npm:20.10.3"],\
           ["@types/swc__core", null],\
           ["@types/swc__wasm", null],\
           ["@types/typescript", null],\
@@ -5553,6 +5547,15 @@ const RAW_RUNTIME_STATE =
           ["has-bigints", "npm:1.0.2"],\
           ["has-symbols", "npm:1.0.3"],\
           ["which-boxed-primitive", "npm:1.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["undici-types", [\
+      ["npm:5.26.5", {\
+        "packageLocation": "./.yarn/cache/undici-types-npm-5.26.5-de4f7c7bb9-0097779d94.zip/node_modules/undici-types/",\
+        "packageDependencies": [\
+          ["undici-types", "npm:5.26.5"]\
         ],\
         "linkType": "HARD"\
       }]\

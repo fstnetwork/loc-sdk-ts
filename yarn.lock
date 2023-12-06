@@ -84,7 +84,7 @@ __metadata:
     "@fstnetwork/logic": "workspace:*"
     "@fstnetwork/runtime": "workspace:*"
     rimraf: "npm:^4.4.1"
-    typescript: "npm:^4.7.4"
+    typescript: "npm:^5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -94,7 +94,7 @@ __metadata:
   dependencies:
     "@fstnetwork/runtime": "workspace:*"
     rimraf: "npm:^4.4.1"
-    typescript: "npm:^4.7.4"
+    typescript: "npm:^5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -110,7 +110,7 @@ __metadata:
     eslint: "npm:^8.35.0"
     eslint-config-airbnb-base: "npm:^15.0.0"
     eslint-config-airbnb-typescript: "npm:^17.0.0"
-    eslint-config-prettier: "npm:^8.6.0"
+    eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-import: "npm:^2.27.5"
     eslint-plugin-n: "npm:^15.6.1"
     eslint-plugin-prettier: "npm:^4.2.1"
@@ -126,7 +126,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@fstnetwork/runtime@workspace:packages/runtime"
   dependencies:
-    "@rollup/plugin-typescript": "npm:^11.0.0"
+    "@rollup/plugin-typescript": "npm:^11.1.5"
     "@types/node": "npm:^18.11.9"
     json-schema-to-typescript: "npm:^12.0.0"
     rimraf: "npm:^4.4.1"
@@ -134,7 +134,7 @@ __metadata:
     rollup-plugin-dts: "npm:^5.2.0"
     ts-node: "npm:^10.9.1"
     tslib: "npm:^2.5.3"
-    typescript: "npm:^4.7.4"
+    typescript: "npm:^5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -144,11 +144,11 @@ __metadata:
   dependencies:
     "@fstnetwork/logic": "workspace:*"
     "@rollup/plugin-node-resolve": "npm:^15.0.1"
-    "@rollup/plugin-typescript": "npm:^11.0.0"
+    "@rollup/plugin-typescript": "npm:^11.1.5"
     rimraf: "npm:^4.4.1"
     rollup: "npm:^3.18.0"
     tslib: "npm:^2.5.3"
-    typescript: "npm:^4.7.4"
+    typescript: "npm:^5.3.2"
   languageName: unknown
   linkType: soft
 
@@ -264,14 +264,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-typescript@npm:^11.0.0":
-  version: 11.0.0
-  resolution: "@rollup/plugin-typescript@npm:11.0.0"
+"@rollup/plugin-typescript@npm:^11.1.5":
+  version: 11.1.5
+  resolution: "@rollup/plugin-typescript@npm:11.1.5"
   dependencies:
     "@rollup/pluginutils": "npm:^5.0.1"
     resolve: "npm:^1.22.1"
   peerDependencies:
-    rollup: ^2.14.0||^3.0.0
+    rollup: ^2.14.0||^3.0.0||^4.0.0
     tslib: "*"
     typescript: ">=3.7.0"
   peerDependenciesMeta:
@@ -279,7 +279,7 @@ __metadata:
       optional: true
     tslib:
       optional: true
-  checksum: ea240f1fd656329a088fa54eb3f0e3a8b9d9f47cc1c99fcdbf6bccb531763d8c767c7b43c666295d3ae30112576dc464a1f30d0257a5d740863c3ddee11f8070
+  checksum: 3048c7837bcaae3770e6977aa22b34b7da3862f14f25a22249c83867be1a3f78138c0a62b28efd22037890dfd6933e960007da6667a945dcef45f585a581f1aa
   languageName: node
   linkType: hard
 
@@ -1350,14 +1350,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.6.0":
-  version: 8.6.0
-  resolution: "eslint-config-prettier@npm:8.6.0"
+"eslint-config-prettier@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "eslint-config-prettier@npm:9.1.0"
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
     eslint-config-prettier: bin/cli.js
-  checksum: dcb22c140e47c74ffa6c55297bf107c2ebd9e594c92b33960f6a21defc5b2842f8bc6af9b79acf3e6f23a776ea770ff2ade3dd9797f4cf051f01eff8ff235347
+  checksum: 411e3b3b1c7aa04e3e0f20d561271b3b909014956c4dba51c878bf1a23dbb8c800a3be235c46c4732c70827276e540b6eed4636d9b09b444fd0a8e07f0fcd830
   languageName: node
   linkType: hard
 
@@ -3727,13 +3727,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.7.4":
-  version: 4.7.4
-  resolution: "typescript@npm:4.7.4"
+"typescript@npm:^5.3.2":
+  version: 5.3.2
+  resolution: "typescript@npm:5.3.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: f056b2313a7df95268ac63dc4ddcb7aed1b7d5a6bbc933d11c3fcd0a77712e16b24bdf4403acc529ade5c27a2a477e25124e899587e8ca3f19685c7ab954c6f3
+  checksum: 415e5fb6611f5713e460bad48039f00bcfdbde53a2f911727862d5aa9c5d5edd250059a419df382d8f031709e15a169c41eb62b6a401da5eec7ac0f4e359d6ac
   languageName: node
   linkType: hard
 
@@ -3747,13 +3747,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^4.7.4#optional!builtin<compat/typescript>":
-  version: 4.7.4
-  resolution: "typescript@patch:typescript@npm%3A4.7.4#optional!builtin<compat/typescript>::version=4.7.4&hash=65a307"
+"typescript@patch:typescript@npm%3A^5.3.2#optional!builtin<compat/typescript>":
+  version: 5.3.2
+  resolution: "typescript@patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: cd6f51368ba0f8c458a44ca8b05684e9cda49acbb4e7dcf40c4720cd1534f68c2d139ec6f179bb9996e6fe9d0c7a04846db55a048f51fd2f3c41fbce0a004971
+  checksum: 1b45cdfb577a78ae7a9a9d0b77a7b772142cb98ba05e4e5aefba7044a028ded885bcecef63166407a5986645cea816fe4986894336aacd5e791796ea79a6a7ed
   languageName: node
   linkType: hard
 
@@ -3858,9 +3858,9 @@ __metadata:
   linkType: hard
 
 "word-wrap@npm:^1.2.3":
-  version: 1.2.3
-  resolution: "word-wrap@npm:1.2.3"
-  checksum: 08a677e1578b9cc367a03d52bc51b6869fec06303f68d29439e4ed647257411f857469990c31066c1874678937dac737c9f8f20d3fd59918fb86b7d926a76b15
+  version: 1.2.5
+  resolution: "word-wrap@npm:1.2.5"
+  checksum: 1ec6f6089f205f83037be10d0c4b34c9183b0b63fca0834a5b3cee55dd321429d73d40bb44c8fc8471b5203d6e8f8275717f49a8ff4b2b0ab41d7e1b563e0854
   languageName: node
   linkType: hard
 

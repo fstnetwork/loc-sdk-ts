@@ -10,7 +10,10 @@ export const DatabaseAgent = {
 };
 
 export class DatabaseClientId {
-  constructor(readonly dataSourceId: string, readonly connectionId: string) {}
+  constructor(
+    readonly dataSourceId: string,
+    readonly connectionId: string
+  ) {}
 }
 
 export class DatabaseClient {

@@ -14,7 +14,7 @@ export default class TestResult extends AggregatorLogic {
       magicNumber: 9487,
       result2: null,
       error: null,
-    });
+    }).httpStatusCode(200);
   }
 
   async handleError(error: RailwayError) {

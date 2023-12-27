@@ -13,6 +13,7 @@ export {
   HttpAgentClient,
   LocalStorageAgent,
   LoggingAgent,
+  IResultAgent,
   ResultAgent,
   SessionStorageAgent,
   Mail,

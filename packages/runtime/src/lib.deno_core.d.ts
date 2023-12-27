@@ -1,6 +1,6 @@
-// reference: https://github.com/denoland/deno/blob/v1.27.0/core/lib.deno_core.d.ts
+// reference: https://github.com/denoland/deno/blob/v1.33.1/core/lib.deno_core.d.ts
 
-// Copyright 2018-2022 the Deno authors. All rights reserved. MIT license.
+// Copyright 2018-2023 the Deno authors. All rights reserved. MIT license.
 
 // deno-lint-ignore-file no-explicit-any
 
@@ -21,7 +21,7 @@ declare namespace Deno {
 
     /** Mark following promise as "unref", ie. event loop will exit
      * if there are only "unref" promises left. */
-    function unrefOps(promiseId: number): void;
+    function unrefOp(promiseId: number): void;
 
     /**
      * List of all registered ops, in the form of a map that maps op
@@ -61,6 +61,16 @@ declare namespace Deno {
      * Write to a (stream) resource that implements write()
      */
     function writeAll(rid: number, buf: Uint8Array): Promise<void>;
+
+    /**
+     * Synchronously read from a (stream) resource that implements readSync().
+     */
+    function readSync(rid: number, buf: Uint8Array): number;
+
+    /**
+     * Synchronously write to a (stream) resource that implements writeSync().
+     */
+    function writeSync(rid: number, buf: Uint8Array): number;
 
     /**
      * Print a message to stdout or stderr
@@ -186,5 +196,13 @@ declare namespace Deno {
       after_hook?: (promise: Promise<unknown>) => void,
       resolve_hook?: (promise: Promise<unknown>) => void,
     ): void;
+
+    const build: {
+      target: string;
+      arch: string;
+      os: string;
+      vendor: string;
+      env: string | undefined;
+    };
   }
 }

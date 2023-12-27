@@ -10,6 +10,6 @@ export { HttpAgent, HttpAgentClient } from './http';
 export { LocalStorageAgent } from './localStorage';
 export { LoggingAgent } from './logging';
 export { LogicVariable } from './logicVariable';
-export { ResultAgent } from './result';
+export { IResultAgent, ResultAgent } from './result';
 export { SessionStorageAgent } from './sessionStorage';
 export { MailAgentClient, MailAgent, Mail } from './mail';

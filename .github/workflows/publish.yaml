@@ -37,5 +37,5 @@ jobs:
           YARN_NPM_REGISTRY_SERVER: https://registry.npmjs.org
           YARN_NPM_ALWAYS_AUTH: 'true'
         run: |
-          yarn workspaces foreach --no-private --topological -v \
+          yarn workspaces foreach --worktree --no-private --topological -v \
             npm publish --access public --tolerate-republish

@@ -154,7 +154,7 @@ __metadata:
   dependencies:
     "@rollup/plugin-typescript": "npm:^11.1.5"
     "@types/node": "npm:^20.10.3"
-    json-schema-to-typescript: "npm:^13.1.1"
+    json-schema-to-typescript: "npm:^13.1.2"
     rimraf: "npm:^5.0.5"
     rollup: "npm:^4.6.1"
     rollup-plugin-dts: "npm:^6.1.0"
@@ -2986,9 +2986,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-schema-to-typescript@npm:^13.1.1":
-  version: 13.1.1
-  resolution: "json-schema-to-typescript@npm:13.1.1"
+"json-schema-to-typescript@npm:^13.1.2":
+  version: 13.1.2
+  resolution: "json-schema-to-typescript@npm:13.1.2"
   dependencies:
     "@bcherny/json-schema-ref-parser": "npm:10.0.5-fork"
     "@types/json-schema": "npm:^7.0.11"
@@ -3006,7 +3006,7 @@ __metadata:
     prettier: "npm:^2.6.2"
   bin:
     json2ts: dist/src/cli.js
-  checksum: 0b326cd6fa6cc76d02ef766e1500620d88a48fb425792f027d98c22c2fc6aa6759ad3e59c6ad2587ce9e52413e9d62c83810877ddfc22da95ba4843b719c1879
+  checksum: 623187570d6216e93a084601f6853847d697d9e0d9f038ad0f4dff841ad4210d9ae4099089d6ac04a75bd1caa0d1d610c9b694d63476a6dcda3166b5a3b0c3d4
   languageName: node
   linkType: hard
 

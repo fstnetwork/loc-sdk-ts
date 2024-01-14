@@ -13,7 +13,7 @@
     "clean": "rimraf target"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "^11.1.5",
+    "@rollup/plugin-typescript": "^11.1.6",
     "@types/node": "^20.10.3",
     "json-schema-to-typescript": "^13.1.1",
     "rimraf": "^5.0.5",

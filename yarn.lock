@@ -129,7 +129,7 @@ __metadata:
   resolution: "@fstnetwork/root@workspace:."
   dependencies:
     "@types/eslint": "npm:^8"
-    "@types/node": "npm:^20.10.3"
+    "@types/node": "npm:^20.11.16"
     "@types/prettier": "npm:^3"
     "@typescript-eslint/eslint-plugin": "npm:^6.13.2"
     "@typescript-eslint/parser": "npm:^6.13.2"
@@ -153,7 +153,7 @@ __metadata:
   resolution: "@fstnetwork/runtime@workspace:packages/runtime"
   dependencies:
     "@rollup/plugin-typescript": "npm:^11.1.5"
-    "@types/node": "npm:^20.10.3"
+    "@types/node": "npm:^20.11.16"
     json-schema-to-typescript: "npm:^13.1.1"
     rimraf: "npm:^5.0.5"
     rollup: "npm:^4.6.1"
@@ -562,12 +562,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.10.3":
-  version: 20.10.3
-  resolution: "@types/node@npm:20.10.3"
+"@types/node@npm:^20.11.16":
+  version: 20.11.16
+  resolution: "@types/node@npm:20.11.16"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 7cb506abb0d570bb5133bd06a47115109a813b507323c985c3b4aef2993eed79b6bb62b82194cb5c558b4d349de3d199ee2e8c693b913065a1cd7f526cc65a68
+  checksum: 751f50ec5c9332b11515e82fe37c71479ac4449b711280aa3c7910edf67b1e3f5ac00041512add543f9a892096a68356406998bf02a2c809a73d176c44c28414
   languageName: node
   linkType: hard
 

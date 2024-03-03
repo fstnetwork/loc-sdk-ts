@@ -53,7 +53,7 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/parser", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:6.13.2"],\
           ["eslint", "npm:8.55.0"],\
           ["eslint-config-airbnb-base", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:15.0.0"],\
-          ["eslint-config-airbnb-typescript", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:17.1.0"],\
+          ["eslint-config-airbnb-typescript", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:18.0.0"],\
           ["eslint-config-prettier", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:9.1.0"],\
           ["eslint-plugin-import", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:2.29.0"],\
           ["eslint-plugin-n", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:16.3.1"],\
@@ -241,7 +241,7 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/parser", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:6.13.2"],\
           ["eslint", "npm:8.55.0"],\
           ["eslint-config-airbnb-base", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:15.0.0"],\
-          ["eslint-config-airbnb-typescript", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:17.1.0"],\
+          ["eslint-config-airbnb-typescript", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:18.0.0"],\
           ["eslint-config-prettier", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:9.1.0"],\
           ["eslint-plugin-import", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:2.29.0"],\
           ["eslint-plugin-n", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:16.3.1"],\
@@ -2184,6 +2184,27 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
+      ["virtual:024cc0522b69215907a56b831ff34fcb2ef68b40ff8ff004a7ef72ab4a6e81fb5166753fadd09630e785948cdbdfd286cb6fa691fb41bceefbb7992aa83c2b42#npm:15.0.0", {\
+        "packageLocation": "./.yarn/__virtual__/eslint-config-airbnb-base-virtual-e5e7786b5c/0/cache/eslint-config-airbnb-base-npm-15.0.0-802837dd26-daa68a1dcb.zip/node_modules/eslint-config-airbnb-base/",\
+        "packageDependencies": [\
+          ["eslint-config-airbnb-base", "virtual:024cc0522b69215907a56b831ff34fcb2ef68b40ff8ff004a7ef72ab4a6e81fb5166753fadd09630e785948cdbdfd286cb6fa691fb41bceefbb7992aa83c2b42#npm:15.0.0"],\
+          ["@types/eslint", "npm:8.4.6"],\
+          ["@types/eslint-plugin-import", null],\
+          ["confusing-browser-globals", "npm:1.0.11"],\
+          ["eslint", "npm:8.55.0"],\
+          ["eslint-plugin-import", null],\
+          ["object.assign", "npm:4.1.4"],\
+          ["object.entries", "npm:1.1.5"],\
+          ["semver", "npm:6.3.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/eslint-plugin-import",\
+          "@types/eslint",\
+          "eslint-plugin-import",\
+          "eslint"\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:15.0.0", {\
         "packageLocation": "./.yarn/__virtual__/eslint-config-airbnb-base-virtual-c177d14157/0/cache/eslint-config-airbnb-base-npm-15.0.0-802837dd26-daa68a1dcb.zip/node_modules/eslint-config-airbnb-base/",\
         "packageDependencies": [\
@@ -2207,35 +2228,31 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["eslint-config-airbnb-typescript", [\
-      ["npm:17.1.0", {\
-        "packageLocation": "./.yarn/cache/eslint-config-airbnb-typescript-npm-17.1.0-ed4ce93531-a2238d8209.zip/node_modules/eslint-config-airbnb-typescript/",\
+      ["npm:18.0.0", {\
+        "packageLocation": "./.yarn/cache/eslint-config-airbnb-typescript-npm-18.0.0-a74d58b4f0-b913670baf.zip/node_modules/eslint-config-airbnb-typescript/",\
         "packageDependencies": [\
-          ["eslint-config-airbnb-typescript", "npm:17.1.0"]\
+          ["eslint-config-airbnb-typescript", "npm:18.0.0"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:17.1.0", {\
-        "packageLocation": "./.yarn/__virtual__/eslint-config-airbnb-typescript-virtual-60acf865bd/0/cache/eslint-config-airbnb-typescript-npm-17.1.0-ed4ce93531-a2238d8209.zip/node_modules/eslint-config-airbnb-typescript/",\
+      ["virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:18.0.0", {\
+        "packageLocation": "./.yarn/__virtual__/eslint-config-airbnb-typescript-virtual-024cc0522b/0/cache/eslint-config-airbnb-typescript-npm-18.0.0-a74d58b4f0-b913670baf.zip/node_modules/eslint-config-airbnb-typescript/",\
         "packageDependencies": [\
-          ["eslint-config-airbnb-typescript", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:17.1.0"],\
+          ["eslint-config-airbnb-typescript", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:18.0.0"],\
           ["@types/eslint", "npm:8.4.6"],\
-          ["@types/eslint-plugin-import", null],\
           ["@types/typescript-eslint__eslint-plugin", null],\
           ["@types/typescript-eslint__parser", null],\
           ["@typescript-eslint/eslint-plugin", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:6.13.2"],\
           ["@typescript-eslint/parser", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:6.13.2"],\
           ["eslint", "npm:8.55.0"],\
-          ["eslint-config-airbnb-base", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:15.0.0"],\
-          ["eslint-plugin-import", "virtual:2daf4495050022dbddcff9d2094d84557fd852ef817c7774cf6ed179a179194059c9712cefe6449a5715508e975364d0a3c1473f47ecf5181c76b614f50d781f#npm:2.29.0"]\
+          ["eslint-config-airbnb-base", "virtual:024cc0522b69215907a56b831ff34fcb2ef68b40ff8ff004a7ef72ab4a6e81fb5166753fadd09630e785948cdbdfd286cb6fa691fb41bceefbb7992aa83c2b42#npm:15.0.0"]\
         ],\
         "packagePeers": [\
-          "@types/eslint-plugin-import",\
           "@types/eslint",\
           "@types/typescript-eslint__eslint-plugin",\
           "@types/typescript-eslint__parser",\
           "@typescript-eslint/eslint-plugin",\
           "@typescript-eslint/parser",\
-          "eslint-plugin-import",\
           "eslint"\
         ],\
         "linkType": "HARD"\
